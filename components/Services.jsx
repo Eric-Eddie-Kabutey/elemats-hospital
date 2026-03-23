@@ -52,13 +52,13 @@ const Services = () => {
                 <Link
                   key={index}
                   href={`/services/${slug}`}
-                  className="group bg-white/10 backdrop-blur-xl p-10 rounded-[3rem] border border-white/10 hover:bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/10 cursor-pointer flex flex-col items-start text-left hover:-translate-y-2"
+                  className="group bg-white/10 backdrop-blur-xl p-10 rounded-4xl border border-white/10 hover:bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 cursor-pointer flex flex-col items-start text-left hover:-translate-y-2"
                 >
-                  <div className="mb-8 p-5 bg-white rounded-3xl shadow-sm group-hover:bg-[#064E3B] transition-all duration-500 ring-4 ring-emerald-900/5">
+                  <div className="mb-8 p-5 bg-white rounded-3xl shadow-sm group-hover:bg-primary transition-all duration-500 ring-4 ring-primary/5">
                     {Icon && <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />}
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-white tracking-tight">{service.title}</h3>
-                  <p className="text-sm leading-relaxed text-white/50 group-hover:text-[#064E3B] transition-colors font-medium">
+                  <p className="text-sm leading-relaxed text-white/50 group-hover:text-primary transition-colors font-medium">
                     {service.description}
                   </p>
                 </Link>
