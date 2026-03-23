@@ -1,8 +1,8 @@
 export const NAV_LINKS = [
-  { label: "Who We Are", href: "#about" },
-  { label: "What We Do", href: "#services" },
-  { label: "Resources", href: "#resources" },
-  { label: "Careers", href: "#careers" },
+  { label: "Who We Are", href: "/about" },
+  { label: "What We Do", href: "/services" },
+  { label: "Resources", href: "/resources" },
+  { label: "Careers", href: "/careers" },
 ];
 
 export const HERO_CONTENT = {
@@ -47,24 +47,88 @@ export const SERVICES_TABS = [
 
 export const SERVICE_CARDS = {
   general: [
-    { title: "Cleanings", description: "Professional scaling and polishing.", icon: "🦷" },
-    { title: "Fillings", description: "Tooth-colored restorations.", icon: "💎" },
-    { title: "Extractions", description: "Safe and comfortable removals.", icon: "🩹" },
-    { title: "X-Rays", description: "Precision diagnostics.", icon: "📸" },
-    { title: "Root Canals", description: "Saving damaged teeth.", icon: "🧬" },
-    { title: "Gum Therapy", description: "Treating periodontal disease.", icon: "🌿" },
-    { title: "Sealants", description: "Protecting against decay.", icon: "🛡️" },
-    { title: "Fluoride", description: "Strengthening enamel.", icon: "✨" },
+    { 
+      title: "Cleanings", 
+      description: "Comprehensive professional scaling and polishing to remove plaque and tartar buildup, ensuring long-term oral health and hygiene.", 
+      icon: "Sparkles" 
+    },
+    { 
+      title: "Fillings", 
+      description: "Durable, tooth-colored composite restorations designed to repair cavities while maintaining the natural appearance and strength of your teeth.", 
+      icon: "Activity" 
+    },
+    { 
+      title: "Extractions", 
+      description: "Safe and gentle removal of problematic teeth using advanced local anesthesia to ensure a comfortable and pain-free experience.", 
+      icon: "Stethoscope" 
+    },
+    { 
+      title: "X-Rays", 
+      description: "State-of-the-art digital diagnostics that provide high-resolution imaging for precise treatment planning and early detection of dental issues.", 
+      icon: "Camera" 
+    },
+    { 
+      title: "Root Canals", 
+      description: "Specialized endodontic therapy to save severely damaged or infected teeth, effectively eliminating pain and preserving your natural smile.", 
+      icon: "Zap" 
+    },
+    { 
+      title: "Gum Therapy", 
+      description: "Advanced periodontal treatments focused on restoring gum health and preventing the progression of bone loss and gingival disease.", 
+      icon: "Leaf" 
+    },
+    { 
+      title: "Sealants", 
+      description: "Protective resin coatings applied to the chewing surfaces of molars to prevent decay and shield deep grooves from bacteria.", 
+      icon: "ShieldCheck" 
+    },
+    { 
+      title: "Fluoride", 
+      description: "Professional-grade mineral applications that strengthen enamel and significantly increase your resistance to acid attacks and decay.", 
+      icon: "Droplet" 
+    },
   ],
   specialized: [
-    { title: "Implants", description: "Permanent tooth replacement.", icon: "🔩" },
-    { title: "Veneers", description: "Custom ceramic shells.", icon: "🎭" },
-    { title: "Braces", description: "Aligning your smile.", icon: "📏" },
-    { title: "Invisalign", description: "Discreet alignment.", icon: "🧊" },
-    { title: "Oral Surgery", description: "Advanced procedures.", icon: "⚕️" },
-    { title: "Sleep Apnea", description: "Custom night guards.", icon: "🌙" },
-    { title: "TMJ Therapy", description: "Relieving jaw pain.", icon: "😌" },
-    { title: "Whitening", description: "Professional brightening.", icon: "💡" },
+    { 
+      title: "Implants", 
+      description: "Permanent, titanium-based tooth replacement solutions that function and look exactly like your natural teeth for ultimate confidence.", 
+      icon: "Anchor" 
+    },
+    { 
+      title: "Veneers", 
+      description: "Ultra-thin, custom-crafted ceramic shells bonded to the front of teeth to correct discoloration, chips, or alignment issues instantly.", 
+      icon: "Smile" 
+    },
+    { 
+      title: "Braces", 
+      description: "Traditional and ceramic orthodontic systems tailored to align your teeth and correct bite issues for a lifetime of oral health.", 
+      icon: "Ruler" 
+    },
+    { 
+      title: "Invisalign", 
+      description: "Discreet and removable clear aligners that straighten your smile without the need for metal wires or dietary restrictions.", 
+      icon: "Layers" 
+    },
+    { 
+      title: "Oral Surgery", 
+      description: "Expert surgical procedures including wisdom tooth removal and jaw corrective surgery performed by our highly trained specialists.", 
+      icon: "HeartPulse" 
+    },
+    { 
+      title: "Sleep Apnea", 
+      description: "Custom-fitted oral appliances designed to improve airflow and reduce snoring, ensuring a restful and healthy night's sleep.", 
+      icon: "Moon" 
+    },
+    { 
+      title: "TMJ Therapy", 
+      description: "Comprehensive care for jaw joint disorders to alleviate chronic pain, clicking, and discomfort through specialized orthotics.", 
+      icon: "Dna" 
+    },
+    { 
+      title: "Whitening", 
+      description: "Advanced professional brightening treatments that remove deep-seated stains and significantly lighten your smile in just one visit.", 
+      icon: "Sun" 
+    },
   ],
 };
 
@@ -123,7 +187,7 @@ export const FAQ_ITEMS = [
 ];
 
 export const FOOTER_CONTENT = {
-  brand: "LifePath",
+  brand: "Elemats",
   description: "Your partner in modern, elegant dental and healthcare solutions.",
   sections: [
     {
@@ -147,7 +211,7 @@ export const FOOTER_CONTENT = {
   ],
   contact: {
     phone: "012 345 6789",
-    email: "care@lifepath.com",
+    email: "care@elemats.com",
     address: "123 Health Ave, Wellness City",
   },
 };

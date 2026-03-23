@@ -4,8 +4,8 @@
   --font-inter: var(--font-inter);
   --font-outfit: var(--font-outfit);
 
-  --color-primary: #10B981; /* Emerald-500 */
-  --color-secondary: #064E3B; /* Emerald-900 */
+  --color-primary: #3C447E; /* Indigo/Deep Blue from Logo */
+  --color-secondary: #BECFBB; /* Keep current seconday for now */
   --color-accent: #ECFDF5; /* Emerald-50 */
 }
 
@@ -36,6 +36,6 @@
   }
 
   .premium-card {
-    @apply bg-white rounded-[2rem] p-8 shadow-sm border border-neutral-100/50 hover:shadow-md transition-shadow duration-300;
+    @apply bg-white rounded-3xl p-8 shadow-sm border border-neutral-100/50;
   }
 }

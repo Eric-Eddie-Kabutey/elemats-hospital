@@ -13,15 +13,12 @@ import FloatingSocials from "@/components/FloatingSocials";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Navbar />
       <Hero />
-      <div className="space-y-4">
-        <CareFor />
-        <Services />
-        <AboutUs />
-        <Testimonials />
-        <Faq />
-      </div>
+      <CareFor />
+      <Services />
+      {/* <AboutUs /> */}
+      <Testimonials />
+      <Faq />
       <Footer />
       <FloatingSocials />
     </main>
