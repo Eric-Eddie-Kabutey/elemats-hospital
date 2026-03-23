@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: var(--font-inter);
+  --font-outfit: var(--font-outfit);
+
+  --color-primary: #10B981; /* Emerald-500 */
+  --color-secondary: #064E3B; /* Emerald-900 */
+  --color-accent: #ECFDF5; /* Emerald-50 */
+}
+
+@layer base {
+  body {
+    @apply font-inter;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-pill {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm rounded-full;
+  }
+  
+  .btn-primary {
+    @apply bg-black text-white hover:bg-zinc-800 px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2;
+  }
+
+  .btn-outline {
+    @apply border border-zinc-200 hover:bg-zinc-50 px-6 py-3 rounded-full font-medium transition-all duration-300;
+  }
+
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-20;
+  }
+
+  .premium-card {
+    @apply bg-white rounded-[2rem] p-8 shadow-sm border border-neutral-100/50 hover:shadow-md transition-shadow duration-300;
+  }
+}
