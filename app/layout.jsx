@@ -14,8 +14,8 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Elemats Specialist Hospital | Modern Dental care",
-  description: "Experience premium, modern dental and healthcare solutions at Elemats Specialist Hospital.",
+  title: "Elemats Specialist Hospital",
+  description: "At Elemats Specialist Hospital,our main goal is to make Couples a Family",
 };
 
 export default function RootLayout({ children }) {
