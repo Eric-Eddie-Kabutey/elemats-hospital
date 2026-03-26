@@ -15,21 +15,20 @@ const Navbar = () => {
   return (
     <>
       <nav className="absolute top-8 left-0 right-0 z-50 w-full font-inter">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          {/* Logo & Brand */}
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 z-50 group">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 shadow-xl transition-transform group-hover:scale-105">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 shadow-xl transition-transform group-hover:scale-105 rounded-full overflow-hidden border border-white/20">
               <Image
                 src="/logo.jpeg"
                 alt="Elemats Logo"
                 fill
                 sizes="(max-width: 768px) 40px, 48px"
-                className="object-contain p-1"
+                className="object-cover"
                 priority
                 loading="eager"
               />
             </div>
-            <span className={`text-xl md:text-2xl font-bold tracking-tight transition-opacity ${isHomePage ? 'text-white' : 'text-white'} hover:opacity-90`}>
+            <span className={`hidden sm:block text-xl md:text-2xl font-bold tracking-tight transition-opacity ${isHomePage ? 'text-white' : 'text-white'} hover:opacity-90`}>
               Elemats
             </span>
           </Link>
@@ -46,7 +45,7 @@ const Navbar = () => {
                   key={link.label}
                   href={link.href}
                   className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${isActive
-                    ? "bg-white text-primary shadow-lg"
+                    ? "bg-white text-slate-900 shadow-lg"
                     : "text-white hover:text-white hover:bg-white/10"
                     }`}
                 >
@@ -57,16 +56,16 @@ const Navbar = () => {
           </div>
 
           {/* Right CTA / Mobile Toggle */}
-          <div className="flex items-center gap-4">
-            <button className="hidden sm:flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-sm font-bold hover:bg-zinc-100 transition-all shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
-              <Phone size={16} fill="currentColor" stroke="none" />
+          <div className="flex items-center gap-2 md:gap-4">
+            <button className="flex items-center gap-2 bg-white text-black px-4 py-2.5 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold hover:bg-zinc-100 transition-all shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
+              <Phone size={14} fill="currentColor" stroke="none" className="md:w-4 md:h-4" />
               Call Now
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 z-50 transition-all active:scale-95"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={20} className="md:w-6 md:h-6" /> : <Menu size={20} className="md:w-6 md:h-6" />}
             </button>
           </div>
         </div>

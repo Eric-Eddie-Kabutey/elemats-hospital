@@ -41,95 +41,126 @@ export const CARE_FOR_ITEMS = [
 ];
 
 export const SERVICES_TABS = [
-  { id: "general", label: "General Care" },
-  { id: "specialized", label: "Specialized Care" },
+  { id: "clinical", label: "Clinical Services", description: "for Private Individuals and Families" },
+  { id: "medical", label: "Medical Services", description: "for Corporate Organisations" },
 ];
 
 export const SERVICE_CARDS = {
-  general: [
+  clinical: [
     { 
-      title: "Cleanings", 
-      description: "Comprehensive professional scaling and polishing to remove plaque and tartar buildup, ensuring long-term oral health and hygiene.", 
-      icon: "Sparkles" 
+      title: "Primary Care", 
+      description: "First-point-of-contact medical care for individuals and families, focusing on prevention and wellness.", 
+      image: "/WhatWeOffer/PrimaryCare.jpg" 
     },
     { 
-      title: "Fillings", 
-      description: "Durable, tooth-colored composite restorations designed to repair cavities while maintaining the natural appearance and strength of your teeth.", 
-      icon: "Activity" 
+      title: "Clinics and Specialties", 
+      description: "Diverse outpatient clinics providing specialized medical attention tailored to specific health needs.", 
+      image: "/WhatWeOffer/ClinicsSpecialties.jpg" 
     },
     { 
-      title: "Extractions", 
-      description: "Safe and gentle removal of problematic teeth using advanced local anesthesia to ensure a comfortable and pain-free experience.", 
-      icon: "Stethoscope" 
+      title: "Surgery", 
+      description: "Advanced surgical procedures performed by expert surgeons in a state-of-the-art sterile environment.", 
+      image: "/WhatWeOffer/Surgery.jpg" 
     },
     { 
-      title: "X-Rays", 
-      description: "State-of-the-art digital diagnostics that provide high-resolution imaging for precise treatment planning and early detection of dental issues.", 
-      icon: "Camera" 
+      title: "OB/GYN Services", 
+      description: "Comprehensive care for women's health, including prenatal, delivery, and gynecological support.", 
+      image: "/WhatWeOffer/OB-GYN Services.jpg" 
     },
     { 
-      title: "Root Canals", 
-      description: "Specialized endodontic therapy to save severely damaged or infected teeth, effectively eliminating pain and preserving your natural smile.", 
-      icon: "Zap" 
+      title: "Specialist Services", 
+      description: "Access to world-class consultants across various medical disciplines for complex health issues.", 
+      image: "/WhatWeOffer/Specialist Services.jpg" 
     },
     { 
-      title: "Gum Therapy", 
-      description: "Advanced periodontal treatments focused on restoring gum health and preventing the progression of bone loss and gingival disease.", 
-      icon: "Leaf" 
+      title: "Endoscopy", 
+      description: "Minimally invasive diagnostic procedures using high-definition imaging to visualize internal organs.", 
+      image: "/WhatWeOffer/Endoscopy.jpg" 
     },
     { 
-      title: "Sealants", 
-      description: "Protective resin coatings applied to the chewing surfaces of molars to prevent decay and shield deep grooves from bacteria.", 
-      icon: "ShieldCheck" 
+      title: "Radio Diagnostics", 
+      description: "High-precision imaging services including X-rays and scans for accurate medical diagnosis.", 
+      image: "/WhatWeOffer/Radio Diagnostics.jpg" 
     },
     { 
-      title: "Fluoride", 
-      description: "Professional-grade mineral applications that strengthen enamel and significantly increase your resistance to acid attacks and decay.", 
-      icon: "Droplet" 
-    },
-  ],
-  specialized: [
-    { 
-      title: "Implants", 
-      description: "Permanent, titanium-based tooth replacement solutions that function and look exactly like your natural teeth for ultimate confidence.", 
-      icon: "Anchor" 
-    },
-    { 
-      title: "Veneers", 
-      description: "Ultra-thin, custom-crafted ceramic shells bonded to the front of teeth to correct discoloration, chips, or alignment issues instantly.", 
-      icon: "Smile" 
-    },
-    { 
-      title: "Braces", 
-      description: "Traditional and ceramic orthodontic systems tailored to align your teeth and correct bite issues for a lifetime of oral health.", 
-      icon: "Ruler" 
-    },
-    { 
-      title: "Invisalign", 
-      description: "Discreet and removable clear aligners that straighten your smile without the need for metal wires or dietary restrictions.", 
-      icon: "Layers" 
-    },
-    { 
-      title: "Oral Surgery", 
-      description: "Expert surgical procedures including wisdom tooth removal and jaw corrective surgery performed by our highly trained specialists.", 
-      icon: "HeartPulse" 
-    },
-    { 
-      title: "Sleep Apnea", 
-      description: "Custom-fitted oral appliances designed to improve airflow and reduce snoring, ensuring a restful and healthy night's sleep.", 
-      icon: "Moon" 
-    },
-    { 
-      title: "TMJ Therapy", 
-      description: "Comprehensive care for jaw joint disorders to alleviate chronic pain, clicking, and discomfort through specialized orthotics.", 
-      icon: "Dna" 
-    },
-    { 
-      title: "Whitening", 
-      description: "Advanced professional brightening treatments that remove deep-seated stains and significantly lighten your smile in just one visit.", 
-      icon: "Sun" 
+      title: "Medical Laboratory Services", 
+      description: "Full-range pathological testing and analysis to support accurate clinical decision-making.", 
+      image: "/WhatWeOffer/Medical Laboratory Services.jpg" 
     },
   ],
+  medical: [
+    { 
+      title: "Wellness Screening", 
+      description: "Proactive health assessments and checkups designed for corporate employees and executives.", 
+      image: "/WhatWeOffer/Wellness Screening.jpg" 
+    },
+    { 
+      title: "Retainership Services", 
+      description: "Tailored medical retainership plans for organizations to ensure employee health and productivity.", 
+      image: "/WhatWeOffer/Retainership Services.jpg" 
+    },
+    { 
+      title: "Ambulance & Support", 
+      description: "Rapid-response emergency medical support and ambulance evacuation services available 24/7.", 
+      image: "/WhatWeOffer/Ambulance Evacuation & Emergency Medical Support.jpg" 
+    },
+    { 
+      title: "Medical Outsourcing", 
+      description: "Professional management of onsite clinic services and medical staffing for corporate bodies.", 
+      image: "/WhatWeOffer/Medical Outsourcing & Onsite Clinic Services.jpg" 
+    },
+    { 
+      title: "Hearse Services", 
+      description: "Respectful and professional funeral logistics and transportation services for families.", 
+      image: "/WhatWeOffer/Hearse Services.jpg" 
+    },
+    { 
+      title: "Pre-employment Services", 
+      description: "Comprehensive medical fitness evaluations for prospective employees to ensure workplace safety.", 
+      image: "/WhatWeOffer/Pre-employment Services.jpg" 
+    },
+    { 
+      title: "HMO Partnerships", 
+      description: "Seamless integration with major Health Management Organizations for hassle-free care delivery.", 
+      image: "/WhatWeOffer/HMO Partnerships.jpg" 
+    },
+    { 
+      title: "Home Nursing Care", 
+      description: "Dedicated professional nursing services provided in the comfort and privacy of your home.", 
+      image: "/WhatWeOffer/Home Nursing Care.jpg" 
+    },
+  ],
+};
+
+export const CARE_FOR_SYMPTOMS = [
+  { text: "Period cramps that won't go away", position: "center", index: 0 },
+  { text: "Uncomfortable sore throat", position: "right", index: 0 },
+  { text: "PCOS complications", position: "center", index: 1 },
+  { text: "That lump in your breast", position: "right", index: 1 },
+  { text: "Abdominal pain", position: "center", index: 2 },
+  { text: "Uncontrollable coughing", position: "left", index: 2 },
+  { text: "That weird skin rash", position: "left", index: 1 },
+  { text: "Persistent nausea", position: "right", index: 2 },
+  { text: "That burning sensation when you pee", position: "center", index: 2 },
+  { text: "That annoying headache", position: "left", index: 0 }
+];
+
+export const CARE_FOR_IMAGES = {
+  left: [
+    "/careFor/headache.jpg",
+    "/careFor/That-weird-skin-rash.jpg",
+    "/careFor/Uncontrollable-coughing.jpg"
+  ],
+  center: [
+    "/careFor/cramps.jpg",
+    "/careFor/pcos-complications.jpg",
+    "/careFor/Abdominal-pain.jpg"
+  ],
+  right: [
+    "/careFor/soar-throat.jpg",
+    "/careFor/that-lump-in-your-breast.jpg",
+    "/careFor/nausea.jpg"
+  ]
 };
 
 export const ABOUT_US = {
@@ -221,4 +252,12 @@ export const FLOATING_SOCIALS = [
   { platform: "Instagram", icon: "📸", href: "#" },
   { platform: "Facebook", icon: "👤", href: "#" },
   { platform: "X", icon: "𝕏", href: "#" },
+];
+
+export const PARTNERS = [
+  { name: "Brussels Airlines", logo: "/partners/Brussels_airlines.jpg" },
+  { name: "CFA", logo: "/partners/CFA-Logo_RGB_hi-res.png" },
+  { name: "IOM", logo: "/partners/IOM.png" },
+  { name: "NEA", logo: "/partners/NEA.png" },
+  { name: "Red Cross", logo: "/partners/Red_Cross.jpg" },
 ];

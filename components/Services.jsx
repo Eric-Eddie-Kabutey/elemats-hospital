@@ -3,64 +3,79 @@
 import { useState } from "react";
 import Link from "next/link";
 import { SERVICES_TABS, SERVICE_CARDS } from "@/constants/constants";
-import { 
-  Sparkles, Activity, Stethoscope, Camera, Zap, Leaf, ShieldCheck, Droplet, 
-  Anchor, Smile, Ruler, Layers, HeartPulse, Moon, Dna, Sun 
-} from "lucide-react";
-
-const ICON_MAP = {
-  Sparkles, Activity, Stethoscope, Camera, Zap, Leaf, ShieldCheck, Droplet, 
-  Anchor, Smile, Ruler, Layers, HeartPulse, Moon, Dna, Sun
-};
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import Partners from "./Partners";
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState(SERVICES_TABS[0].id);
 
   return (
-    <section id="services" className="section-padding p-2 md:p-4">
-      <div className="bg-primary w-full text-white rounded-3xl mx-auto pt-32 pb-12 px-6 md:px-12">
+    <section id="services" className="relative section-padding p-2 md:p-4 bg-gray-50">
+      <div className="bg-blue-100 w-full text-white rounded-3xl mx-auto py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 text-white">What We Offer</h2>
+          <div className="text-center mb-6">
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight leading-[1.1]">
+              What We Offer
+            </h2>
 
             {/* Tabs */}
-            <div className="inline-flex p-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/10 mb-12">
-              {SERVICES_TABS.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === tab.id
-                      ? "bg-white text-primary shadow-lg"
-                      : "text-white/60 hover:text-white"
-                    }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+            <div className="flex flex-col items-center gap-8">
+              <div className="inline-flex p-1.5 backdrop-blur-xl rounded-full border bg-white/30 border-white/40">
+                {SERVICES_TABS.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`px-10 py-3.5 rounded-full text-sm font-bold tracking-wide transition-all duration-500 ${activeTab === tab.id
+                        ? "bg-white/30 text-slate-600"
+                        : "text-slate-600"
+                      }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+              
+              <p className="text-slate-600 text-lg md:text-xl font-normal capitalize tracking-wide animate-in fade-in duration-1000">
+                {SERVICES_TABS.find(t => t.id === activeTab)?.description}
+              </p>
             </div>
           </div>
 
-          {/* Grid - Keyed to activeTab to trigger animations on every switch */}
+          {/* Grid */}
           <div 
             key={activeTab}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-in fade-in slide-in-from-bottom-6 duration-1000"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000"
           >
             {SERVICE_CARDS[activeTab].map((service, index) => {
-              const Icon = ICON_MAP[service.icon];
               const slug = service.title.toLowerCase().replace(/\s+/g, '-');
               return (
                 <Link
                   key={index}
                   href={`/services/${slug}`}
-                  className="group bg-white/10 backdrop-blur-xl p-10 rounded-4xl border border-white/10 hover:bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 cursor-pointer flex flex-col items-start text-left hover:-translate-y-2"
+                  className="group relative aspect-square rounded-4xl overflow-hidden bg-slate-200 transition-all duration-700 hover:-translate-y-1 cursor-pointer ring-1 ring-slate-100"
                 >
-                  <div className="mb-8 p-5 bg-white rounded-3xl shadow-sm group-hover:bg-primary transition-all duration-500 ring-4 ring-primary/5">
-                    {Icon && <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />}
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                  />
+                  
+                  {/* Refined Overlay */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-500 group-hover:opacity-95"></div>
+                  
+                  {/* Minimal Top-left Arrow Icon */}
+                  <div className="absolute top-8 left-8 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:bg-white group-hover:rotate-45">
+                    <ArrowUpRight className="w-5 h-5 text-white group-hover:text-black transition-colors" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-white tracking-tight">{service.title}</h3>
-                  <p className="text-sm leading-relaxed text-white/50 group-hover:text-primary transition-colors font-medium">
-                    {service.description}
-                  </p>
+
+                  {/* Bottom Text - Refined position and size */}
+                  <div className="absolute bottom-10 left-10 right-10">
+                    <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight leading-tight">
+                      {service.title}
+                    </h3>
+                  </div>
                 </Link>
               );
             })}

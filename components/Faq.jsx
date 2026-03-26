@@ -8,7 +8,7 @@ const Faq = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="w-full md:py-24 lg:py-32 px-6 md:px-12">
+    <section id="faq" className="w-full mt-12 py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto ">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>

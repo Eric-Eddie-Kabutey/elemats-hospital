@@ -29,8 +29,8 @@ const SOCIAL_ICONS = {
 
 const Footer = () => {
   return (
-    <footer className="section-padding p-2 md:p-4 mt-20">
-      <div className="bg-zinc-900 w-full text-white rounded-3xl mx-auto pt-32 pb-8 px-6 md:px-12">
+    <footer className="section-padding p-2 md:p-4">
+      <div className="bg-zinc-900 w-full text-white rounded-t-3xl mx-auto pt-32 pb-8 px-6 md:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-20">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">

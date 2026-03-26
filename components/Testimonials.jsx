@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Testimonials = () => {
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32 px-6 md:px-12">
+    <section className="w-full mt-12 py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Patient Transformations</h2>
