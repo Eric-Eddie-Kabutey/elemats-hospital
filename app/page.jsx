@@ -12,6 +12,7 @@ import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import FloatingSocials from "@/components/FloatingSocials";
+import OurPartners from "@/components/OurPartners";
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
       <Services />
       <AboutUs />
       <AboutUs2 />
-      <Partners />
+      <OurPartners />
       <Testimonials />
       <Faq />
       <Footer />

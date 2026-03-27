@@ -8,11 +8,11 @@ import { useEffect, useState } from "react";
 const AutoCarousel = ({ images, interval = 10000, manualIndex = null }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const displayIndex = manualIndex !== null ? manualIndex : currentIndex;
+
   useEffect(() => {
-    if (manualIndex !== null) {
-      setCurrentIndex(manualIndex);
-      return;
-    }
+    if (manualIndex !== null) return;
+
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, interval);
@@ -24,7 +24,7 @@ const AutoCarousel = ({ images, interval = 10000, manualIndex = null }) => {
       {images.map((img, idx) => (
         <div
           key={idx}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentIndex ? "opacity-100" : "opacity-0"
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === displayIndex ? "opacity-100" : "opacity-0"
             }`}
         >
           <Image
@@ -42,7 +42,7 @@ const AutoCarousel = ({ images, interval = 10000, manualIndex = null }) => {
         {images.map((_, idx) => (
           <div
             key={idx}
-            className={`h-1 rounded-full transition-all duration-500 ${idx === currentIndex ? "w-6 bg-white" : "w-1.5 bg-white/30"
+            className={`h-1 rounded-full transition-all duration-500 ${idx === displayIndex ? "w-6 bg-white" : "w-1.5 bg-white/30"
               }`}
           />
         ))}
@@ -67,7 +67,7 @@ const CareFor2 = () => {
   };
 
   return (
-    <section id="care" className="relative py-20 lg:py-32 bg-gray-50">
+    <section id="care" className="relative py-20 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Responsive Grid - 1 col mobile, 2 col tablet (md), 3 col desktop (lg) */}

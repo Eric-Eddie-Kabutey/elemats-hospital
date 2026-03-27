@@ -26,7 +26,7 @@ const Testimonials = () => {
                   ))}
                 </div>
                 <p className="text-lg text-slate-700 italic leading-relaxed mb-8">
-                  "{testimonial.feedback}"
+                  &quot;{testimonial.feedback}&quot;
                 </p>
               </div>
               

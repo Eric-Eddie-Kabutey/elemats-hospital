@@ -1,9 +1,15 @@
-export const NAV_LINKS = [
-  { label: "Who We Are", href: "/about" },
-  { label: "What We Do", href: "/services" },
-  { label: "Resources", href: "/resources" },
-  { label: "Careers", href: "/careers" },
-];
+import { 
+  Calendar, 
+  Heart, 
+  Hospital, 
+  Clock, 
+  Users, 
+  GraduationCap, 
+  ShieldCheck, 
+  Star 
+} from "lucide-react";
+
+
 
 export const HERO_CONTENT = {
   title: "Seamless Dental Care",
@@ -145,6 +151,39 @@ export const CARE_FOR_SYMPTOMS = [
   { text: "That annoying headache", position: "left", index: 0 }
 ];
 
+export const NAV_LINKS = [
+  { label: "Who We Are", href: "/about" },
+  { 
+    label: "What We Do", 
+    href: "/services",
+    subCategories: [
+      {
+        label: "Clinical Services",
+        links: SERVICE_CARDS.clinical.map(s => ({ label: s.title, href: `/services/${s.title.toLowerCase().replace(/\s+/g, '-')}` }))
+      },
+      {
+        label: "Medical Services",
+        links: SERVICE_CARDS.medical.map(s => ({ label: s.title, href: `/services/${s.title.toLowerCase().replace(/\s+/g, '-')}` }))
+      }
+    ]
+  },
+  { 
+    label: "Resources", 
+    href: "/resources",
+    subCategories: [
+      {
+        label: "Hospital Guide",
+        links: [{ label: "Patient Guide", href: "/resources/patient-guide" }]
+      },
+      {
+        label: "Our Hub",
+        links: [{ label: "Blogs", href: "/resources/blogs" }]
+      }
+    ]
+  },
+  { label: "Careers", href: "/careers" },
+];
+
 export const CARE_FOR_IMAGES = {
   left: [
     "/careFor/headache.jpg",
@@ -260,4 +299,184 @@ export const PARTNERS = [
   { name: "IOM", logo: "/partners/IOM.png" },
   { name: "NEA", logo: "/partners/NEA.png" },
   { name: "Red Cross", logo: "/partners/Red_Cross.jpg" },
+];
+
+
+export const WORK_CULTURE = [
+  {
+    id: 1,
+    title: "Shared Respect",
+    description: "A workplace built on mutual trust where every medical professional's voice is heard and valued.",
+    icon: Heart,
+    img: "/career/banner/1 (1).jpg"
+  },
+  {
+    id: 2,
+    title: "Family Bond",
+    description: "We work as a close-knit clinical family, celebrating successes and supporting each other's growth.",
+    icon: Users,
+    img: "/career/banner/1 (2).jpg"
+  },
+  {
+    id: 3,
+    title: "Career Elevation",
+    description: "Access to advanced medical training and specialized certifications to advance your clinical journey.",
+    icon: GraduationCap,
+    img: "/career/banner/1 (3).jpg"
+  },
+  {
+    id: 4,
+    title: "Supportive Culture",
+    description: "Genuine care and professional support from leadership to ensure your well-being and success.",
+    icon: ShieldCheck,
+    img: "/career/banner/1 (4).jpg"
+  },
+  {
+    id: 5,
+    title: "Vibrant Community",
+    description: "A lively and energetic medical team spirit that makes every clinical day a rewarding experience.",
+    icon: Star,
+    img: "/career/banner/1 (5).jpg"
+  },
+  {
+    id: 6,
+    title: "Hospital Pride",
+    description: "Belonging to a premier medical institution dedicated to excellence in modern patient care.",
+    icon: Hospital,
+    img: "/career/banner/1 (6).jpg"
+  }
+];
+
+export const OPEN_ROLES = [
+  {
+    id: "senior-dental-surgeon",
+    title: "Senior Dental Surgeon",
+    category: "Full-time",
+    location: "Wellness City",
+    description: "Seeking a dedicated dental professional with 5+ years of experience to lead our specialized clinics.",
+    requirements: [
+      "Bachelor of Dental Surgery (BDS) or equivalent.",
+      "Minimum of 5 years post-qualification experience.",
+      "Valid practicing license from the Medical and Dental Council.",
+      "Strong leadership and clinical management skills."
+    ],
+    documents: [
+      "Curriculum Vitae (CV)",
+      "Educational certificates",
+      "Valid Practicing License",
+      "Two professional references"
+    ],
+    email: "careers@elemats.com",
+    phone: "+220 123 4567"
+  },
+  {
+    id: "nursing-officer",
+    title: "Nursing Officer",
+    category: "Full-time",
+    location: "Wellness City",
+    description: "Join our nursing team to provide high-caliber patient care and ensure clinical excellence.",
+    requirements: [
+      "Registered Nurse (RN) certification.",
+      "2+ years of clinical experience in a hospital setting.",
+      "Exemplary patient care and communication skills.",
+      "Ability to work in a fast-paced environment."
+    ],
+    documents: [
+      "Updated CV",
+      "Nursing Council Registration",
+      "Academic Transcript"
+    ],
+    email: "hr@elemats.com",
+    phone: "+220 987 6543"
+  },
+  {
+    id: "clinical-psychology-intern",
+    title: "Clinical Psychology Intern",
+    category: "Internship",
+    location: "Wellness City",
+    description: "A developmental role for final year students looking to gain hands-on experience in a premier institution.",
+    requirements: [
+      "Final year student or recent graduate in Psychology.",
+      "Foundational knowledge of clinical assessment.",
+      "Strong empathetic and listening skills.",
+      "Commitment to patient confidentiality."
+    ],
+    documents: [
+      "Letter of introduction from University",
+      "Most recent results/transcript",
+      "Personal statement"
+    ],
+    email: "internship@elemats.com",
+    phone: "+220 111 2222"
+  },
+  {
+    id: "medical-lab-scientist",
+    title: "Medical Lab Scientist",
+    category: "Part-time",
+    location: "Wellness City",
+    description: "Ensuring high-precision diagnostics and laboratory management. 3 flexible days per week.",
+    requirements: [
+      "B.MLS or equivalent qualification.",
+      "Registration with MLSCN.",
+      "Proficiency in hematology and clinical chemistry.",
+      "Attention to detail and accuracy."
+    ],
+    documents: [
+      "CV",
+      "Current practicing license",
+      "Degree certificate"
+    ],
+    email: "lab@elemats.com",
+    phone: "+220 333 4444"
+  }
+];
+
+export const BLOG_POSTS = [
+  {
+    id: "oral-health-children",
+    title: "The Importance of Oral Health in Children",
+    excerpt: "Developing good oral habits early can set the foundation for a lifetime of healthy smiles. Here's a guide for parents on ensuring children's dental wellness.",
+    date: "March 20, 2026",
+    category: "Pediatrics",
+    image: "/images/hero.jpg"
+  },
+  {
+    id: "preparing-dental-visit",
+    title: "How to Prepare for Your First Dental Visit at Elemats",
+    excerpt: "Feeling nervous? Our step-by-step guide walks you through what to expect during your first appointment at our state-of-the-art facility.",
+    date: "March 15, 2026",
+    category: "Patient Guide",
+    image: "/images/hero.jpg"
+  },
+  {
+    id: "advanced-imaging-tech",
+    title: "Understanding Our Advanced Diagnostic Imaging Technology",
+    excerpt: "Explore how Elemats uses cutting-edge 3D imaging to provide high-precision diagnostics and personalized treatment plans for our patients.",
+    date: "March 10, 2026",
+    category: "Technology",
+    image: "/images/hero.jpg"
+  }
+];
+
+export const PATIENT_GUIDE_DATA = [
+  {
+    title: "Appointment & Registration",
+    content: "Please arrive 15 minutes before your scheduled appointment time. Bring a valid ID, your referral letter (if any), and any insurance details. Our registration team will help you set up your digital medical file for future visits.",
+    icon: Calendar
+  },
+  {
+    title: "Billing & Insurance",
+    content: "We accept all major local insurance providers and direct payments via card, bank transfer, or cash. For specialized procedures, our finance desk will provide a transparent cost estimate before treatment begins.",
+    icon: Heart
+  },
+  {
+    title: "Visitation Policies",
+    content: "To ensure a peaceful healing environment, we permit up to 2 visitors per patient between 10 AM — 2 PM and 4 PM — 8 PM. Please note that certain specialized wards may have stricter visitation requirements.",
+    icon: Hospital
+  },
+  {
+    title: "Emergency Services",
+    content: "Our emergency desk is open 24/7. In case of an urgent medical situation, please proceed directly to our main entrance or call our dedicated emergency line for immediate assistance and ambulance coordination.",
+    icon: Clock
+  }
 ];

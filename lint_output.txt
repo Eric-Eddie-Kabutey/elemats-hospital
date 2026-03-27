@@ -1,0 +1,49 @@
+
+> elemats-hospital@0.1.0 lint
+> eslint
+
+
+C:\Users\john.monday\Documents\GitHub\elemats-hospital\app\services\[slug]\page.jsx
+  36:78   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  36:111  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\john.monday\Documents\GitHub\elemats-hospital\app\services\page.jsx
+  29:20  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  40:29  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\john.monday\Documents\GitHub\elemats-hospital\components\CareFor2.jsx
+  13:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  11 |   useEffect(() => {
+  12 |     if (manualIndex !== null) {
+> 13 |       setCurrentIndex(manualIndex);
+     |       ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  14 |       return;
+  15 |     }
+  16 |     const timer = setInterval(() => {  react-hooks/set-state-in-effect
+
+C:\Users\john.monday\Documents\GitHub\elemats-hospital\components\CareerBanner.jsx
+  140:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  151:27  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\john.monday\Documents\GitHub\elemats-hospital\components\CareerCulture.jsx
+  24:22  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\john.monday\Documents\GitHub\elemats-hospital\components\Hero.jsx
+  42:27  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\john.monday\Documents\GitHub\elemats-hospital\components\OurPartners.jsx
+  28:15  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\john.monday\Documents\GitHub\elemats-hospital\components\Testimonials.jsx
+  29:19  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  29:42  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+✖ 12 problems (12 errors, 0 warnings)
+

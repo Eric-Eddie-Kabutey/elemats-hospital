@@ -36,7 +36,7 @@ const Services = () => {
                 ))}
               </div>
               
-              <p className="text-slate-600 text-lg md:text-xl font-normal capitalize tracking-wide animate-in fade-in duration-1000">
+              <p className="capitalize text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
                 {SERVICES_TABS.find(t => t.id === activeTab)?.description}
               </p>
             </div>
