@@ -480,3 +480,13 @@ export const PATIENT_GUIDE_DATA = [
     icon: Clock
   }
 ];
+
+export const LANGUAGES = [
+  { id: "1", name: "English", flag: "/images/countries/engish-flag.png", label: "EN", code: "en" },
+  { id: "2", name: "Espanol", flag: "/images/countries/espanol-flag.png", label: "ES", code: "es" },
+  { id: "3", name: "France", flag: "/images/countries/france-flag.png", label: "FR", code: "fr" },
+  { id: "4", name: "Deutsch", flag: "/images/countries/Deutsch-flag.png", label: "DE", code: "de" },
+  { id: "5", name: "Japan", flag: "/images/countries/japan-flag.png", label: "JA", code: "ja" },
+  { id: "6", name: "Nederland", flag: "/images/countries/nederlands-flag.png", label: "NE", code: "nl" },
+];
+

@@ -11,7 +11,7 @@ const Services = () => {
   const [activeTab, setActiveTab] = useState(SERVICES_TABS[0].id);
 
   return (
-    <section id="services" className="relative section-padding p-2 md:p-4 bg-gray-50">
+    <section id="services" className="relative section-padding p-2 md:p-4 bg-white">
       <div className="bg-blue-100 w-full text-white rounded-3xl mx-auto py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-6">
@@ -59,6 +59,7 @@ const Services = () => {
                     src={service.image}
                     alt={service.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
                   

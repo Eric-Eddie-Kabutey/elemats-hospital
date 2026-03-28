@@ -1,17 +1,88 @@
 "use client";
 
-import { useState } from "react";
-import { NAV_LINKS } from "@/constants/constants";
+import { useState, useEffect, useRef } from "react";
+import { NAV_LINKS, LANGUAGES } from "@/constants/constants";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, Menu, X, ChevronDown, Globe } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState("EN");
   const [hoveredServiceCategory, setHoveredServiceCategory] = useState("Clinical Services");
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setLangDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const getCurrentLang = () => {
+      const match = document.cookie.match(/googtrans=\/en\/([a-zA-Z-]+)/);
+      if (match && match[1]) {
+        const currentLangCode = match[1];
+        const lang = LANGUAGES.find((l) => l.code === currentLangCode);
+        if (lang) setCurrentLang(lang.label);
+      } else {
+        setCurrentLang("EN");
+      }
+    };
+
+    if (window.googleTranslateInitialized) {
+      getCurrentLang();
+      return;
+    }
+
+    const addScript = () => {
+      const existingScript = document.querySelector('script[src*="translate.google.com"]');
+      if (existingScript) return;
+
+      const script = document.createElement("script");
+      script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          includedLanguages: "en,es,fr,de,ja,nl",
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false,
+        },
+        "google_translate_element"
+      );
+      window.googleTranslateInitialized = true;
+    };
+
+    addScript();
+    getCurrentLang();
+  }, []);
+
+  const handleLanguageChange = (lang) => {
+    const domain = window.location.hostname;
+    document.cookie = `googtrans=/en/${lang.code}; path=/;`;
+    document.cookie = `googtrans=/en/${lang.code}; path=/; domain=.${domain};`;
+    
+    // Clear other domains if needed
+    const domains = [`.${domain}`, domain.replace("www.", "")];
+    domains.forEach(d => {
+      document.cookie = `googtrans=/en/${lang.code}; path=/; domain=${d};`;
+    });
+
+    window.location.reload();
+  };
 
   return (
     <>
@@ -90,6 +161,45 @@ const Navbar = () => {
 
           {/* Right CTA / Mobile Toggle */}
           <div className="flex items-center gap-2 md:gap-4">
+            <div id="google_translate_element" className="hidden"></div>
+            
+            {/* Language Switcher */}
+            <div className="relative" ref={dropdownRef}>
+              <button 
+                onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                className={`flex items-center gap-2 px-3 py-2 rounded-full border transition-all duration-300 ${
+                  isHomePage ? "bg-white/10 border-white/20 text-white hover:bg-white/20" : "bg-black/5 border-black/10 text-slate-700 hover:bg-black/10"
+                }`}
+              >
+                <Globe size={18} className="opacity-70" />
+                <span className="text-xs font-bold">{currentLang}</span>
+                <ChevronDown size={14} className={`opacity-50 transition-transform duration-300 ${langDropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {langDropdownOpen && (
+                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 z-10000 animate-in fade-in zoom-in duration-200">
+                  {LANGUAGES.map((lang) => (
+                    <button
+                      key={lang.id}
+                      onClick={() => handleLanguageChange(lang)}
+                      className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                    >
+                      <div className="relative w-6 h-4 overflow-hidden rounded-sm shadow-sm border border-slate-100">
+                        <Image
+                          src={lang.flag}
+                          alt={lang.name}
+                          fill
+                          sizes="24px"
+                          className="object-cover"
+                        />
+                      </div>
+                      <span className="text-sm font-semibold text-slate-600 group-hover:text-black">{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <button className="flex items-center gap-2 bg-white text-black px-4 py-2.5 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold hover:bg-zinc-100 transition-all shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
               <Phone size={14} fill="currentColor" stroke="none" className="md:w-4 md:h-4" />
               Call Now

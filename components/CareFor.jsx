@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 const CareFor = () => {
   return (
-    <section id="care" className="relative py-20 lg:py-32 bg-gray-50">
+    <section id="care" className="relative py-20 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Responsive Grid - 1 col mobile, 2 col tablet (md), 3 col desktop (lg) */}
@@ -39,6 +39,7 @@ const CareFor = () => {
                 src="/careFor/cramps.jpg"
                 alt="Dental Care Center"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-500 group-hover:opacity-95"></div>
@@ -52,6 +53,7 @@ const CareFor = () => {
                 src="/careFor/headache.jpg"
                 alt="Dental Care Left"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-500 group-hover:opacity-95"></div>
@@ -71,6 +73,7 @@ const CareFor = () => {
                 src="/careFor/nausea.jpg"
                 alt="Dental Care Right"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-500 group-hover:opacity-95"></div>

@@ -68,6 +68,7 @@ const CareerCulture = () => {
                           src={data.img}
                           alt={`Working ${index + 1}`}
                           fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
                           className="object-cover group-hover:scale-110 transition-transform duration-1000"
                         />
                       </div>

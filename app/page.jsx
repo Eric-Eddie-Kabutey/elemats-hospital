@@ -13,16 +13,18 @@ import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import FloatingSocials from "@/components/FloatingSocials";
 import OurPartners from "@/components/OurPartners";
+import AboutDifference from "@/components/AboutDifference";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Hero />
       <CareFor />
+      <AboutDifference />
       {/* <CareFor2 /> */}
       <Services />
-      <AboutUs />
-      <AboutUs2 />
+      {/* <AboutUs />
+      <AboutUs2 /> */}
       <OurPartners />
       <Testimonials />
       <Faq />

@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[85vh] md:min-h-screen p-2 md:p-4 bg-gray-50">
+    <section className="relative min-h-[85vh] md:min-h-screen p-2 md:p-4 bg-white">
       {/* Main Rounded Box */}
       <div className="relative w-full h-auto min-h-screen md:h-[94vh] flex flex-col justify-center lg:justify-end rounded-b-3xl overflow-hidden shadow-sm">
 
@@ -58,6 +58,7 @@ const Hero = () => {
                   src="/images/refill.jpg"
                   alt="Refill Medication"
                   fill
+                  sizes="(max-width: 768px) 100vw, 340px"
                   className="object-cover"
                 />
               </div>

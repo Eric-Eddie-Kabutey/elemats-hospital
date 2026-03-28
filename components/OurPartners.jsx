@@ -16,7 +16,7 @@ export default function OurPartners() {
   ];
 
   return (
-    <section className="py-24 bg-white border-t border-slate-100">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header Content */}
@@ -40,6 +40,7 @@ export default function OurPartners() {
                 src={partner.src}
                 alt={partner.name}
                 fill
+                sizes="(max-width: 768px) 128px, 160px"
                 className="object-contain"
               />
             </div>
