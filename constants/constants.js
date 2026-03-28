@@ -1,12 +1,12 @@
-import { 
-  Calendar, 
-  Heart, 
-  Hospital, 
-  Clock, 
-  Users, 
-  GraduationCap, 
-  ShieldCheck, 
-  Star 
+import {
+  Calendar,
+  Heart,
+  Hospital,
+  Clock,
+  Users,
+  GraduationCap,
+  ShieldCheck,
+  Star
 } from "lucide-react";
 
 
@@ -53,87 +53,87 @@ export const SERVICES_TABS = [
 
 export const SERVICE_CARDS = {
   clinical: [
-    { 
-      title: "Primary Care", 
-      description: "First-point-of-contact medical care for individuals and families, focusing on prevention and wellness.", 
-      image: "/WhatWeOffer/PrimaryCare.jpg" 
+    {
+      title: "Primary Care",
+      description: "First-point-of-contact medical care for individuals and families, focusing on prevention and wellness.",
+      image: "/WhatWeOffer/PrimaryCare.jpg"
     },
-    { 
-      title: "Clinics and Specialties", 
-      description: "Diverse outpatient clinics providing specialized medical attention tailored to specific health needs.", 
-      image: "/WhatWeOffer/ClinicsSpecialties.jpg" 
+    {
+      title: "Clinics and Specialties",
+      description: "Diverse outpatient clinics providing specialized medical attention tailored to specific health needs.",
+      image: "/WhatWeOffer/ClinicsSpecialties.jpg"
     },
-    { 
-      title: "Surgery", 
-      description: "Advanced surgical procedures performed by expert surgeons in a state-of-the-art sterile environment.", 
-      image: "/WhatWeOffer/Surgery.jpg" 
+    {
+      title: "Surgery",
+      description: "Advanced surgical procedures performed by expert surgeons in a state-of-the-art sterile environment.",
+      image: "/WhatWeOffer/Surgery.jpg"
     },
-    { 
-      title: "OB/GYN Services", 
-      description: "Comprehensive care for women's health, including prenatal, delivery, and gynecological support.", 
-      image: "/WhatWeOffer/OB-GYN Services.jpg" 
+    {
+      title: "OBGYN Services",
+      description: "Comprehensive care for women's health, including prenatal, delivery, and gynecological support.",
+      image: "/WhatWeOffer/OB-GYN Services.jpg"
     },
-    { 
-      title: "Specialist Services", 
-      description: "Access to world-class consultants across various medical disciplines for complex health issues.", 
-      image: "/WhatWeOffer/Specialist Services.jpg" 
+    {
+      title: "Specialist Services",
+      description: "Access to world-class consultants across various medical disciplines for complex health issues.",
+      image: "/WhatWeOffer/Specialist Services.jpg"
     },
-    { 
-      title: "Endoscopy", 
-      description: "Minimally invasive diagnostic procedures using high-definition imaging to visualize internal organs.", 
-      image: "/WhatWeOffer/Endoscopy.jpg" 
+    {
+      title: "Endoscopy",
+      description: "Minimally invasive diagnostic procedures using high-definition imaging to visualize internal organs.",
+      image: "/WhatWeOffer/Endoscopy.jpg"
     },
-    { 
-      title: "Radio Diagnostics", 
-      description: "High-precision imaging services including X-rays and scans for accurate medical diagnosis.", 
-      image: "/WhatWeOffer/Radio Diagnostics.jpg" 
+    {
+      title: "Radio Diagnostics",
+      description: "High-precision imaging services including X-rays and scans for accurate medical diagnosis.",
+      image: "/WhatWeOffer/Radio Diagnostics.jpg"
     },
-    { 
-      title: "Medical Laboratory Services", 
-      description: "Full-range pathological testing and analysis to support accurate clinical decision-making.", 
-      image: "/WhatWeOffer/Medical Laboratory Services.jpg" 
+    {
+      title: "Medical Laboratory Services",
+      description: "Full-range pathological testing and analysis to support accurate clinical decision-making.",
+      image: "/WhatWeOffer/Medical Laboratory Services.jpg"
     },
   ],
   medical: [
-    { 
-      title: "Wellness Screening", 
-      description: "Proactive health assessments and checkups designed for corporate employees and executives.", 
-      image: "/WhatWeOffer/Wellness Screening.jpg" 
+    {
+      title: "Wellness Screening",
+      description: "Proactive health assessments and checkups designed for corporate employees and executives.",
+      image: "/WhatWeOffer/Wellness Screening.jpg"
     },
-    { 
-      title: "Retainership Services", 
-      description: "Tailored medical retainership plans for organizations to ensure employee health and productivity.", 
-      image: "/WhatWeOffer/Retainership Services.jpg" 
+    {
+      title: "Retainership Services",
+      description: "Tailored medical retainership plans for organizations to ensure employee health and productivity.",
+      image: "/WhatWeOffer/Retainership Services.jpg"
     },
-    { 
-      title: "Ambulance & Support", 
-      description: "Rapid-response emergency medical support and ambulance evacuation services available 24/7.", 
-      image: "/WhatWeOffer/Ambulance Evacuation & Emergency Medical Support.jpg" 
+    {
+      title: "Ambulance and Support",
+      description: "Rapid-response emergency medical support and ambulance evacuation services available 24/7.",
+      image: "/WhatWeOffer/Ambulance Evacuation & Emergency Medical Support.jpg"
     },
-    { 
-      title: "Medical Outsourcing", 
-      description: "Professional management of onsite clinic services and medical staffing for corporate bodies.", 
-      image: "/WhatWeOffer/Medical Outsourcing & Onsite Clinic Services.jpg" 
+    {
+      title: "Medical Outsourcing",
+      description: "Professional management of onsite clinic services and medical staffing for corporate bodies.",
+      image: "/WhatWeOffer/Medical Outsourcing & Onsite Clinic Services.jpg"
     },
-    { 
-      title: "Hearse Services", 
-      description: "Respectful and professional funeral logistics and transportation services for families.", 
-      image: "/WhatWeOffer/Hearse Services.jpg" 
+    {
+      title: "Hearse Services",
+      description: "Respectful and professional funeral logistics and transportation services for families.",
+      image: "/WhatWeOffer/Hearse Services.jpg"
     },
-    { 
-      title: "Pre-employment Services", 
-      description: "Comprehensive medical fitness evaluations for prospective employees to ensure workplace safety.", 
-      image: "/WhatWeOffer/Pre-employment Services.jpg" 
+    {
+      title: "Pre-employment Services",
+      description: "Comprehensive medical fitness evaluations for prospective employees to ensure workplace safety.",
+      image: "/WhatWeOffer/Pre-employment Services.jpg"
     },
-    { 
-      title: "HMO Partnerships", 
-      description: "Seamless integration with major Health Management Organizations for hassle-free care delivery.", 
-      image: "/WhatWeOffer/HMO Partnerships.jpg" 
+    {
+      title: "HMO Partnerships",
+      description: "Seamless integration with major Health Management Organizations for hassle-free care delivery.",
+      image: "/WhatWeOffer/HMO Partnerships.jpg"
     },
-    { 
-      title: "Home Nursing Care", 
-      description: "Dedicated professional nursing services provided in the comfort and privacy of your home.", 
-      image: "/WhatWeOffer/Home Nursing Care.jpg" 
+    {
+      title: "Home Nursing Care",
+      description: "Dedicated professional nursing services provided in the comfort and privacy of your home.",
+      image: "/WhatWeOffer/Home Nursing Care.jpg"
     },
   ],
 };
@@ -153,8 +153,8 @@ export const CARE_FOR_SYMPTOMS = [
 
 export const NAV_LINKS = [
   { label: "Who We Are", href: "/about" },
-  { 
-    label: "What We Do", 
+  {
+    label: "What We Do",
     href: "/services",
     subCategories: [
       {
@@ -167,8 +167,8 @@ export const NAV_LINKS = [
       }
     ]
   },
-  { 
-    label: "Resources", 
+  {
+    label: "Resources",
     href: "/resources",
     subCategories: [
       {
@@ -260,18 +260,30 @@ export const FOOTER_CONTENT = {
   brand: "Elemats",
   description: "Your partner in modern, elegant dental and healthcare solutions.",
   sections: [
+    ...SERVICES_TABS.map(tab => ({
+      title: tab.label,
+      links: SERVICE_CARDS[tab.id].map(service => ({
+        label: service.title,
+        href: `/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`
+      }))
+    })),
     {
-      title: "Solutions",
-      links: ["Checkups", "Braces", "Whitening", "Implants"],
+      title: "Quick Links",
+      links: [
+        { label: "Who We Are", href: "/about" },
+        { label: "Blog", href: "/resources/blogs" },
+        { label: "Patient Guide", href: "/resources/patient-guide" },
+        { label: "Careers", href: "/careers" },
+      ],
     },
-    {
-      title: "Resources",
-      links: ["Blog", "Education", "Privacy", "Terms"],
-    },
-    {
-      title: "Careers",
-      links: ["Openings", "Culture", "Benefits"],
-    },
+    // {
+    //   title: "Careers",
+    //   links: [
+    //     { label: "Openings", href: "/careers" },
+    //     { label: "Culture", href: "/careers#culture" },
+    //     { label: "Benefits", href: "/careers#benefits" }
+    //   ],
+    // },
   ],
   socials: [
     { platform: "Facebook", href: "#" },

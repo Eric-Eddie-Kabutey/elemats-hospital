@@ -8,11 +8,11 @@ const Faq = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="w-full mt-12 py-12 px-6 md:px-12">
+    <section id="faq" className="w-full mt-12 py-12 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto ">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
-          <p className="text-slate-500">
+          <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Frequently Asked Questions</h2>
+          <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
             Find answers to common questions about our dental services and procedures.
           </p>
         </div>

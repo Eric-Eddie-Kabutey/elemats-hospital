@@ -9,6 +9,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import DontDelay from "@/components/DontDelay";
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState(SERVICES_TABS[0].id);
@@ -46,7 +47,7 @@ export default function ServicesPage() {
 
             {/* Tabs */}
             <div className="flex flex-col items-center gap-8">
-              <div className="inline-flex p-1.5 backdrop-blur-xl rounded-full">
+              <div className="inline-flex p-1.5 backdrop-blur-xl rounded-full gap-4">
                 {SERVICES_TABS.map((tab) => (
                   <button
                     key={tab.id}
@@ -107,6 +108,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+      <DontDelay />
       <Footer />
     </main>
   );

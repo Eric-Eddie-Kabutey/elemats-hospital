@@ -15,12 +15,12 @@ const Services = () => {
       <div className="bg-blue-100 w-full text-white rounded-3xl mx-auto py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-6">
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
               What We Offer
             </h2>
 
             {/* Tabs */}
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-8 mt-4">
               <div className="inline-flex p-1.5 backdrop-blur-xl rounded-full border bg-white/30 border-white/40">
                 {SERVICES_TABS.map((tab) => (
                   <button

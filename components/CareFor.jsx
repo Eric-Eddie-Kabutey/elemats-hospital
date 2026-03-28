@@ -14,14 +14,14 @@ const CareFor = () => {
             {/* Header Content */}
             <div className="text-center space-y-6 md:space-y-8">
               <div className="flex items-center justify-center mb-4">
-                <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] font-sans">Who we are</span>
+                <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Who we are</span>
               </div>
 
-              <h2 className="text-4xl lg:text-5xl font-normal text-slate-900 capitalize leading-[1.1] -tracking-normal mb-4">
+              <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
                 Get care today for a variety of needs
               </h2>
 
-              <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-sm mx-auto mb-4">
+              <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
                 Our team of skilled and experienced dental professionals strives to create a comfortable and welcoming environment for each and every patient.
               </p>
 
@@ -61,8 +61,8 @@ const CareFor = () => {
 
             {/* Secondary Stat - Visible on Tablet/Mobile to fill gap */}
             <div className=" flex flex-col text-center">
-              <span className="text-4xl font-normal text-black capitalize">service quality</span>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-primary">Dedicated to your well-being</span>
+              <span className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight capitalize">service quality</span>
+              <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] font-sans">Dedicated to your well-being</span>
             </div>
           </div>
 
@@ -82,12 +82,12 @@ const CareFor = () => {
             {/* Stats block - Aligned with visuals */}
             <div className="flex flex-col justify-end items-end space-y-2 text-right px-2 border-r border-neutral-200 pr-6 ">
               <div className="space-y-1">
-                <p className="text-4xl lg:text-5xl font-normal text-black tracking-tighter">98%</p>
-                <p className="text-slate-500 text-[10px] md:text-xs leading-relaxed font-semibold tracking-[0.15em] uppercase">
+                <p className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">98%</p>
+                <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed uppercase">
                   Client satisfaction rate
                 </p>
               </div>
-              <p className="hidden md:block text-slate-400 text-[11px] leading-relaxed max-w-[220px]">
+              <p className="hidden md:block text-slate-500 leading-relaxed font-light text-base md:text-[15px] lg:text-base px-2 max-w-[260px]">
                 Consistently recognized for medical excellence and professional care.
               </p>
             </div>

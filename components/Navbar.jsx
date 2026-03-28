@@ -5,13 +5,14 @@ import { NAV_LINKS, LANGUAGES } from "@/constants/constants";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Phone, Menu, X, ChevronDown, Globe, Pill } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState("EN");
   const [hoveredServiceCategory, setHoveredServiceCategory] = useState("Clinical Services");
+  const [openDropdown, setOpenDropdown] = useState(null);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const dropdownRef = useRef(null);
@@ -71,6 +72,7 @@ const Navbar = () => {
   }, []);
 
   const handleLanguageChange = (lang) => {
+    /* eslint-disable react-hooks/immutability */
     const domain = window.location.hostname;
     document.cookie = `googtrans=/en/${lang.code}; path=/;`;
     document.cookie = `googtrans=/en/${lang.code}; path=/; domain=.${domain};`;
@@ -80,18 +82,19 @@ const Navbar = () => {
     domains.forEach(d => {
       document.cookie = `googtrans=/en/${lang.code}; path=/; domain=${d};`;
     });
+    /* eslint-enable react-hooks/immutability */
 
     window.location.reload();
   };
 
   return (
     <>
-      <nav className="absolute top-8 left-0 right-0 z-50 w-full font-inter">
+      <nav className="absolute top-10 left-0 right-0 z-50 w-full font-inter">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 z-50 group">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 shadow-xl transition-transform group-hover:scale-105 rounded-full overflow-hidden border border-white/20">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 shadow-xl  rounded-full overflow-hidden border border-white/20 bg-white">
               <Image
-                src="/logo.jpeg"
+                src="/logo.svg"
                 alt="Elemats Logo"
                 fill
                 sizes="(max-width: 768px) 40px, 48px"
@@ -100,36 +103,39 @@ const Navbar = () => {
                 loading="eager"
               />
             </div>
-            <span className={`hidden sm:block text-xl md:text-2xl font-bold tracking-tight transition-opacity ${isHomePage ? 'text-white' : 'text-white'} hover:opacity-90`}>
+            {/* <span className={`hidden sm:block text-xl md:text-2xl font-bold tracking-tight transition-opacity ${isHomePage ? 'text-white' : 'text-white'} hover:opacity-90`}>
               Elemats
-            </span>
+            </span> */}
           </Link>
 
           {/* Desktop Nav - Glass Pill */}
-          <div className={`hidden lg:flex items-center gap-2 backdrop-blur-xl px-2  rounded-full shadow-2xl border transition-all duration-500 overflow-visible ${isHomePage
-            ? "bg-white/10 border-white/20"
-            : "bg-black/10 border-white/10"
-            }`}>
+          <div className={`hidden lg:flex items-center backdrop-blur-xl px-2 gap-1 rounded-full shadow-2xl border transition-all duration-500 overflow-visible bg-white/10 border-white/20`}>
             {NAV_LINKS.map((link) => {
               const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               const hasDropdown = link.subCategories && link.subCategories.length > 0;
+              const isOpen = openDropdown === link.label;
 
               return (
-                <div key={link.label} className="relative group py-2">
+                <div
+                  key={link.label}
+                  className="relative py-2"
+                  onMouseEnter={() => hasDropdown && setOpenDropdown(link.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   <Link
                     href={link.href}
-                    className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 outline-none cursor-pointer ${isActive
+                    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 outline-none cursor-pointer ${isActive
                       ? "bg-white text-slate-900 shadow-lg"
                       : "text-white hover:bg-white/10"
                       }`}
                   >
                     {link.label}
-                    {hasDropdown && <ChevronDown size={14} className="opacity-50 group-hover:rotate-180 transition-transform duration-300" />}
+                    {hasDropdown && <ChevronDown size={14} className={`opacity-50 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />}
                   </Link>
-                  
-                  {/* Dropdown Logic - Unified Mega Menu */}
-                  {hasDropdown && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-[9999] w-[500px]">
+
+                  {/* Dropdown - React state driven, works in all browsers */}
+                  {hasDropdown && isOpen && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-9999 w-[500px]">
                       <div className="bg-white rounded-4xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-100 p-8 overflow-hidden">
                         <div className="grid grid-cols-2 gap-8">
                           {link.subCategories.map((cat) => (
@@ -142,7 +148,8 @@ const Navbar = () => {
                                   <Link
                                     key={subLink.label}
                                     href={subLink.href}
-                                    className="text-[13px] font-semibold text-slate-600 hover:text-primary transition-colors flex items-center gap-1 group/item"
+                                    onClick={() => setOpenDropdown(null)}
+                                    className="text-[13px] font-semibold text-slate-600 hover:text-primary transition-colors flex items-center gap-1"
                                   >
                                     {subLink.label}
                                   </Link>
@@ -167,9 +174,7 @@ const Navbar = () => {
             <div className="relative" ref={dropdownRef}>
               <button 
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-full border transition-all duration-300 ${
-                  isHomePage ? "bg-white/10 border-white/20 text-white hover:bg-white/20" : "bg-black/5 border-black/10 text-slate-700 hover:bg-black/10"
-                }`}
+                className={`flex items-center gap-2 px-3 py-2 rounded-full text-white border transition-all duration-300 bg-white/10 border-white/20  hover:bg-white/20`}
               >
                 <Globe size={18} className="opacity-70" />
                 <span className="text-xs font-bold">{currentLang}</span>
@@ -247,7 +252,7 @@ const Navbar = () => {
 
                 {/* Mobile Sublinks (Resources) */}
                 {hasSublinks && (
-                  <div className="pl-4 flex flex-col gap-4">
+                  <div className="flex flex-col gap-4">
                     {link.subLinks.map((sub) => (
                       <Link
                         key={sub.label}
@@ -263,13 +268,13 @@ const Navbar = () => {
 
                 {/* Mobile Subcategories (What We Do) */}
                 {hasSubCategories && (
-                  <div className="pl-4 space-y-6">
+                  <div className="space-y-6">
                     {link.subCategories.map((cat) => (
                       <div key={cat.label} className="space-y-3">
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest text-primary opacity-60">
+                        <h4 className="text-md font-bold uppercase tracking-widest text-primary opacity-60">
                           {cat.label}
                         </h4>
-                        <div className="pl-2 flex flex-col gap-3">
+                        <div className="flex flex-col gap-3">
                           {cat.links.map((subLink) => (
                             <Link
                               key={subLink.label}
@@ -288,9 +293,14 @@ const Navbar = () => {
               </div>
             );
           })}
-          <button className="flex items-center justify-center gap-3 bg-black text-white px-8 py-5 rounded-full text-xl font-bold mt-4 shadow-xl active:scale-95 transition-transform">
+          <button className="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-xl font-bold shadow-xl active:scale-95 transition-transform">
             <Phone size={20} fill="currentColor" stroke="none" />
-            Book a Call
+            Call Now
+          </button>
+
+          <button className="flex items-center justify-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-xl font-bold shadow-xl active:scale-95 transition-transform">
+            <Pill size={20} fill="currentColor" stroke="none" />
+            Refill Medication
           </button>
         </div>
       </div>

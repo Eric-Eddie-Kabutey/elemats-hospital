@@ -4,15 +4,10 @@ import Image from "next/image";
 
 export default function OurPartners() {
   const partners = [
-    { name: "Brussels Airlines", src: "/partners/Brussels_airlines.jpg" },
     { name: "ChildFund Alliance", src: "/partners/CFA-Logo_RGB_hi-res.png" },
     { name: "IOM", src: "/partners/IOM.png" },
     { name: "NEA", src: "/partners/NEA.png" },
     { name: "The Gambia Red Cross", src: "/partners/Red_Cross.jpg" },
-    // Duplicate for visual density in the grid if needed, or just let them fit nicely
-    { name: "Brussels Airlines", src: "/partners/Brussels_airlines.jpg" },
-    { name: "ChildFund Alliance", src: "/partners/CFA-Logo_RGB_hi-res.png" },
-    { name: "IOM", src: "/partners/IOM.png" }
   ];
 
   return (
@@ -21,7 +16,7 @@ export default function OurPartners() {
         
         {/* Header Content */}
         <div className="max-w-3xl space-y-4 mb-16">
-          <h2 className="text-4xl font-normal text-slate-800 tracking-tight leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
             Our Partners & HMOs
           </h2>
           <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">

@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-[85vh] md:min-h-screen p-2 md:p-4 bg-white">
       {/* Main Rounded Box */}
-      <div className="relative w-full h-auto min-h-screen md:h-[94vh] flex flex-col justify-center lg:justify-end rounded-b-3xl overflow-hidden shadow-sm">
+      <div className="relative w-full min-h-[95vh] flex flex-col justify-center lg:justify-end rounded-b-3xl overflow-hidden shadow-sm">
 
         {/* Background Image */}
         <div className="absolute inset-0 rounded-b-3xl">
@@ -30,9 +30,9 @@ const Hero = () => {
         {/* Hero Content */}
         <div className="relative h-auto flex flex-col justify-center text-white z-10 pt-48 lg:pt-0">
           <div className="h-full w-full max-w-[1800px] mx-auto pl-6 md:pl-12 flex flex-col lg:flex-row justify-between lg:items-end gap-12 lg:gap-12">
-            
+
             {/* Left Main Content */}
-            <div className="w-full lg:max-w-4xl pb-20 lg:pb-24">
+            <div className="w-full lg:max-w-4xl pb-16 lg:pb-24">
               <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-[100px] font-bold leading-tight md:leading-none tracking-tight mb-6 md:mb-8">
                 Seamless <br />
                 <span className="flex items-center gap-6">Dental Care</span>
@@ -52,7 +52,7 @@ const Hero = () => {
             </div>
 
             {/* Right: Refill Medication Card - Compressed for Mobile */}
-            <div className="mr-2 md:mr-4 mb-2 md:mb-4 w-full lg:max-w-[340px]  bg-white/95 backdrop-blur-md rounded-[16px] p-2 sm:p-4 text-slate-900 shadow-2xl border border-white/20 transform hover:-translate-y-2 transition-all duration-500">
+            <div className="hidden lg:block cursor-pointer mr-2 md:mr-4 mb-2 md:mb-4 max-w-[380px]  bg-white/95 backdrop-blur-md rounded-[16px] p-2 sm:p-4 text-slate-900 shadow-2xl border border-white/20 transform hover:-translate-y-2 transition-all duration-500">
               <div className="relative h-28 sm:h-40 rounded-[16px] overflow-hidden mb-2 sm:mb-4">
                 <Image
                   src="/images/refill.jpg"
@@ -63,14 +63,16 @@ const Hero = () => {
                 />
               </div>
               <div className="space-y-3 sm:space-y-4">
-                <h3 className="text-lg sm:text-2xl font-bold tracking-tight mb-1">Refill Medication</h3>
-                <p className="hidden lg:block text-sm text-slate-500 leading-relaxed font-medium">
+                <h3 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Refill Medication</h3>
+                <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
                   Easily request refills for your prescriptions online and pick them up at your convenience.
                 </p>
-                <button className="w-full flex items-center justify-between bg-slate-900 text-white px-4 py-3 sm:px-5 sm:py-3.5 rounded-[16px] sm:rounded-2xl text-xs sm:text-sm font-bold hover:bg-slate-800 transition-all group/refill">
-                  Request Refill
-                  <ArrowRight className="w-4 h-4 group-hover/refill:translate-x-1 transition-transform" />
-                </button>
+                <div className="flex justify-start">
+                  <button className="flex items-center gap-2 bg-black text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-zinc-800 transition-all shadow-lg group">
+                    Request Refill
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
               </div>
             </div>
 

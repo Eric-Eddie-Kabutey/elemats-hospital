@@ -6,8 +6,8 @@ const Testimonials = () => {
     <section className="w-full mt-12 py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Patient Transformations</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Patient Transformations</h2>
+          <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
             See what our patients say about their experience at Elemats Specialist Hospital.
           </p>
         </div>

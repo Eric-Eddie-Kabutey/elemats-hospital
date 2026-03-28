@@ -1,0 +1,31 @@
+
+> elemats-hospital@0.1.0 lint
+> eslint
+
+
+C:\Users\john.monday\Documents\GitHub\elemats-hospital\components\Navbar.jsx
+  75:5  error  Error: This value cannot be modified
+
+Modifying a variable defined outside a component or hook is not allowed. Consider using an effect.
+
+  73 |   const handleLanguageChange = (lang) => {
+  74 |     const domain = window.location.hostname;
+> 75 |     document.cookie = `googtrans=/en/${lang.code}; path=/;`;
+     |     ^^^^^^^^ value cannot be modified
+  76 |     document.cookie = `googtrans=/en/${lang.code}; path=/; domain=.${domain};`;
+  77 |     
+  78 |     // Clear other domains if needed                       react-hooks/immutability
+  76:5  error  Error: This value cannot be modified
+
+Modifying a variable defined outside a component or hook is not allowed. Consider using an effect.
+
+  74 |     const domain = window.location.hostname;
+  75 |     document.cookie = `googtrans=/en/${lang.code}; path=/;`;
+> 76 |     document.cookie = `googtrans=/en/${lang.code}; path=/; domain=.${domain};`;
+     |     ^^^^^^^^ value cannot be modified
+  77 |     
+  78 |     // Clear other domains if needed
+  79 |     const domains = [`.${domain}`, domain.replace("www.", "")];  react-hooks/immutability
+
+✖ 2 problems (2 errors, 0 warnings)
+

@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import FloatingSocials from "@/components/FloatingSocials";
 import OurPartners from "@/components/OurPartners";
 import AboutDifference from "@/components/AboutDifference";
+import DontDelay from "@/components/DontDelay";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <OurPartners />
       <Testimonials />
       <Faq />
+      <DontDelay />
       <Footer />
       <FloatingSocials />
     </main>
