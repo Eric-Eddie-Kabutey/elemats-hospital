@@ -12,7 +12,7 @@ const Services = () => {
 
   return (
     <section id="services" className="relative section-padding p-2 md:p-4 bg-white">
-      <div className="bg-blue-100 w-full text-white rounded-3xl mx-auto py-32 px-6 md:px-12">
+      <div className="bg-slate-50 w-full text-white rounded-3xl mx-auto py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-6">
             <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
@@ -20,15 +20,15 @@ const Services = () => {
             </h2>
 
             {/* Tabs */}
-            <div className="flex flex-col items-center gap-8 mt-4">
-              <div className="inline-flex p-1.5 backdrop-blur-xl rounded-full border bg-white/30 border-white/40">
+            <div className="flex flex-col items-center gap-12 mt-4">
+              <div className="flex flex-wrap justify-center gap-4 px-4">
                 {SERVICES_TABS.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`px-10 py-3.5 rounded-full text-sm font-bold tracking-wide transition-all duration-500 ${activeTab === tab.id
-                        ? "bg-white/30 text-slate-600"
-                        : "text-slate-600"
+                    className={`px-8 md:px-12 py-3 rounded-full text-sm md:text-lg font-bold tracking-tight transition-all duration-500 border ${activeTab === tab.id
+                        ? "bg-primary border-primary text-white shadow-[0_15px_30px_rgba(var(--primary-rgb),0.3)] scale-105"
+                        : "bg-transparent border-slate-200 text-slate-500 hover:border-primary hover:text-primary"
                       }`}
                   >
                     {tab.label}
@@ -36,8 +36,8 @@ const Services = () => {
                 ))}
               </div>
               
-              <p className="capitalize text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
-                {SERVICES_TABS.find(t => t.id === activeTab)?.description}
+              <p className="max-w-3xl mx-auto text-xl md:text-2xl text-slate-500 leading-relaxed font-light italic">
+                &quot;{SERVICES_TABS.find(t => t.id === activeTab)?.description}&quot;
               </p>
             </div>
           </div>
@@ -45,7 +45,7 @@ const Services = () => {
           {/* Grid */}
           <div 
             key={activeTab}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000"
           >
             {SERVICE_CARDS[activeTab].map((service, index) => {
               const slug = service.title.toLowerCase().replace(/\s+/g, '-');

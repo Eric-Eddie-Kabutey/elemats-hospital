@@ -47,7 +47,7 @@ export default function LeadershipTeam() {
   const currentTeam = teamData[activeTab];
 
   return (
-    <section className="py-24 bg-slate-50">
+    <section id="team" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header & Tabs */}

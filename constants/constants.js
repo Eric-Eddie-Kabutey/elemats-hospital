@@ -6,8 +6,35 @@ import {
   Users,
   GraduationCap,
   ShieldCheck,
-  Star
+  Star,
+  MapPin,
+  Mail,
+  Clock as ClockIcon
 } from "lucide-react";
+
+
+export const LOCATIONS = [
+  {
+    id: 1,
+    name: "Elemats Specialist Hospital (Main)",
+    address: "Westfield, Kanifing, The Gambia",
+    phone: "+220 123 4567",
+    email: "info@elematshospital.com",
+    hours: "24/7 Emergency Care",
+    icon: MapPin,
+    image: "/WhatWeOffer/Ambulance Evacuation & Emergency Medical Support.jpg"
+  },
+  {
+    id: 2,
+    name: "Elemats Fertility & IVF Center",
+    address: "Senegambia Road, Kololi, The Gambia",
+    phone: "+220 765 4321",
+    email: "fertility@elematshospital.com",
+    hours: "Mon - Sat: 8 AM - 6 PM",
+    icon: MapPin,
+    image: "/WhatWeOffer/Specialist Services.jpg"
+  }
+];
 
 
 
@@ -47,93 +74,120 @@ export const CARE_FOR_ITEMS = [
 ];
 
 export const SERVICES_TABS = [
-  { id: "clinical", label: "Clinical Services", description: "for Private Individuals and Families" },
-  { id: "medical", label: "Medical Services", description: "for Corporate Organisations" },
+  { id: "fertility", label: "Fertility and IVF", description: "Advanced reproductive health and assisted conception services." },
+  { id: "womens_health", label: "Women's Health", description: "Comprehensive obstetric and gynecological care for every stage of life." },
+  { id: "pediatrics", label: "Pediatrics", description: "Dedicated medical care for infants, children, and adolescents." },
+  { id: "general_medical", label: "General Medical Services", description: "Expert primary care and advanced surgical solutions." },
+  { id: "diagnostics", label: "Diagnostics", description: "High-precision laboratory testing and specialized medical imaging." },
+  { id: "emergency_care", label: "Emergency and Care", description: "Rapid response emergency services and compassionate inpatient care." },
 ];
 
 export const SERVICE_CARDS = {
-  clinical: [
-    {
-      title: "Primary Care",
-      description: "First-point-of-contact medical care for individuals and families, focusing on prevention and wellness.",
-      image: "/WhatWeOffer/PrimaryCare.jpg"
+  fertility: [
+    { 
+      title: "IVF and Assisted Reproduction", 
+      description: "State-of-the-art in vitro fertilization and diverse fertility treatments to help you start your family.", 
+      image: "/WhatWeOffer/Specialist Services.jpg" 
     },
-    {
-      title: "Clinics and Specialties",
-      description: "Diverse outpatient clinics providing specialized medical attention tailored to specific health needs.",
-      image: "/WhatWeOffer/ClinicsSpecialties.jpg"
+    { 
+      title: "Fertility Evaluation (Male and Female)", 
+      description: "Comprehensive diagnostic assessments for both partners to identify and address reproductive challenges.", 
+      image: "/WhatWeOffer/ClinicsSpecialties.jpg" 
     },
-    {
-      title: "Surgery",
-      description: "Advanced surgical procedures performed by expert surgeons in a state-of-the-art sterile environment.",
-      image: "/WhatWeOffer/Surgery.jpg"
+    { 
+      title: "Hormonal and Reproductive Health", 
+      description: "Specialized care for hormonal imbalances affecting reproductive wellness and general health.", 
+      image: "/WhatWeOffer/OB-GYN Services.jpg" 
     },
-    {
-      title: "OBGYN Services",
-      description: "Comprehensive care for women's health, including prenatal, delivery, and gynecological support.",
-      image: "/WhatWeOffer/OB-GYN Services.jpg"
-    },
-    {
-      title: "Specialist Services",
-      description: "Access to world-class consultants across various medical disciplines for complex health issues.",
-      image: "/WhatWeOffer/Specialist Services.jpg"
-    },
-    {
-      title: "Endoscopy",
-      description: "Minimally invasive diagnostic procedures using high-definition imaging to visualize internal organs.",
-      image: "/WhatWeOffer/Endoscopy.jpg"
-    },
-    {
-      title: "Radio Diagnostics",
-      description: "High-precision imaging services including X-rays and scans for accurate medical diagnosis.",
-      image: "/WhatWeOffer/Radio Diagnostics.jpg"
-    },
-    {
-      title: "Medical Laboratory Services",
-      description: "Full-range pathological testing and analysis to support accurate clinical decision-making.",
-      image: "/WhatWeOffer/Medical Laboratory Services.jpg"
+    { 
+      title: "Male Fertility Services", 
+      description: "Dedicated diagnostics and treatments focused on male reproductive health and performance.", 
+      image: "/WhatWeOffer/Wellness Screening.jpg" 
     },
   ],
-  medical: [
-    {
-      title: "Wellness Screening",
-      description: "Proactive health assessments and checkups designed for corporate employees and executives.",
-      image: "/WhatWeOffer/Wellness Screening.jpg"
+  womens_health: [
+    { 
+      title: "Antenatal Care", 
+      description: "Expert medical support throughout your pregnancy to ensure the health of both mother and baby.", 
+      image: "/WhatWeOffer/OB-GYN Services.jpg" 
     },
-    {
-      title: "Retainership Services",
-      description: "Tailored medical retainership plans for organizations to ensure employee health and productivity.",
-      image: "/WhatWeOffer/Retainership Services.jpg"
+    { 
+      title: "Labor and Delivery", 
+      description: "Compassionate, high-safety childbirth services in a modern, well-equipped delivery suite.", 
+      image: "/WhatWeOffer/Surgery.jpg" 
     },
-    {
-      title: "Ambulance and Support",
-      description: "Rapid-response emergency medical support and ambulance evacuation services available 24/7.",
-      image: "/WhatWeOffer/Ambulance Evacuation & Emergency Medical Support.jpg"
+    { 
+      title: "Gynecologic Care", 
+      description: "Comprehensive preventive and therapeutic services for women's reproductive health.", 
+      image: "/WhatWeOffer/PrimaryCare.jpg" 
     },
-    {
-      title: "Medical Outsourcing",
-      description: "Professional management of onsite clinic services and medical staffing for corporate bodies.",
-      image: "/WhatWeOffer/Medical Outsourcing & Onsite Clinic Services.jpg"
+    { 
+      title: "Minimally Invasive Gynecologic Surgery", 
+      description: "Advanced surgical procedures using minimally invasive techniques for faster recovery and less pain.", 
+      image: "/WhatWeOffer/Surgery.jpg" 
     },
-    {
-      title: "Hearse Services",
-      description: "Respectful and professional funeral logistics and transportation services for families.",
-      image: "/WhatWeOffer/Hearse Services.jpg"
+  ],
+  pediatrics: [
+    { 
+      title: "General Pediatrics", 
+      description: "Routine checkups, vaccinations, and treatment for common childhood illnesses in a friendly environment.", 
+      image: "/WhatWeOffer/PrimaryCare.jpg" 
     },
-    {
-      title: "Pre-employment Services",
-      description: "Comprehensive medical fitness evaluations for prospective employees to ensure workplace safety.",
-      image: "/WhatWeOffer/Pre-employment Services.jpg"
+    { 
+      title: "Neonatal Care", 
+      description: "Specialized medical attention for newborns, including those requiring intensive care support.", 
+      image: "/WhatWeOffer/ClinicsSpecialties.jpg" 
     },
-    {
-      title: "HMO Partnerships",
-      description: "Seamless integration with major Health Management Organizations for hassle-free care delivery.",
-      image: "/WhatWeOffer/HMO Partnerships.jpg"
+  ],
+  general_medical: [
+    { 
+      title: "Family Medicine", 
+      description: "Holistic primary care for patients of all ages, focusing on long-term health and disease prevention.", 
+      image: "/WhatWeOffer/PrimaryCare.jpg" 
     },
-    {
-      title: "Home Nursing Care",
-      description: "Dedicated professional nursing services provided in the comfort and privacy of your home.",
-      image: "/WhatWeOffer/Home Nursing Care.jpg"
+    { 
+      title: "General Surgery", 
+      description: "Wide range of surgical interventions performed by experienced specialists in modern theaters.", 
+      image: "/WhatWeOffer/Surgery.jpg" 
+    },
+    { 
+      title: "Minimally Invasive Surgery", 
+      description: "State-of-the-art laparoscopic procedures for diverse conditions, ensuring minimal scarring.", 
+      image: "/WhatWeOffer/Surgery.jpg" 
+    },
+  ],
+  diagnostics: [
+    { 
+      title: "Blood and Chemistry Testing", 
+      description: "Comprehensive hematology and clinical chemistry analysis for accurate internal health assessment.", 
+      image: "/WhatWeOffer/Medical Laboratory Services.jpg" 
+    },
+    { 
+      title: "Microbiology & Infection Testing", 
+      description: "Diagnostic testing for bacterial, viral, and fungal infections to guide effective treatment.", 
+      image: "/WhatWeOffer/Medical Laboratory Services.jpg" 
+    },
+    { 
+      title: "Routine Laboratory Tests", 
+      description: "Essential diagnostic tests including urinalysis, malaria screening, and full blood counts.", 
+      image: "/WhatWeOffer/Medical Laboratory Services.jpg" 
+    },
+    { 
+      title: "Specialized Diagnostics", 
+      description: "Advanced diagnostic imaging and complex pathological testing for specialized medical needs.", 
+      image: "/WhatWeOffer/Radio Diagnostics.jpg" 
+    },
+  ],
+  emergency_care: [
+    { 
+      title: "Emergency Care", 
+      description: "Rapid, 24/7 medical intervention for life-threatening conditions and urgent health crises.", 
+      image: "/WhatWeOffer/Ambulance Evacuation & Emergency Medical Support.jpg" 
+    },
+    { 
+      title: "Hospital Admissions", 
+      description: "Comfortable and professional inpatient care with 24-hour nursing support and specialist review.", 
+      image: "/WhatWeOffer/ClinicsSpecialties.jpg" 
     },
   ],
 };
@@ -152,20 +206,31 @@ export const CARE_FOR_SYMPTOMS = [
 ];
 
 export const NAV_LINKS = [
-  { label: "Who We Are", href: "/about" },
-  {
-    label: "What We Do",
-    href: "/services",
+  { 
+    label: "Who We Are", 
+    href: "/about",
     subCategories: [
       {
-        label: "Clinical Services",
-        links: SERVICE_CARDS.clinical.map(s => ({ label: s.title, href: `/services/${s.title.toLowerCase().replace(/\s+/g, '-')}` }))
-      },
-      {
-        label: "Medical Services",
-        links: SERVICE_CARDS.medical.map(s => ({ label: s.title, href: `/services/${s.title.toLowerCase().replace(/\s+/g, '-')}` }))
+        label: "About Us",
+        links: [
+          { label: "Message from our CEO", href: "/about/ceo-message" },
+          { label: "Our Team", href: "/about#team" },
+          { label: "Our Partners", href: "/about#partners" },
+          { label: "Our Facilities", href: "/about/facilities" }
+        ]
       }
     ]
+  },
+  { 
+    label: "What We Do", 
+    href: "/services",
+    subCategories: SERVICES_TABS.map(tab => ({
+      label: tab.label,
+      links: SERVICE_CARDS[tab.id].map(s => ({ 
+        label: s.title, 
+        href: `/services/${s.title.toLowerCase().replace(/\s+/g, '-')}` 
+      }))
+    }))
   },
   {
     label: "Resources",

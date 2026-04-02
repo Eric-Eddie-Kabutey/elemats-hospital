@@ -1,18 +1,18 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { NAV_LINKS, LANGUAGES } from "@/constants/constants";
+import { NAV_LINKS, LANGUAGES, SERVICES_TABS } from "@/constants/constants";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, X, ChevronDown, Globe, Pill } from "lucide-react";
+import { Phone, Menu, X, ChevronDown, Globe, HeartPulse, Activity, Stethoscope, Microscope, Syringe, Pill } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState("EN");
-  const [hoveredServiceCategory, setHoveredServiceCategory] = useState("Clinical Services");
-  const [openDropdown, setOpenDropdown] = useState(null);
+  const [hoveredServiceCategory, setHoveredServiceCategory] = useState("fertility");
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const dropdownRef = useRef(null);
@@ -103,9 +103,6 @@ const Navbar = () => {
                 loading="eager"
               />
             </div>
-            {/* <span className={`hidden sm:block text-xl md:text-2xl font-bold tracking-tight transition-opacity ${isHomePage ? 'text-white' : 'text-white'} hover:opacity-90`}>
-              Elemats
-            </span> */}
           </Link>
 
           {/* Desktop Nav - Glass Pill */}
@@ -118,13 +115,13 @@ const Navbar = () => {
               return (
                 <div
                   key={link.label}
-                  className="relative py-2"
+                  className="relative py-2 group"
                   onMouseEnter={() => hasDropdown && setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <Link
                     href={link.href}
-                    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 outline-none cursor-pointer ${isActive
+                    className={`px-6 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 outline-none cursor-pointer ${isActive
                       ? "bg-white text-slate-900 shadow-lg"
                       : "text-white hover:bg-white/10"
                       }`}
@@ -132,31 +129,121 @@ const Navbar = () => {
                     {link.label}
                     {hasDropdown && <ChevronDown size={14} className={`opacity-50 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />}
                   </Link>
+                  
+                  {/* Dropdown Logic - Unified Mega Menu */}
+                  {hasDropdown && link.label === "What We Do" && (
+                    <div className="absolute top-full left-1/2 -translate-x-[40%] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 translate-y-4 group-hover:translate-y-0 z-9999 w-[950px]">
+                      <div className="bg-white rounded-[32px] shadow-[0_40px_100px_rgba(0,0,0,0.12)] border border-slate-100 overflow-hidden flex min-h-[450px]">
+                        
+                        {/* 1. Left Sidebar: Solutions */}
+                        <div className="w-[240px] bg-slate-50 p-6 border-r border-slate-100 flex flex-col">
+                          <div className="mb-6">
+                            <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Services</h3>
+                            <p className="text-[12px] text-slate-400 leading-relaxed font-medium">
+                              Dedicated healthcare solutions designed for your well-being.
+                            </p>
+                          </div>
+                          
+                          <div className="flex flex-col gap-2">
+                            {link.subCategories.map((cat, idx) => {
+                              const currentTab = SERVICES_TABS.find(t => t.label === cat.label);
+                              const tabId = currentTab ? currentTab.id : "fertility";
+                              const isActive = hoveredServiceCategory === tabId;
 
-                  {/* Dropdown - React state driven, works in all browsers */}
-                  {hasDropdown && isOpen && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-9999 w-[500px]">
-                      <div className="bg-white rounded-4xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-100 p-8 overflow-hidden">
-                        <div className="grid grid-cols-2 gap-8">
-                          {link.subCategories.map((cat) => (
-                            <div key={cat.label} className="space-y-4">
-                              <h4 className="text-[10px] font-bold uppercase tracking-widest text-primary opacity-60">
-                                {cat.label}
-                              </h4>
-                              <div className="flex flex-col gap-2">
-                                {cat.links.map((subLink) => (
-                                  <Link
-                                    key={subLink.label}
-                                    href={subLink.href}
-                                    onClick={() => setOpenDropdown(null)}
-                                    className="text-[13px] font-semibold text-slate-600 hover:text-primary transition-colors flex items-center gap-1"
-                                  >
-                                    {subLink.label}
-                                  </Link>
-                                ))}
+                              return (
+                                <button
+                                  key={cat.label}
+                                  onMouseEnter={() => setHoveredServiceCategory(tabId)}
+                                  className={`group/btn relative w-full text-left px-4 py-2 border border-primary/10 rounded-xl text-[13px] font-bold transition-all duration-300 flex items-center justify-between ${
+                                    isActive 
+                                      ? "bg-slate-200 text-primary s" 
+                                      : "text-slate-500 hover:text-slate-900 hover:bg-white/50"
+                                  }`}
+                                >
+                                  {cat.label}
+                                  
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* 2. Content Area: Detailed Cards */}
+                        <div className="flex-1 p-8 bg-white relative overflow-y-auto max-h-[600px]">
+                          <div className="grid grid-cols-2 gap-2">
+                            {link.subCategories.find(c => {
+                               const matchingTab = SERVICES_TABS.find(t => t.label === c.label);
+                               return (matchingTab ? matchingTab.id : null) === hoveredServiceCategory;
+                            })?.links.slice(0, 6).map((subLink, idx) => {
+                              const iconList = [HeartPulse, Activity, Stethoscope, Microscope, Syringe, Globe];
+                              const Icon = iconList[idx % iconList.length];
+
+                              return (
+                                <div key={subLink.label} className="group/item relative flex flex-col gap-1 hover:bg-slate-50 p-4 rounded-xl border border-primary/10">
+                                  <div className="flex items-start gap-4">
+                                    <div className="w-10 h-10 shrink-0 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center group-hover/item:bg-primary/5 group-hover/item:border-primary/20 transition-all duration-500">
+                                      <Icon className="w-4.5 h-4.5 text-slate-400 group-hover/item:text-primary transition-colors" />
+                                    </div>
+                                    <div className="flex-1 space-y-1">
+                                      <h5 className="text-[15px] font-bold text-slate-800 group-hover/item:text-primary transition-colors">
+                                        {subLink.label}
+                                      </h5>
+                                      <p className="text-[12px] text-slate-400 leading-relaxed line-clamp-2 font-medium">
+                                        Expert specialized care focused on your health needs and recovery...
+                                      </p>
+                                      <Link 
+                                        href={subLink.href}
+                                        className="inline-flex items-center text-[12px] font-bold text-primary opacity-80 hover:opacity-100 transition-all pt-0.5"
+                                      >
+                                        see more &gt;
+                                      </Link>
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+
+                          {/* Featured Highlight for Fertility */}
+                          {hoveredServiceCategory === "fertility" && (
+                            <div className="mt-2 p-6 rounded-2xl bg-slate-50 border border-primary/10 flex items-center justify-between">
+                              <div className="space-y-0.5">
+                                <h4 className="text-[14px] font-bold text-slate-900">Fertility Center</h4>
+                                <p className="text-[12px] text-slate-400 font-medium">Schedule a consultation with our world-renowned specialists.</p>
                               </div>
+                              <button className="bg-primary text-white px-5 py-2 rounded-full text-[12px] font-bold hover:bg-primary/90 transition-all">
+                                Book Now
+                              </button>
                             </div>
-                          ))}
+                          )}
+                        </div>
+
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Standard Dropdown for other links (Who We Are, Resources etc) */}
+                  {hasDropdown && link.label !== "What We Do" && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-9999 w-[300px]">
+                      <div className="bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-100 p-6 overflow-hidden">
+                        <div className="flex flex-col gap-1.5">
+                          {link.subCategories.flatMap(cat => cat.links).map((subLink) => {
+                            const isSubActive = pathname === subLink.href;
+                            return (
+                              <Link
+                                key={subLink.label}
+                                href={subLink.href}
+                                className={`group/btn relative w-full text-left px-4 py-2.5 border border-primary/5 rounded-xl text-[13px] font-bold transition-all duration-300 flex items-center justify-between ${
+                                  isSubActive 
+                                    ? "bg-slate-100 text-primary" 
+                                    : "text-slate-500 hover:text-slate-900 hover:bg-slate-50 shadow-sm shadow-transparent hover:shadow-primary/5"
+                                }`}
+                              >
+                                {subLink.label}
+                                <div className={`w-1 h-1 rounded-full bg-primary transition-all duration-300 ${isSubActive ? "opacity-100 scale-100" : "opacity-0 scale-0 group-hover/btn:opacity-100 group-hover/btn:scale-100"}`} />
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
@@ -174,7 +261,7 @@ const Navbar = () => {
             <div className="relative" ref={dropdownRef}>
               <button 
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-full text-white border transition-all duration-300 bg-white/10 border-white/20  hover:bg-white/20`}
+                className={`flex items-center gap-2 px-3 py-2 rounded-full border transition-all duration-300 bg-white/10 border-white/20 text-white hover:bg-white/20`}
               >
                 <Globe size={18} className="opacity-70" />
                 <span className="text-xs font-bold">{currentLang}</span>

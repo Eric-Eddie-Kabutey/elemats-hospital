@@ -11,17 +11,17 @@ export default function OurPartners() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section id="partners" className="flex flex-row justify-center items-center py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header Content */}
-        <div className="max-w-3xl space-y-4 mb-16">
+        <div className="max-w-3xl space-y-4 mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
             Our Partners & HMOs
           </h2>
-          <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
+          {/* <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
             We&apos;re proud to collaborate with leading Health Management Organizations, international agencies, and corporate institutions that share our vision for medical excellence. These partnerships help us deliver extensive and accessible healthcare to communities across The Gambia and beyond.
-          </p>
+          </p> */}
         </div>
 
         {/* Logos Grid */}
