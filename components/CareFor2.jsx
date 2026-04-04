@@ -31,6 +31,7 @@ const AutoCarousel = ({ images, interval = 10000, manualIndex = null }) => {
             src={img}
             alt={`Care For ${idx}`}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
           />
         </div>

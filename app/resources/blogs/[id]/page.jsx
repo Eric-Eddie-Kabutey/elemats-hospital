@@ -36,6 +36,7 @@ export default async function BlogPostPage({ params }) {
             src="/images/refill.jpg"
             alt="Clinical Excellence"
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
         </div>
@@ -93,6 +94,7 @@ export default async function BlogPostPage({ params }) {
             src={post.image}
             alt={post.title}
             fill
+            sizes="(max-width: 1024px) 100vw, 80vw"
             priority
             className="object-cover"
           />

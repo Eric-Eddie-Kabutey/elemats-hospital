@@ -15,7 +15,7 @@ const ICON_MAP = {
   Anchor, Smile, Ruler, Layers, HeartPulse, Moon, Dna, Sun
 };
 
-function ServiceDetailContent({ slug }) {
+function ServiceDetailContent({ category, slug }) {
   const searchParams = useSearchParams();
   const serviceId = searchParams.get("id");
   
@@ -44,11 +44,11 @@ function ServiceDetailContent({ slug }) {
 
   const Icon = ICON_MAP[service.icon];
   
-  // Find related services (from the same category)
-  const category = Object.keys(SERVICE_CARDS).find(key => 
+  // Categories are already in the URL
+  const actualCategory = Object.keys(SERVICE_CARDS).find(key => 
     SERVICE_CARDS[key].some(s => s.title === service.title)
-  );
-  const relatedServices = SERVICE_CARDS[category]?.filter(s => s.title !== service.title).slice(0, 3) || [];
+  ) || category;
+  const relatedServices = SERVICE_CARDS[actualCategory]?.filter(s => s.title !== service.title).slice(0, 3) || [];
 
   return (
     <main className="bg-white min-h-screen">
@@ -118,7 +118,7 @@ function ServiceDetailContent({ slug }) {
                        { step: "4", label: "Recovery", desc: "Post-op support & care" }
                     ].map((step, idx) => (
                        <div key={idx} className="relative p-6 bg-slate-50 rounded-4xl border border-slate-100 hover:border-primary/20 transition-colors group">
-                          <span className="block text-4xl font-black text-slate-300 group-hover:text-primary/100 transition-colors mb-4">{step.step}</span>
+                          <span className="block text-4xl font-black text-slate-300 group-hover:text-primary transition-colors mb-4">{step.step}</span>
                           <h4 className="text-sm font-bold text-slate-900 mb-2">{step.label}</h4>
                           <p className="text-[11px] text-slate-400 leading-relaxed font-medium">{step.desc}</p>
                        </div>
@@ -163,7 +163,7 @@ function ServiceDetailContent({ slug }) {
                        {relatedServices.map((rel) => (
                           <Link 
                              key={rel.title} 
-                             href={`/services/${rel.title.toLowerCase().replace(/\s+/g, '-')}`}
+                             href={`/services/${actualCategory}/${rel.title.toLowerCase().replace(/\s+/g, '-')}`}
                              className="group relative aspect-square rounded-4xl overflow-hidden shadow-2xl"
                           >
                              {/* Background Image */}
@@ -225,10 +225,10 @@ function ServiceDetailContent({ slug }) {
 }
 
 export default function ServiceDetail({ params }) {
-  const { slug } = use(params);
+  const { category, slug } = use(params);
   return (
     <Suspense fallback={<div className="min-h-screen bg-white" />}>
-      <ServiceDetailContent slug={slug} />
+      <ServiceDetailContent category={category} slug={slug} />
     </Suspense>
   );
 }

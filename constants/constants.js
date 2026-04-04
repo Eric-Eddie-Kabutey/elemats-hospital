@@ -84,110 +84,111 @@ export const SERVICES_TABS = [
 
 export const SERVICE_CARDS = {
   fertility: [
-    { 
-      title: "IVF and Assisted Reproduction", 
-      description: "State-of-the-art in vitro fertilization and diverse fertility treatments to help you start your family.", 
-      image: "/WhatWeOffer/Specialist Services.jpg" 
+    {
+      title: "IVF and Assisted Reproduction",
+      description: "State-of-the-art in vitro fertilization and diverse fertility treatments to help you start your family.",
+      image: "/WhatWeOffer/Specialist Services.jpg"
     },
-    { 
-      title: "Fertility Evaluation (Male and Female)", 
-      description: "Comprehensive diagnostic assessments for both partners to identify and address reproductive challenges.", 
-      image: "/WhatWeOffer/ClinicsSpecialties.jpg" 
+    {
+      title: "Fertility Evaluation (Male and Female)",
+      description: "Comprehensive diagnostic assessments for both partners to identify and address reproductive challenges.",
+      image: "/WhatWeOffer/ClinicsSpecialties.jpg"
     },
-    { 
-      title: "Hormonal and Reproductive Health", 
-      description: "Specialized care for hormonal imbalances affecting reproductive wellness and general health.", 
-      image: "/WhatWeOffer/OB-GYN Services.jpg" 
+    {
+      title: "Hormonal and Reproductive Health",
+      description: "Specialized care for hormonal imbalances affecting reproductive wellness and general health.",
+      image: "/WhatWeOffer/OB-GYN Services.jpg"
     },
-    { 
-      title: "Male Fertility Services", 
-      description: "Dedicated diagnostics and treatments focused on male reproductive health and performance.", 
-      image: "/WhatWeOffer/Wellness Screening.jpg" 
+    {
+      title: "Male Fertility Services",
+      description: "Dedicated diagnostics and treatments focused on male reproductive health and performance.",
+      image: "/WhatWeOffer/Wellness Screening.jpg"
+    },
+  ],
+
+  pediatrics: [
+    {
+      title: "General Pediatrics",
+      description: "Routine checkups, vaccinations, and treatment for common childhood illnesses in a friendly environment.",
+      image: "/WhatWeOffer/PrimaryCare.jpg"
+    },
+    {
+      title: "Neonatal Care",
+      description: "Specialized medical attention for newborns, including those requiring intensive care support.",
+      image: "/WhatWeOffer/ClinicsSpecialties.jpg"
     },
   ],
   womens_health: [
-    { 
-      title: "Antenatal Care", 
-      description: "Expert medical support throughout your pregnancy to ensure the health of both mother and baby.", 
-      image: "/WhatWeOffer/OB-GYN Services.jpg" 
+    {
+      title: "Antenatal Care",
+      description: "Expert medical support throughout your pregnancy to ensure the health of both mother and baby.",
+      image: "/WhatWeOffer/OB-GYN Services.jpg"
     },
-    { 
-      title: "Labor and Delivery", 
-      description: "Compassionate, high-safety childbirth services in a modern, well-equipped delivery suite.", 
-      image: "/WhatWeOffer/Surgery.jpg" 
+    {
+      title: "Labor and Delivery",
+      description: "Compassionate, high-safety childbirth services in a modern, well-equipped delivery suite.",
+      image: "/WhatWeOffer/Surgery.jpg"
     },
-    { 
-      title: "Gynecologic Care", 
-      description: "Comprehensive preventive and therapeutic services for women's reproductive health.", 
-      image: "/WhatWeOffer/PrimaryCare.jpg" 
+    {
+      title: "Gynecologic Care",
+      description: "Comprehensive preventive and therapeutic services for women's reproductive health.",
+      image: "/WhatWeOffer/PrimaryCare.jpg"
     },
-    { 
-      title: "Minimally Invasive Gynecologic Surgery", 
-      description: "Advanced surgical procedures using minimally invasive techniques for faster recovery and less pain.", 
-      image: "/WhatWeOffer/Surgery.jpg" 
-    },
-  ],
-  pediatrics: [
-    { 
-      title: "General Pediatrics", 
-      description: "Routine checkups, vaccinations, and treatment for common childhood illnesses in a friendly environment.", 
-      image: "/WhatWeOffer/PrimaryCare.jpg" 
-    },
-    { 
-      title: "Neonatal Care", 
-      description: "Specialized medical attention for newborns, including those requiring intensive care support.", 
-      image: "/WhatWeOffer/ClinicsSpecialties.jpg" 
+    {
+      title: "Minimally Invasive Gynecologic Surgery",
+      description: "Advanced surgical procedures using minimally invasive techniques for faster recovery and less pain.",
+      image: "/WhatWeOffer/Surgery.jpg"
     },
   ],
   general_medical: [
-    { 
-      title: "Family Medicine", 
-      description: "Holistic primary care for patients of all ages, focusing on long-term health and disease prevention.", 
-      image: "/WhatWeOffer/PrimaryCare.jpg" 
+    {
+      title: "Family Medicine",
+      description: "Holistic primary care for patients of all ages, focusing on long-term health and disease prevention.",
+      image: "/WhatWeOffer/PrimaryCare.jpg"
     },
-    { 
-      title: "General Surgery", 
-      description: "Wide range of surgical interventions performed by experienced specialists in modern theaters.", 
-      image: "/WhatWeOffer/Surgery.jpg" 
+    {
+      title: "General Surgery",
+      description: "Wide range of surgical interventions performed by experienced specialists in modern theaters.",
+      image: "/WhatWeOffer/Surgery.jpg"
     },
-    { 
-      title: "Minimally Invasive Surgery", 
-      description: "State-of-the-art laparoscopic procedures for diverse conditions, ensuring minimal scarring.", 
-      image: "/WhatWeOffer/Surgery.jpg" 
+    {
+      title: "Minimally Invasive Surgery",
+      description: "State-of-the-art laparoscopic procedures for diverse conditions, ensuring minimal scarring.",
+      image: "/WhatWeOffer/Surgery.jpg"
     },
   ],
   diagnostics: [
-    { 
-      title: "Blood and Chemistry Testing", 
-      description: "Comprehensive hematology and clinical chemistry analysis for accurate internal health assessment.", 
-      image: "/WhatWeOffer/Medical Laboratory Services.jpg" 
+    {
+      title: "Blood and Chemistry Testing",
+      description: "Comprehensive hematology and clinical chemistry analysis for accurate internal health assessment.",
+      image: "/WhatWeOffer/Medical Laboratory Services.jpg"
     },
-    { 
-      title: "Microbiology & Infection Testing", 
-      description: "Diagnostic testing for bacterial, viral, and fungal infections to guide effective treatment.", 
-      image: "/WhatWeOffer/Medical Laboratory Services.jpg" 
+    {
+      title: "Microbiology & Infection Testing",
+      description: "Diagnostic testing for bacterial, viral, and fungal infections to guide effective treatment.",
+      image: "/WhatWeOffer/Medical Laboratory Services.jpg"
     },
-    { 
-      title: "Routine Laboratory Tests", 
-      description: "Essential diagnostic tests including urinalysis, malaria screening, and full blood counts.", 
-      image: "/WhatWeOffer/Medical Laboratory Services.jpg" 
+    {
+      title: "Routine Laboratory Tests",
+      description: "Essential diagnostic tests including urinalysis, malaria screening, and full blood counts.",
+      image: "/WhatWeOffer/Medical Laboratory Services.jpg"
     },
-    { 
-      title: "Specialized Diagnostics", 
-      description: "Advanced diagnostic imaging and complex pathological testing for specialized medical needs.", 
-      image: "/WhatWeOffer/Radio Diagnostics.jpg" 
+    {
+      title: "Specialized Diagnostics",
+      description: "Advanced diagnostic imaging and complex pathological testing for specialized medical needs.",
+      image: "/WhatWeOffer/Radio Diagnostics.jpg"
     },
   ],
   emergency_care: [
-    { 
-      title: "Emergency Care", 
-      description: "Rapid, 24/7 medical intervention for life-threatening conditions and urgent health crises.", 
-      image: "/WhatWeOffer/Ambulance Evacuation & Emergency Medical Support.jpg" 
+    {
+      title: "Emergency Care",
+      description: "Rapid, 24/7 medical intervention for life-threatening conditions and urgent health crises.",
+      image: "/WhatWeOffer/Ambulance Evacuation & Emergency Medical Support.jpg"
     },
-    { 
-      title: "Hospital Admissions", 
-      description: "Comfortable and professional inpatient care with 24-hour nursing support and specialist review.", 
-      image: "/WhatWeOffer/ClinicsSpecialties.jpg" 
+    {
+      title: "Hospital Admissions",
+      description: "Comfortable and professional inpatient care with 24-hour nursing support and specialist review.",
+      image: "/WhatWeOffer/ClinicsSpecialties.jpg"
     },
   ],
 };
@@ -206,8 +207,8 @@ export const CARE_FOR_SYMPTOMS = [
 ];
 
 export const NAV_LINKS = [
-  { 
-    label: "Who We Are", 
+  {
+    label: "Who We Are",
     href: "/about",
     subCategories: [
       {
@@ -221,14 +222,14 @@ export const NAV_LINKS = [
       }
     ]
   },
-  { 
-    label: "What We Do", 
-    href: "/services",
+  {
+    label: "What We Do",
+    href: "/services/fertility",
     subCategories: SERVICES_TABS.map(tab => ({
       label: tab.label,
-      links: SERVICE_CARDS[tab.id].map(s => ({ 
-        label: s.title, 
-        href: `/services/${s.title.toLowerCase().replace(/\s+/g, '-')}` 
+      links: SERVICE_CARDS[tab.id].map(s => ({
+        label: s.title,
+        href: `/services/${tab.id}/${s.title.toLowerCase().replace(/\s+/g, '-')}`
       }))
     }))
   },
@@ -329,7 +330,7 @@ export const FOOTER_CONTENT = {
       title: tab.label,
       links: SERVICE_CARDS[tab.id].map(service => ({
         label: service.title,
-        href: `/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`
+        href: `/services/${tab.id}/${service.title.toLowerCase().replace(/\s+/g, '-')}`
       }))
     })),
     {

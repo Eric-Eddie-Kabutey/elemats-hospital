@@ -2,6 +2,7 @@ import { FOOTER_CONTENT } from "@/constants/constants";
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
+import DontDelay from "./DontDelay";
 
 const SOCIAL_ICONS = {
   Facebook: () => (
@@ -30,98 +31,105 @@ const SOCIAL_ICONS = {
 
 const Footer = () => {
   return (
-    <footer className="section-padding p-2 md:p-4 bg-white">
-      <div className="relative bg-zinc-900 w-full text-white rounded-3xl mx-auto pt-32 pb-8 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-20 z-30">
-          {/* Brand */}
-          <div className="col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-8">
-              <div className="relative w-30 h-30 md:w-30 md:h-30 shadow-xl  rounded-full overflow-hidden border border-white/20 bg-white">
-                <Image
-                  src="/logo.svg"
-                  alt="Elemats Logo"
-                  fill
-                  sizes="(max-width: 768px) 40px, 48px"
-                  className="object-cover"
-                  priority
-                  loading="eager"
-                />
-              </div>
-            </Link>
-            <p className="text-zinc-400 text-lg leading-relaxed mb-8 max-w-sm">
-              {FOOTER_CONTENT.description}
-            </p>
-            <div className="flex gap-2">
-              {FOOTER_CONTENT.socials.map((social) => {
-                const Icon = SOCIAL_ICONS[social.platform];
-                return (
-                  <Link
-                    key={social.platform}
-                    href={social.href}
-                    className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300"
-                  >
-                    {Icon ? <Icon className="w-4 h-4" /> : <span className="text-xs font-bold">{social.platform.charAt(0)}</span>}
-                  </Link>
-                );
-              })}
+    <>
+      <DontDelay />
+      <footer className="section-padding p-2 md:p-4 bg-linear-to-t from-slate-50 to-slate-50/30">
+        <div className="relative bg-linear-to-t from-primary/95 to-primary/80 w-full text-white rounded-3xl mx-auto pt-32 pb-8 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 z-30">
+            {/* Logo */}
+            <div className="col-span-1 sm:col-span-2 lg:col-span-4 flex justify-center sm:justify-start">
+              <Link href="/" className="flex items-center">
+                <div className="relative w-30 h-30 md:w-30 md:h-30 rounded-full overflow-hidden border border-white/20 bg-white">
+                  <Image
+                    src="/logo.svg"
+                    alt="Elemats Logo"
+                    fill
+                    sizes="(max-width: 768px) 40px, 48px"
+                    className="object-cover"
+                    priority
+                    loading="eager"
+                  />
+                </div>
+              </Link>
             </div>
-          </div>
 
-          {/* Links */}
-          {FOOTER_CONTENT.sections.map((section) => (
-            <div key={section.title}>
-              <h4 className="text-lg font-bold mb-8 text-white capitalize tracking-widest">{section.title}</h4>
-              <ul className="space-y-4">
-                {section.links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-zinc-400 hover:text-primary transition-colors">
-                      {link.label}
+            {/* Brand */}
+            <div className="col-span-1 flex flex-col items-center sm:items-start">
+              <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-sm text-center sm:text-left">
+                {FOOTER_CONTENT.description}
+              </p>
+              <div className="flex gap-2">
+                {FOOTER_CONTENT.socials.map((social) => {
+                  const Icon = SOCIAL_ICONS[social.platform];
+                  return (
+                    <Link
+                      key={social.platform}
+                      href={social.href}
+                      className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/15 transition-all duration-300"
+                    >
+                      {Icon ? <Icon className="w-4 h-4" /> : <span className="text-xs font-bold">{social.platform.charAt(0)}</span>}
                     </Link>
-                  </li>
-                ))}
-              </ul>
+                  );
+                })}
+              </div>
             </div>
-          ))}
 
-          {/* Contact */}
-          <div className="col-span-2 lg:col-span-4">
-            <h4 className="text-lg font-bold mb-8 text-white capitalize tracking-widest">Contact</h4>
-            <div className="flex flex-row flex-wrap gap-6">
-              <div className="flex items-center gap-4 text-zinc-400">
-                <span className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center text-sm"><Phone className="w-4 h-4" /></span>
-                {FOOTER_CONTENT.contact.phone}
+            {/* Links */}
+            {FOOTER_CONTENT.sections.map((section) => (
+              <div key={section.title} className="col-span-1 text-center sm:text-left">
+                <h4 className="text-lg font-bold mb-4 text-white capitalize tracking-widest">{section.title}</h4>
+                <ul className="space-y-3">
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      <Link href={link.href} className="text-white/60 hover:underline">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="flex items-center gap-4 text-zinc-400">
-                <span className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center text-sm"><Mail className="w-4 h-4" /></span>
-                {FOOTER_CONTENT.contact.email}
-              </div>
-              <div className="flex items-center gap-4 text-zinc-400">
-                <span className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center text-sm shrink-0 text-center"><MapPin className="w-4 h-4" /></span>
-                {FOOTER_CONTENT.contact.address}
+            ))}
+
+            {/* Contact */}
+            <div className="col-span-1 sm:col-span-2 lg:col-span-4 text-center sm:text-left">
+              <h4 className="text-lg font-bold mb-8 text-white capitalize tracking-widest">Contact</h4>
+              <div className="flex flex-row flex-wrap gap-6 items-center justify-center sm:justify-start">
+                <div className="flex items-center gap-4 text-white/60">
+                  <span className="w-10 h-10 bg-white/10 hover:bg-gray-500 rounded-full flex items-center justify-center text-sm"><Phone className="w-4 h-4 text-white" /></span>
+                  {FOOTER_CONTENT.contact.phone}
+                </div>
+                <div className="flex items-center gap-4 text-white/60">
+                  <span className="w-10 h-10 bg-white/10 hover:bg-gray-500 rounded-full flex items-center justify-center text-sm"><Mail className="w-4 h-4 text-white" /></span>
+                  {FOOTER_CONTENT.contact.email}
+                </div>
+                <div className="flex items-center gap-4 text-white/60">
+                  <span className="w-10 h-10 bg-white/10 hover:bg-white/15 rounded-full flex items-center justify-center text-sm shrink-0 text-center"><MapPin className="w-4 h-4 text-white" /></span>
+                  {FOOTER_CONTENT.contact.address}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Bottom bar */}
-        <div className="max-w-7xl mx-auto pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 text-zinc-500 text-sm z-10">
-          <p>© {new Date().getFullYear()} {FOOTER_CONTENT.brand} Specialists Hospital. All rights reserved.</p>
-          <div className="flex gap-8">
-            <Link href="#" className="hover:text-emerald-500 transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-emerald-500 transition-colors">Terms of Service</Link>
+          {/* Bottom bar */}
+          <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/60 text-sm z-10">
+            <p>© {new Date().getFullYear()} {FOOTER_CONTENT.brand} Specialists Hospital. All rights reserved.</p>
+            <div className="flex gap-8">
+              <Link href="#" className="hover:underline">Privacy Policy</Link>
+              <Link href="#" className="hover:underline">Terms of Service</Link>
+            </div>
           </div>
-        </div>
 
-        <Image
-          src="/logo.svg"
-          alt="Elemats Logo"
-          fill
-          className="object-contain pointer-events-none z-0 opacity-10"
-          priority
-          loading="eager"
-        />
-      </div>
-    </footer>
+          <Image
+            src="/logo.svg"
+            alt="Elemats Logo"
+            fill
+            className="object-contain pointer-events-none z-0 opacity-25"
+            priority
+            loading="eager"
+          />
+        </div>
+      </footer>
+    </>
   );
 };
 

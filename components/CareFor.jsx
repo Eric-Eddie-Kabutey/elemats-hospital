@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 const CareFor = () => {
   return (
-    <section id="care" className="relative py-20 lg:py-32 bg-white">
+    <section id="care" className="relative section-padding bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Responsive Grid - 1 col mobile, 2 col tablet (md), 3 col desktop (lg) */}
@@ -14,10 +14,10 @@ const CareFor = () => {
             {/* Header Content */}
             <div className="text-center space-y-6 md:space-y-8">
               <div className="flex items-center justify-center mb-4">
-                <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Who we are</span>
+                <span className="text-primary capitalize tracking-widest text-[14px] font-normal">Who we are</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
+              <h2 className="text-4xl md:text-5xl capitalize font-normal text-slate-800 tracking-tight leading-tight">
                 Get care today for a variety of needs
               </h2>
 
@@ -26,7 +26,7 @@ const CareFor = () => {
               </p>
 
               <div className="flex justify-center">
-                <button className="flex items-center gap-2 bg-black text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-zinc-800 transition-all shadow-lg group">
+                <button className="flex items-center gap-2 bg-primary text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-primary/80 transition-all shadow-lg group">
                   Book Appointment
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -62,7 +62,7 @@ const CareFor = () => {
             {/* Secondary Stat - Visible on Tablet/Mobile to fill gap */}
             <div className=" flex flex-col text-center">
               <span className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight capitalize">service quality</span>
-              <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] font-sans">Dedicated to your well-being</span>
+              <span className="text-primary capitalize tracking-widest text-[14px] font-normal">Dedicated to your well-being</span>
             </div>
           </div>
 

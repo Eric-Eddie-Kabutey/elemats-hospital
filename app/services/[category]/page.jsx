@@ -1,61 +1,67 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { use } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import InnerPageHero from "@/components/InnerPageHero";
 import { SERVICES_TABS, SERVICE_CARDS } from "@/constants/constants";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import Partners from "./Partners";
+import { ArrowUpRight, Stethoscope } from "lucide-react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
-const Services = () => {
-  const [activeTab, setActiveTab] = useState(SERVICES_TABS[0].id);
+export default function CategoryPage({ params }) {
+  const { category } = use(params);
+  
+  const tab = SERVICES_TABS.find(t => t.id === category);
+  
+  if (!tab) {
+    return (
+      <div className="min-h-screen pt-40 px-12 text-black">
+        <h1>DEBUG: Not found.</h1>
+        <p>Attempted category param: {String(category)}</p>
+        <p>Type of param: {typeof category}</p>
+        <p>Available IDs: {SERVICES_TABS.map(t => t.id).join(', ')}</p>
+      </div>
+    );
+  }
+
+  const cards = SERVICE_CARDS[category] || [];
 
   return (
-    <section id="services" className="relative section-padding p-2 md:p-4 bg-white">
-      <div className="bg-slate-50 w-full text-white rounded-3xl mx-auto py-32 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-6">
-            <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
-              What We Offer
-            </h2>
+    <main>
+      <Navbar />
+      <InnerPageHero
+        title={tab.label}
+        description={tab.description}
+      />
 
-            {/* Tabs */}
-            <div className="flex flex-col items-center gap-12 mt-8">
-              <div className="flex flex-wrap justify-center gap-4 px-4">
-                {SERVICES_TABS.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`px-8 md:px-12 py-3 rounded-full text-sm md:text-lg font-normal tracking-tight transition-all duration-500 border ${activeTab === tab.id
-                        ? "bg-primary border-primary text-white shadow-[0_15px_30px_rgba(var(--primary-rgb),0.3)] scale-105"
-                        : "bg-transparent border-slate-200 text-slate-500 hover:border-primary hover:text-primary"
-                      }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-              
-              <p className="max-w-3xl mx-auto text-xl md:text-2xl text-slate-500 leading-relaxed font-light italic">
-                &quot;{SERVICES_TABS.find(t => t.id === activeTab)?.description}&quot;
+      <section id="services-grid" className="relative section-padding p-2 md:p-4 bg-white min-h-[50vh]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
+          
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start my-12 pt-12">
+            <div className="lg:w-1/2">
+              <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.1] tracking-tight">
+                Our specialized <span className="text-primary">{tab.label.toLowerCase()}</span> services.
+              </h2>
+            </div>
+            <div className="lg:w-1/2">
+              <p className="capitalize text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
+                {tab.description} We are committed to offering the highest quality healthcare through skilled professionals and advanced technology.
               </p>
             </div>
           </div>
 
-          {/* Grid */}
-          <div 
-            key={activeTab}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000"
-          >
-            {SERVICE_CARDS[activeTab].map((service, index) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 mt-16">
+            {cards.map((service, index) => {
               const slug = service.title.toLowerCase().replace(/\s+/g, '-');
               return (
                 <Link
                   key={index}
-                  href={`/services/${activeTab}/${slug}`}
-                  className={`group relative overflow-hidden bg-slate-200 transition-all duration-700 cursor-pointer ring-1 ring-slate-100 ${
+                  href={`/services/${category}/${slug}`}
+                  className={`group relative overflow-hidden bg-slate-200 transition-all duration-700 cursor-pointer shadow-xl ${
                     index === 0 
-                      ? "sm:col-span-2 lg:col-span-2 lg:row-span-2 aspect-4/3 sm:aspect-video lg:aspect-square" 
+                      ? "sm:col-span-2 lg:col-span-2 lg:row-span-2 aspect-[4/3] sm:aspect-video lg:aspect-square" 
                       : "aspect-square"
                   } ${
                     index % 2 === 0
@@ -72,15 +78,12 @@ const Services = () => {
                     className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
                   
-                  {/* Refined Overlay */}
                   <div className={`absolute inset-0 bg-linear-to-t ${index === 0 ? "from-black/90 via-black/40" : "from-black/90 via-black/50"} to-transparent transition-opacity duration-500 group-hover:opacity-95`}></div>
                   
-                  {/* Minimal Top-left Arrow Icon */}
                   <div className={`absolute top-8 left-8 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:bg-white group-hover:-rotate-45 ${index === 0 ? "w-12 h-12" : "w-10 h-10"}`}>
                     <ArrowUpRight className={`${index === 0 ? "w-6 h-6" : "w-5 h-5"} text-white group-hover:text-black transition-colors`} />
                   </div>
 
-                  {/* Bottom Text - Refined position and size */}
                   <div className={`absolute right-8 ${index === 0 ? "bottom-8 md:bottom-12 left-8 md:left-12 lg:left-16 lg:bottom-16 lg:right-16" : "bottom-8 left-8"}`}>
                     <h3 className={`${index === 0 ? "text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-4" : "text-xl md:text-2xl"} font-normal text-white tracking-tight leading-tight`}>
                       {service.title}
@@ -95,10 +98,10 @@ const Services = () => {
               );
             })}
           </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
-export default Services;
+        </div>
+      </section>
+      <Footer />
+    </main>
+  );
+}

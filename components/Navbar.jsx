@@ -92,7 +92,7 @@ const Navbar = () => {
       <nav className="absolute top-10 left-0 right-0 z-50 w-full font-inter">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 z-50 group">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 shadow-xl  rounded-full overflow-hidden border border-white/20 bg-white">
+            <div className="relative w-14 h-14 shadow-xl  rounded-full overflow-hidden border border-white/20 bg-white">
               <Image
                 src="/logo.svg"
                 alt="Elemats Logo"
@@ -121,7 +121,7 @@ const Navbar = () => {
                 >
                   <Link
                     href={link.href}
-                    className={`px-6 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 outline-none cursor-pointer ${isActive
+                    className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 outline-none cursor-pointer ${isActive
                       ? "bg-white text-slate-900 shadow-lg"
                       : "text-white hover:bg-white/10"
                       }`}
@@ -132,14 +132,14 @@ const Navbar = () => {
                   
                   {/* Dropdown Logic - Unified Mega Menu */}
                   {hasDropdown && link.label === "What We Do" && (
-                    <div className="absolute top-full left-1/2 -translate-x-[40%] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 translate-y-4 group-hover:translate-y-0 z-9999 w-[950px]">
-                      <div className="bg-white rounded-[32px] shadow-[0_40px_100px_rgba(0,0,0,0.12)] border border-slate-100 overflow-hidden flex min-h-[450px]">
+                    <div className="absolute shadow-2xl  top-full left-1/2 -translate-x-[40%] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-500 z-9999 w-[950px]">
+                      <div className="bg-white rounded-[32px] border border-slate-100 overflow-hidden flex min-h-[450px] transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
                         
                         {/* 1. Left Sidebar: Solutions */}
-                        <div className="w-[240px] bg-slate-50 p-6 border-r border-slate-100 flex flex-col">
+                        <div className="w-[280px] rounded-[32px] bg-slate-50/50 p-6 flex flex-col">
                           <div className="mb-6">
-                            <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Services</h3>
-                            <p className="text-[12px] text-slate-400 leading-relaxed font-medium">
+                            <h3 className="text-xl md:text-5xl capitalize font-normal text-slate-800 tracking-tight leading-tight">Services</h3>
+                            <p className="text-xs text-slate-500 font-light leading-relaxed">
                               Dedicated healthcare solutions designed for your well-being.
                             </p>
                           </div>
@@ -151,25 +151,26 @@ const Navbar = () => {
                               const isActive = hoveredServiceCategory === tabId;
 
                               return (
-                                <button
+                                <Link
                                   key={cat.label}
+                                  href={`/services/${tabId}`}
                                   onMouseEnter={() => setHoveredServiceCategory(tabId)}
-                                  className={`group/btn relative w-full text-left px-4 py-2 border border-primary/10 rounded-xl text-[13px] font-bold transition-all duration-300 flex items-center justify-between ${
+                                  className={`group/btn relative w-full text-left px-4 py-2 border border-slate-100 rounded-xl text-[14px] font-normal flex items-center justify-between ${
                                     isActive 
-                                      ? "bg-slate-200 text-primary s" 
-                                      : "text-slate-500 hover:text-slate-900 hover:bg-white/50"
+                                      ? "bg-slate-100 text-primary/80" 
+                                      : "text-slate-500 hover:text-primary hover:bg-slate-100"
                                   }`}
                                 >
                                   {cat.label}
                                   
-                                </button>
+                                </Link>
                               );
                             })}
                           </div>
                         </div>
 
                         {/* 2. Content Area: Detailed Cards */}
-                        <div className="flex-1 p-8 bg-white relative overflow-y-auto max-h-[600px]">
+                        <div className="flex-1 p-8 rounded-[32px] bg-white relative overflow-y-auto max-h-[600px]">
                           <div className="grid grid-cols-2 gap-2">
                             {link.subCategories.find(c => {
                                const matchingTab = SERVICES_TABS.find(t => t.label === c.label);
@@ -179,23 +180,23 @@ const Navbar = () => {
                               const Icon = iconList[idx % iconList.length];
 
                               return (
-                                <div key={subLink.label} className="group/item relative flex flex-col gap-1 hover:bg-slate-50 p-4 rounded-xl border border-primary/10">
+                                <div key={subLink.label} className="group/item relative flex flex-col gap-1 hover:bg-slate-50 p-4 rounded-xl border border-primary/5">
                                   <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 shrink-0 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center group-hover/item:bg-primary/5 group-hover/item:border-primary/20 transition-all duration-500">
-                                      <Icon className="w-4.5 h-4.5 text-slate-400 group-hover/item:text-primary transition-colors" />
+                                    <div className="w-10 h-10 shrink-0 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center ">
+                                      <Icon className="w-4.5 h-4.5 text-slate-400 group-hover/item:text-primary" />
                                     </div>
                                     <div className="flex-1 space-y-1">
-                                      <h5 className="text-[15px] font-bold text-slate-800 group-hover/item:text-primary transition-colors">
+                                      <h5 className="text-[15px] font-bold text-slate-800 group-hover/item:text-primary">
                                         {subLink.label}
                                       </h5>
-                                      <p className="text-[12px] text-slate-400 leading-relaxed line-clamp-2 font-medium">
+                                      <p className="text-[13px] text-slate-400 leading-relaxed line-clamp-2 font-normal">
                                         Expert specialized care focused on your health needs and recovery...
                                       </p>
                                       <Link 
                                         href={subLink.href}
-                                        className="inline-flex items-center text-[12px] font-bold text-primary opacity-80 hover:opacity-100 transition-all pt-0.5"
+                                        className="inline-flex items-center text-[12px] font-normal text-primary opacity-80 hover:opacity-100 pt-0.5"
                                       >
-                                        see more &gt;
+                                        See More &gt;
                                       </Link>
                                     </div>
                                   </div>
@@ -206,12 +207,12 @@ const Navbar = () => {
 
                           {/* Featured Highlight for Fertility */}
                           {hoveredServiceCategory === "fertility" && (
-                            <div className="mt-2 p-6 rounded-2xl bg-slate-50 border border-primary/10 flex items-center justify-between">
+                            <div className="mt-2 p-6 rounded-2xl bg-slate-50/50 border border-primary/5 flex items-center justify-between">
                               <div className="space-y-0.5">
                                 <h4 className="text-[14px] font-bold text-slate-900">Fertility Center</h4>
-                                <p className="text-[12px] text-slate-400 font-medium">Schedule a consultation with our world-renowned specialists.</p>
+                                <p className="text-[13px] text-slate-400 leading-relaxed line-clamp-2 font-normal">Schedule a consultation with our world-renowned specialists.</p>
                               </div>
-                              <button className="bg-primary text-white px-5 py-2 rounded-full text-[12px] font-bold hover:bg-primary/90 transition-all">
+                              <button className="bg-primary text-white px-5 py-2 rounded-full text-[12px] font-bold hover:bg-primary/90">
                                 Book Now
                               </button>
                             </div>
@@ -224,8 +225,8 @@ const Navbar = () => {
 
                   {/* Standard Dropdown for other links (Who We Are, Resources etc) */}
                   {hasDropdown && link.label !== "What We Do" && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-9999 w-[300px]">
-                      <div className="bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-100 p-6 overflow-hidden">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 z-[9999] w-[300px]">
+                      <div className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-100 p-4 overflow-hidden transition-transform duration-300 translate-y-2 group-hover:translate-y-0">
                         <div className="flex flex-col gap-1.5">
                           {link.subCategories.flatMap(cat => cat.links).map((subLink) => {
                             const isSubActive = pathname === subLink.href;
@@ -233,14 +234,13 @@ const Navbar = () => {
                               <Link
                                 key={subLink.label}
                                 href={subLink.href}
-                                className={`group/btn relative w-full text-left px-4 py-2.5 border border-primary/5 rounded-xl text-[13px] font-bold transition-all duration-300 flex items-center justify-between ${
+                                className={`group/btn relative w-full text-left px-4 py-2.5 rounded-xl text-[14px] font-normal flex items-center justify-between ${
                                   isSubActive 
-                                    ? "bg-slate-100 text-primary" 
-                                    : "text-slate-500 hover:text-slate-900 hover:bg-slate-50 shadow-sm shadow-transparent hover:shadow-primary/5"
+                                    ? "bg-slate-100 text-primary/80" 
+                                    : "text-slate-500 hover:text-primary hover:bg-slate-100"
                                 }`}
                               >
                                 {subLink.label}
-                                <div className={`w-1 h-1 rounded-full bg-primary transition-all duration-300 ${isSubActive ? "opacity-100 scale-100" : "opacity-0 scale-0 group-hover/btn:opacity-100 group-hover/btn:scale-100"}`} />
                               </Link>
                             );
                           })}
@@ -269,7 +269,7 @@ const Navbar = () => {
               </button>
 
               {langDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 z-10000 animate-in fade-in zoom-in duration-200">
+                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 z-[10000] animate-in fade-in zoom-in duration-200">
                   {LANGUAGES.map((lang) => (
                     <button
                       key={lang.id}
@@ -318,18 +318,18 @@ const Navbar = () => {
         className={`fixed right-0 top-0 bottom-0 z-50 w-3/4 max-w-sm bg-white p-8 shadow-2xl transition-transform duration-500 lg:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
-        <div className="flex flex-col gap-8 pt-20 h-full overflow-y-auto pb-12">
+        <div className="flex flex-col gap-0 pt-4 h-full overflow-y-auto pb-12">
           {NAV_LINKS.map((link, i) => {
             const hasSublinks = link.subLinks && link.subLinks.length > 0;
             const hasSubCategories = link.subCategories && link.subCategories.length > 0;
             const hasDropdown = hasSublinks || hasSubCategories;
 
             return (
-              <div key={link.label} className="space-y-4">
+              <div key={link.label} className="space-y-4 mb-8">
                 <Link
                   href={link.href}
                   onClick={() => !hasDropdown && setIsOpen(false)}
-                  className="text-2xl font-bold text-slate-800 hover:text-black transition-colors block border-b border-slate-100 pb-4"
+                  className="text-2xl font-normal text-slate-800 hover:text-black transition-colors block "
                 >
                   <div className="flex justify-between items-center">
                     {link.label}
@@ -345,7 +345,7 @@ const Navbar = () => {
                         key={sub.label}
                         href={sub.href}
                         onClick={() => setIsOpen(false)}
-                        className="text-lg font-medium text-slate-500 hover:text-primary transition-colors"
+                        className="text-lg font-normal text-slate-500 hover:text-primary transition-colors"
                       >
                         {sub.label}
                       </Link>
@@ -358,7 +358,7 @@ const Navbar = () => {
                   <div className="space-y-6">
                     {link.subCategories.map((cat) => (
                       <div key={cat.label} className="space-y-3">
-                        <h4 className="text-md font-bold uppercase tracking-widest text-primary opacity-60">
+                        <h4 className="text-md font-normal uppercase tracking-widest text-primary opacity-60">
                           {cat.label}
                         </h4>
                         <div className="flex flex-col gap-3">
@@ -367,7 +367,7 @@ const Navbar = () => {
                               key={subLink.label}
                               href={subLink.href}
                               onClick={() => setIsOpen(false)}
-                              className="text-sm font-medium text-slate-500 hover:text-primary transition-colors"
+                              className="text-md font-normal text-slate-500 underline hover:text-primary transition-colors"
                             >
                               {subLink.label}
                             </Link>
@@ -380,14 +380,14 @@ const Navbar = () => {
               </div>
             );
           })}
-          <button className="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-xl font-bold shadow-xl active:scale-95 transition-transform">
+          <button className="mb-4 flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-xl font-normal shadow-xl active:scale-95 transition-transform">
             <Phone size={20} fill="currentColor" stroke="none" />
             Call Now
           </button>
 
-          <button className="flex items-center justify-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-xl font-bold shadow-xl active:scale-95 transition-transform">
+          <button className="flex items-center justify-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-xl font-normal shadow-xl active:scale-95 transition-transform">
             <Pill size={20} fill="currentColor" stroke="none" />
-            Refill Medication
+            Refill
           </button>
         </div>
       </div>

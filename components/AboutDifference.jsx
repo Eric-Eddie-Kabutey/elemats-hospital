@@ -20,7 +20,7 @@ export default function AboutDifference() {
   ];
 
   return (
-    <section className="pb-24 bg-white">
+    <section className="section-padding bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Header Section */}

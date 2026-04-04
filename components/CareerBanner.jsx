@@ -26,6 +26,7 @@ const AutoCarousel = ({ images, interval = 5000 }) => {
             src={img}
             alt={`Career Banner ${idx}`}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
           />
         </div>
@@ -76,6 +77,7 @@ const CareerBanner = () => {
                 src="/career/banner/1 (1).jpg" 
                 alt="Career 1" 
                 fill 
+                sizes="(max-width: 768px) 100vw, 25vw"
                 className="object-cover"
               />
             </div>
@@ -84,6 +86,7 @@ const CareerBanner = () => {
                 src="/career/banner/1 (2).jpg" 
                 alt="Career 2" 
                 fill 
+                sizes="(max-width: 768px) 100vw, 25vw"
                 className="object-cover"
               />
             </div>
@@ -97,6 +100,7 @@ const CareerBanner = () => {
               src="/career/banner/1 (3).jpg" 
               alt="Career 3" 
               fill 
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -107,6 +111,7 @@ const CareerBanner = () => {
               src="/career/banner/1 (4).jpg" 
               alt="Career 4" 
               fill 
+              sizes="(max-width: 1024px) 100vw, 25vw"
               className="object-cover"
             />
           </div>
@@ -118,6 +123,7 @@ const CareerBanner = () => {
                 src="/career/banner/1 (5).jpg" 
                 alt="Career 5" 
                 fill 
+                sizes="(max-width: 1024px) 100vw, 25vw"
                 className="object-cover"
               />
             </div>
@@ -126,6 +132,7 @@ const CareerBanner = () => {
                 src="/career/banner/1 (6).jpg" 
                 alt="Career 6" 
                 fill 
+                sizes="(max-width: 1024px) 100vw, 25vw"
                 className="object-cover"
               />
             </div>

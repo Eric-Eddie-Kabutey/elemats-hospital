@@ -24,7 +24,7 @@ const CareerOpenRoles = () => {
   };
 
   return (
-    <section className="w-full py-24 bg-white ">
+    <section className="w-full section-padding bg-white ">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
@@ -63,7 +63,7 @@ const CareerOpenRoles = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {filteredRoles.map((role) => (
-                <div key={role.id} className="group bg-slate-50 rounded-4xl p-8 border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-2xl transition-all duration-500">
+                <div key={role.id} className="group bg-slate-50 rounded-4xl p-8 border border-transparent hover:border-primary/20 transition-all duration-500">
                   <div className="flex justify-between items-start mb-6">
                     <span className={`px-4 py-1.5 ${getTagColor(role.category)} text-[10px] font-medium rounded-full uppercase tracking-widest`}>
                       {role.category}
@@ -77,7 +77,7 @@ const CareerOpenRoles = () => {
                   </p>
                   <Link 
                     href={`/careers/${role.id}`}
-                    className="flex items-center gap-2 bg-black text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-emerald-600 transition-all shadow-lg group w-fit"
+                    className="flex items-center gap-2 bg-black text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-primary transition-all shadow-lg group w-fit"
                   >
                     Apply Now
                     <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform inline-block ml-2" />

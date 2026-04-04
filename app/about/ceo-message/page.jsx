@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InnerPageHero from "@/components/InnerPageHero";
 import Image from "next/image";
-import DontDelay from "@/components/DontDelay";
 
 export default function CEOMessagePage() {
   return (
@@ -28,15 +27,19 @@ export default function CEOMessagePage() {
                 />
               </div>
               <div className="mt-8 space-y-2">
-                <h3 className="text-2xl font-bold text-slate-900">Dr. Lamin Drammeh</h3>
-                <p className="text-primary font-bold tracking-widest uppercase text-sm">Founder & CEO, Elemats Hospital</p>
+                <h3 className="text-2xl font-normal text-slate-900">Dr. Lamin Drammeh</h3>
+                <p className="text-primary font-normal tracking-widest uppercase text-sm">Founder & CEO, Elemats Hospital</p>
               </div>
             </div>
 
             {/* Message Content */}
             <div className="space-y-8 text-lg text-slate-600 leading-relaxed font-light">
-              <p className="text-2xl text-slate-900 font-medium leading-normal italic">
+              <p className="text-2xl text-slate-900 font-normal leading-normal">
                 "At Elemats Hospital, our mission is more than just providing healthcare; it's about building a legacy of trust and restorative care within our community."
+              </p>
+
+              <p>
+                As we continue to expand our facilities and integrate the latest medical technologies, our core values remain unchanged. We invest in our people, our infrastructure, and our community to ensure that Elemats Specialist Hospital remains a beacon of quality healthcare in the region.
               </p>
               
               <p>
@@ -52,21 +55,18 @@ export default function CEOMessagePage() {
               </p>
 
               <p>
-                Thank you for trusting us with your health and the health of your loved ones. We are honored to serve you.
+                Our commitment to "Advanced Care with a Human Touch" is evident in every interaction. Whether it's our state-of-the-art Fertility and IVF center helping families grow, or our emergency team working around the clock to save lives, we prioritize the dignity and well-being of every patient who walks through our doors.
               </p>
 
-              <div className="pt-10 border-t border-slate-100 italic">
-                <p>Warmest regards,</p>
-                <p className="font-bold text-slate-900 mt-2">Dr. Lamin Drammeh</p>
-              </div>
+              <p>
+                Thank you for trusting us with your health and the health of your loved ones. We are honored to serve you.
+              </p>
+              <p>Warmest regards,</p>
             </div>
 
           </div>
         </div>
       </section>
-
-      <DontDelay />
-
       <Footer />
     </main>
   );

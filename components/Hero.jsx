@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-[85vh] md:min-h-screen p-2 md:p-4 bg-white">
       {/* Main Rounded Box */}
-      <div className="relative w-full min-h-[95vh] flex flex-col justify-center lg:justify-end rounded-b-3xl overflow-hidden shadow-sm">
+      <div className="relative w-full min-h-[95vh] flex flex-col justify-center lg:justify-end rounded-3xl overflow-hidden shadow-sm">
 
         {/* Background Image */}
         <div className="absolute inset-0 rounded-b-3xl">
@@ -29,22 +29,21 @@ const Hero = () => {
 
         {/* Hero Content */}
         <div className="relative h-auto flex flex-col justify-center text-white z-10 pt-48 lg:pt-0">
-          <div className="h-full w-full max-w-[1800px] mx-auto pl-6 md:pl-12 flex flex-col lg:flex-row justify-between lg:items-end gap-12 lg:gap-12">
+          <div className="h-full w-full max-w-[1800px] mx-auto pr-6 md:pr-0 pl-6 md:pl-12 flex flex-col lg:flex-row justify-between lg:items-end gap-12 lg:gap-12">
 
             {/* Left Main Content */}
             <div className="w-full lg:max-w-4xl pb-16 lg:pb-24">
-              <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-[100px] font-bold leading-tight md:leading-none tracking-tight mb-6 md:mb-8">
-                Seamless <br />
-                <span className="flex items-center gap-6">Dental Care</span>
+              <h1 className="text-6xl md:text-7xl lg:text-[100px] font-bold leading-tight md:leading-none tracking-tight mb-6 md:mb-8">
+                Elemats<br />
+                <span className="flex items-center gap-6">Specialist Hospital</span>
               </h1>
 
-              <p className="text-base sm:text-lg md:text-2xl text-white/90 max-w-2xl font-light leading-relaxed mb-8 md:mb-10">
-                Whether it&apos;s a routine checkup or a major dental emergency, <br className="hidden md:block" />
-                our experienced professionals are just a call away
+              <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-light leading-relaxed mb-8 md:mb-10">
+                At Elemats Specialist Hospital, our main goal is to make Couples a Family. We run Infertility Programmes and make your worries fade out.
               </p>
 
               <div>
-                <button className="flex items-center gap-3 bg-white text-black px-6 py-3.5 md:px-10 md:py-5 rounded-full text-sm md:text-xl font-normal hover:bg-zinc-100 transition-all shadow-2xl hover:scale-105 active:scale-95 group/btn">
+                <button className="flex items-center gap-3 bg-white text-black px-6 py-3.5 md:px-10 md:py-5 rounded-full text-xl font-normal hover:bg-zinc-100 transition-all shadow-2xl group/btn">
                   Book Appointment
                   <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover/btn:translate-x-2 transition-transform duration-300" />
                 </button>
@@ -63,8 +62,8 @@ const Hero = () => {
                 />
               </div>
               <div className="space-y-3 sm:space-y-4">
-                <h3 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Refill Medication</h3>
-                <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
+                <h3 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight mb-1">Refill Medication</h3>
+                <p className="text-lg md:text-xl text-slate-500 font-light leading-tight mb-6">
                   Easily request refills for your prescriptions online and pick them up at your convenience.
                 </p>
                 <div className="flex justify-start">

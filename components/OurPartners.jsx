@@ -11,7 +11,7 @@ export default function OurPartners() {
   ];
 
   return (
-    <section id="partners" className="flex flex-row justify-center items-center py-24 bg-white">
+    <section id="partners" className="flex flex-row justify-center section-padding items-center bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header Content */}
