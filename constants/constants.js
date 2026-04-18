@@ -22,7 +22,7 @@ export const LOCATIONS = [
     email: "info@elematshospital.com",
     hours: "24/7 Emergency Care",
     icon: MapPin,
-    image: "/WhatWeOffer/Ambulance Evacuation & Emergency Medical Support.jpg"
+    image: "/stock/loc-2.jpeg"
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ export const LOCATIONS = [
     email: "fertility@elematshospital.com",
     hours: "Mon - Sat: 8 AM - 6 PM",
     icon: MapPin,
-    image: "/WhatWeOffer/Specialist Services.jpg"
+    image: "/stock/loc-2.jpeg"
   }
 ];
 
@@ -386,42 +386,42 @@ export const WORK_CULTURE = [
     title: "Shared Respect",
     description: "A workplace built on mutual trust where every medical professional's voice is heard and valued.",
     icon: Heart,
-    img: "/career/banner/1 (1).jpg"
+    img: "/stock/staff-10.jpeg"
   },
   {
     id: 2,
     title: "Family Bond",
     description: "We work as a close-knit clinical family, celebrating successes and supporting each other's growth.",
     icon: Users,
-    img: "/career/banner/1 (2).jpg"
+    img: "/stock/staff-14.jpeg"
   },
   {
     id: 3,
     title: "Career Elevation",
     description: "Access to advanced medical training and specialized certifications to advance your clinical journey.",
     icon: GraduationCap,
-    img: "/career/banner/1 (3).jpg"
+    img: "/stock/staff-11.jpeg"
   },
   {
     id: 4,
     title: "Supportive Culture",
     description: "Genuine care and professional support from leadership to ensure your well-being and success.",
     icon: ShieldCheck,
-    img: "/career/banner/1 (4).jpg"
+    img: "/stock/staff-13.jpeg"
   },
   {
     id: 5,
     title: "Vibrant Community",
     description: "A lively and energetic medical team spirit that makes every clinical day a rewarding experience.",
     icon: Star,
-    img: "/career/banner/1 (5).jpg"
+    img: "/stock/staff-11.jpeg"
   },
   {
     id: 6,
     title: "Hospital Pride",
     description: "Belonging to a premier medical institution dedicated to excellence in modern patient care.",
     icon: Hospital,
-    img: "/career/banner/1 (6).jpg"
+    img: "/stock/staff-11.jpeg"
   }
 ];
 
@@ -511,28 +511,96 @@ export const OPEN_ROLES = [
 
 export const BLOG_POSTS = [
   {
-    id: "oral-health-children",
-    title: "The Importance of Oral Health in Children",
-    excerpt: "Developing good oral habits early can set the foundation for a lifetime of healthy smiles. Here's a guide for parents on ensuring children's dental wellness.",
-    date: "March 20, 2026",
+    id: "fertility-ivf-innovations",
+    title: "Innovations in Fertility & IVF Treatment",
+    excerpt: "Discover how advanced embryology and genetic screening are increasing success rates and fulfilling dreams of parenthood for families across The Gambia.",
+    author: "Dr. Ya Ida Drammeh",
+    date: "April 15, 2026",
+    category: "Fertility",
+    image: "/stock/fac-8.jpeg",
+    takeaways: [
+      "Advanced embryology lab technology is the backbone of IVF success.",
+      "Genetic screening (PGT) significantly improves pregnancy safety.",
+      "Holistic patient support is vital for the emotional fertility journey."
+    ],
+    content: `
+      <div class="space-y-6">
+        <p class="lead">Fertility treatment has undergone a remarkable transformation in recent years, moving from a specialized medical niche to a centerpiece of advanced reproductive healthcare. At Elemats Specialist Hospital, we are proud to be at the forefront of this evolution, bringing world-class IVF technology to our community.</p>
+        
+        <h2>The Role of Advanced Embryology</h2>
+        <p>The success of an IVF cycle often depends on the precision of the embryology lab. Our facility features state-of-the-art incubation systems that mimic the natural uterine environment, providing embryos with the stable conditions they need to thrive. Coupled with high-resolution micromanipulation tools, our embryologists can perform ICCS (Intracytoplasmic Sperm Injection) with unprecedented accuracy.</p>
+
+        <div class="insight-card">
+          <h4>Genetic Screening (PGT)</h4>
+          <p>By implementing Pre-implantation Genetic Testing, we can now screen embryos for chromosomal abnormalities before transfer, significantly reducing miscarriage rates and improving the chances of a healthy pregnancy.</p>
+        </div>
+
+        <p>Beyond technology, we believe in a holistic approach to fertility. This includes nutritional guidance, psychological support, and personalized care pathways that recognize the unique emotional journey of every patient.</p>
+      </div>
+    `
+  },
+  {
+    id: "minimally-invasive-surgery-impact",
+    title: "The Impact of Minimally Invasive Surgery",
+    excerpt: "Learn how laparoscopic techniques are reducing recovery times, minimizing scarring, and improving outcomes for our general and gynecological surgery patients.",
+    author: "Dr. Lamin Drammeh",
+    date: "April 08, 2026",
+    category: "Surgery",
+    image: "/stock/sur-1.jpeg",
+    takeaways: [
+      "Laparoscopy reduces recovery time from weeks to just days.",
+      "HD visualization allows for extreme precision during surgery.",
+      "Minimal tissue trauma leads to significantly less post-op pain."
+    ],
+    content: `
+      <div class="space-y-6">
+        <p class="lead">The days of large surgical incisions and long hospital stays are rapidly giving way to a more refined approach. Minimally invasive surgery, often referred to as keyhole surgery, has revolutionized the surgical landscape at Elemats Specialist Hospital.</p>
+
+        <h2>Precision Through the Lens</h2>
+        <p>Using high-definition laparoscopic cameras, our surgeons can visualize internal organs with incredible detail. This enhanced visibility allows for meticulous dissection and precise intervention, leading to significantly less blood loss during procedures.</p>
+
+        <ul>
+          <li><strong>Faster Recovery:</strong> Most patients return home within 24-48 hours.</li>
+          <li><strong>Minimal Scarring:</strong> Incisions are typically less than 1cm in length.</li>
+          <li><strong>Reduced Pain:</strong> Less tissue trauma means a significantly more comfortable post-operative journey.</li>
+        </ul>
+
+        <div class="insight-card">
+          <h4>Broad Applications</h4>
+          <p>Currently, we utilize these techniques for a wide range of procedures, from appendectomies and gall bladder removals to complex gynecological interventions like myomectomies (fibroid removal). Our commitment is to ensure that our patients benefit from the most advanced surgical standards available globally.</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: "neonatal-care-excellence",
+    title: "Ensuring Excellence in Neonatal Care",
+    excerpt: "A deep look into our specialized Neonatal Intensive Care Unit (NICU) and how we provide life-saving support for our most vulnerable newborns.",
+    author: "Awa Ceesay",
+    date: "March 28, 2026",
     category: "Pediatrics",
-    image: "/images/hero.jpg"
-  },
-  {
-    id: "preparing-dental-visit",
-    title: "How to Prepare for Your First Dental Visit at Elemats",
-    excerpt: "Feeling nervous? Our step-by-step guide walks you through what to expect during your first appointment at our state-of-the-art facility.",
-    date: "March 15, 2026",
-    category: "Patient Guide",
-    image: "/images/hero.jpg"
-  },
-  {
-    id: "advanced-imaging-tech",
-    title: "Understanding Our Advanced Diagnostic Imaging Technology",
-    excerpt: "Explore how Elemats uses cutting-edge 3D imaging to provide high-precision diagnostics and personalized treatment plans for our patients.",
-    date: "March 10, 2026",
-    category: "Technology",
-    image: "/images/hero.jpg"
+    image: "/stock/fac-4.jpeg",
+    takeaways: [
+      "24/7 specialized monitoring is crucial for high-risk newborns.",
+      "Kangaroo Care (skin-to-skin) is integrated into our NICU protocol.",
+      "Controlled environment technology mimics the womb for preemies."
+    ],
+    content: `
+      <div class="space-y-6">
+        <p class="lead">Every birth is a miracle, but for some newborns, the transition to life outside the womb requires extra specialized care. The Elemats Neonatal Intensive Care Unit (NICU) is designed to be a haven of advanced medical support and compassionate monitoring.</p>
+
+        <h2>A Sanctuaries for the Smallest</h2>
+        <p>Our NICU is equipped with high-tech incubators that provide a controlled environment for temperature and humidity, essential for premature infants. We also feature advanced respiratory support systems, including non-invasive ventilation techniques that protect delicate newborn lungs.</p>
+
+        <p>But medical equipment is only half the story. Our dedicated neonatal nursing team provides 24/7 bedside care, ensuring that every subtle change in a baby's condition is noted and addressed immediately. We prioritize "Kangaroo Care" (skin-to-skin contact) even in the NICU, recognizing its vital role in stabilization and bonding.</p>
+
+        <blockquote>
+          "Our goal is not just to see these babies survive, but to see them thrive. We treat every child in our NICU as if they were our own, with the highest level of clinical precision and human warmth."
+        </blockquote>
+
+        <p>At Elemats, we are continuous learners. Our neonatal protocols are regularly updated to reflect the latest global pediatrics guidelines, ensuring that Gambian families have access to the absolute best in newborn care.</p>
+      </div>
+    `
   }
 ];
 

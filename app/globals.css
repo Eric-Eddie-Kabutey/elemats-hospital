@@ -38,4 +38,61 @@
   .premium-card {
     @apply bg-white rounded-3xl p-8 ;
   }
+
+  .blog-content-rich {
+    @apply text-lg font-light text-slate-600 leading-relaxed max-w-3xl mx-auto;
+  }
+
+  /* Editorial Elements */
+  .blog-content-rich p.lead {
+    @apply text-2xl text-slate-900 font-light mb-12 leading-relaxed;
+  }
+
+  .blog-content-rich p:first-of-type::first-letter {
+    @apply float-left text-5xl md:text-7xl font-bold text-primary mr-4 mt-2 font-outfit;
+  }
+
+  .blog-content-rich h2, .blog-content-rich h3 {
+    @apply font-outfit font-semibold text-slate-900 mt-20 mb-8 tracking-tight;
+  }
+  
+  .blog-content-rich h2 { @apply text-4xl md:text-5xl border-l-4 border-primary pl-8 -ml-9; }
+  .blog-content-rich h3 { @apply text-2xl md:text-3xl; }
+  
+  .blog-content-rich p {
+    @apply mb-10;
+  }
+
+  .blog-content-rich ul {
+    @apply space-y-6 my-12;
+  }
+
+  .blog-content-rich ul li {
+    @apply relative pl-8 before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-2 before:bg-primary before:rounded-full font-light;
+  }
+
+  .blog-content-rich blockquote {
+    @apply bg-slate-50 border-y border-slate-200 px-10 py-12 my-16 italic text-2xl md:text-3xl text-slate-800 font-light text-center leading-relaxed rounded-3xl;
+  }
+
+  .blog-content-rich img {
+    @apply rounded-[2.5rem] shadow-2xl my-16 border border-slate-100 ring-8 ring-slate-50;
+  }
+
+  /* Enhanced Insight Card */
+  .blog-content-rich .insight-card {
+    @apply bg-primary/5 rounded-[2rem] p-10 md:p-14 my-16 border border-primary/10 relative overflow-hidden;
+  }
+
+  .blog-content-rich .insight-card::before {
+    @apply content-[''] absolute top-0 left-0 w-1.5 h-full bg-primary;
+  }
+
+  .blog-content-rich .insight-card h4 {
+    @apply text-2xl font-bold text-primary mb-6 font-outfit;
+  }
+
+  .blog-content-rich .insight-card .label {
+    @apply text-[10px] uppercase font-bold tracking-[0.3em] text-primary/60 mb-8 block;
+  }
 }

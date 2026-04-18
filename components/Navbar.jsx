@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Phone, Menu, X, ChevronDown, Globe, HeartPulse, Activity, Stethoscope, Microscope, Syringe, Pill } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -131,123 +132,136 @@ const Navbar = () => {
                   </Link>
                   
                   {/* Dropdown Logic - Unified Mega Menu */}
-                  {hasDropdown && link.label === "What We Do" && (
-                    <div className="absolute shadow-2xl  top-full left-1/2 -translate-x-[40%] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-500 z-9999 w-[950px]">
-                      <div className="bg-white rounded-[32px] border border-slate-100 overflow-hidden flex min-h-[450px] transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                        
-                        {/* 1. Left Sidebar: Solutions */}
-                        <div className="w-[280px] rounded-[32px] bg-slate-50/50 p-6 flex flex-col">
-                          <div className="mb-6">
-                            <h3 className="text-xl md:text-5xl capitalize font-normal text-slate-800 tracking-tight leading-tight">Services</h3>
-                            <p className="text-xs text-slate-500 font-light leading-relaxed">
-                              Dedicated healthcare solutions designed for your well-being.
-                            </p>
-                          </div>
+                  <AnimatePresence>
+                    {hasDropdown && link.label === "What We Do" && isOpen && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 15 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute shadow-2xl top-full left-1/2 -translate-x-[40%] pt-4 z-9999 w-[950px]"
+                      >
+                        <div className="bg-transparent rounded-3xl border border-slate-100 overflow-hidden flex min-h-[450px]">
                           
-                          <div className="flex flex-col gap-2">
-                            {link.subCategories.map((cat, idx) => {
-                              const currentTab = SERVICES_TABS.find(t => t.label === cat.label);
-                              const tabId = currentTab ? currentTab.id : "fertility";
-                              const isActive = hoveredServiceCategory === tabId;
+                          {/* 1. Left Sidebar: Solutions */}
+                          <div className="w-[280px] bg-slate-50 p-6 flex flex-col rounded-bl-3xl">
+                            <div className="mb-6">
+                              <h3 className="text-xl md:text-5xl capitalize font-normal text-slate-800 tracking-tight leading-tight">Services</h3>
+                              <p className="text-xs text-slate-500 font-light leading-relaxed">
+                                Dedicated healthcare solutions designed for your well-being.
+                              </p>
+                            </div>
+                            
+                            <div className="flex flex-col gap-2">
+                              {link.subCategories.map((cat, idx) => {
+                                const currentTab = SERVICES_TABS.find(t => t.label === cat.label);
+                                const tabId = currentTab ? currentTab.id : "fertility";
+                                const isActive = hoveredServiceCategory === tabId;
 
+                                return (
+                                  <Link
+                                    key={cat.label}
+                                    href={`/services/${tabId}`}
+                                    onMouseEnter={() => setHoveredServiceCategory(tabId)}
+                                    className={`group/btn relative w-full text-left px-4 py-2 border border-slate-100 rounded-xl text-[14px] font-normal flex items-center justify-between ${
+                                      isActive 
+                                        ? "bg-slate-100 text-primary/80" 
+                                        : "text-slate-500 hover:text-primary hover:bg-slate-100"
+                                    }`}
+                                  >
+                                    {cat.label}
+                                    
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+
+                          {/* 2. Content Area: Detailed Cards */}
+                          <div className="flex-1 p-8 bg-white relative overflow-y-auto max-h-[600px] rounded-br-3xl">
+                            <div className="grid grid-cols-2 gap-2">
+                              {link.subCategories.find(c => {
+                                 const matchingTab = SERVICES_TABS.find(t => t.label === c.label);
+                                 return (matchingTab ? matchingTab.id : null) === hoveredServiceCategory;
+                              })?.links.slice(0, 6).map((subLink, idx) => {
+                                const iconList = [HeartPulse, Activity, Stethoscope, Microscope, Syringe, Globe];
+                                const Icon = iconList[idx % iconList.length];
+
+                                return (
+                                  <Link key={subLink.label} href={subLink.href} className="group/item relative flex flex-col gap-1 hover:bg-slate-50 p-4 rounded-xl border border-primary/5">
+                                    <div className="flex items-start gap-4">
+                                      <div className="w-10 h-10 shrink-0 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center ">
+                                        <Icon className="w-4.5 h-4.5 text-slate-400 group-hover/item:text-primary" />
+                                      </div>
+                                      <div className="flex-1 space-y-1">
+                                        <h5 className="text-[15px] font-bold text-slate-800 group-hover/item:text-primary">
+                                          {subLink.label}
+                                        </h5>
+                                        <p className="text-[13px] text-slate-400 leading-relaxed line-clamp-2 font-normal">
+                                          Expert specialized care focused on your health needs and recovery...
+                                        </p>
+                                        <span className="inline-flex items-center text-[12px] font-normal text-primary opacity-80 hover:opacity-100 pt-0.5">
+                                          See More &gt;
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+
+                            {/* Featured Highlight for Fertility */}
+                            {hoveredServiceCategory === "fertility" && (
+                              <div className="mt-2 p-6 rounded-2xl bg-slate-50/50 border border-primary/5 flex items-center justify-between">
+                                <div className="space-y-0.5">
+                                  <h4 className="text-[14px] font-bold text-slate-900">Fertility Center</h4>
+                                  <p className="text-[13px] text-slate-400 leading-relaxed line-clamp-2 font-normal">Schedule a consultation with our world-renowned specialists.</p>
+                                </div>
+                                <button className="bg-primary text-white px-5 py-2 rounded-full text-[12px] font-bold hover:bg-primary/90">
+                                  Book Now
+                                </button>
+                              </div>
+                            )}
+                          </div>
+
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Standard Dropdown for other links (Who We Are, Resources etc) */}
+                  <AnimatePresence>
+                    {hasDropdown && link.label !== "What We Do" && isOpen && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 15 }}
+                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4 z-9999 w-[300px]"
+                      >
+                        <div className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-100 p-4 overflow-hidden">
+                          <div className="flex flex-col gap-1.5">
+                            {link.subCategories.flatMap(cat => cat.links).map((subLink) => {
+                              const isSubActive = pathname === subLink.href;
                               return (
                                 <Link
-                                  key={cat.label}
-                                  href={`/services/${tabId}`}
-                                  onMouseEnter={() => setHoveredServiceCategory(tabId)}
-                                  className={`group/btn relative w-full text-left px-4 py-2 border border-slate-100 rounded-xl text-[14px] font-normal flex items-center justify-between ${
-                                    isActive 
+                                  key={subLink.label}
+                                  href={subLink.href}
+                                  className={`group/btn relative w-full text-left px-4 py-2.5 rounded-xl text-[14px] font-normal flex items-center justify-between ${
+                                    isSubActive 
                                       ? "bg-slate-100 text-primary/80" 
                                       : "text-slate-500 hover:text-primary hover:bg-slate-100"
                                   }`}
                                 >
-                                  {cat.label}
-                                  
+                                  {subLink.label}
                                 </Link>
                               );
                             })}
                           </div>
                         </div>
-
-                        {/* 2. Content Area: Detailed Cards */}
-                        <div className="flex-1 p-8 rounded-[32px] bg-white relative overflow-y-auto max-h-[600px]">
-                          <div className="grid grid-cols-2 gap-2">
-                            {link.subCategories.find(c => {
-                               const matchingTab = SERVICES_TABS.find(t => t.label === c.label);
-                               return (matchingTab ? matchingTab.id : null) === hoveredServiceCategory;
-                            })?.links.slice(0, 6).map((subLink, idx) => {
-                              const iconList = [HeartPulse, Activity, Stethoscope, Microscope, Syringe, Globe];
-                              const Icon = iconList[idx % iconList.length];
-
-                              return (
-                                <div key={subLink.label} className="group/item relative flex flex-col gap-1 hover:bg-slate-50 p-4 rounded-xl border border-primary/5">
-                                  <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 shrink-0 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center ">
-                                      <Icon className="w-4.5 h-4.5 text-slate-400 group-hover/item:text-primary" />
-                                    </div>
-                                    <div className="flex-1 space-y-1">
-                                      <h5 className="text-[15px] font-bold text-slate-800 group-hover/item:text-primary">
-                                        {subLink.label}
-                                      </h5>
-                                      <p className="text-[13px] text-slate-400 leading-relaxed line-clamp-2 font-normal">
-                                        Expert specialized care focused on your health needs and recovery...
-                                      </p>
-                                      <Link 
-                                        href={subLink.href}
-                                        className="inline-flex items-center text-[12px] font-normal text-primary opacity-80 hover:opacity-100 pt-0.5"
-                                      >
-                                        See More &gt;
-                                      </Link>
-                                    </div>
-                                  </div>
-                                </div>
-                              );
-                            })}
-                          </div>
-
-                          {/* Featured Highlight for Fertility */}
-                          {hoveredServiceCategory === "fertility" && (
-                            <div className="mt-2 p-6 rounded-2xl bg-slate-50/50 border border-primary/5 flex items-center justify-between">
-                              <div className="space-y-0.5">
-                                <h4 className="text-[14px] font-bold text-slate-900">Fertility Center</h4>
-                                <p className="text-[13px] text-slate-400 leading-relaxed line-clamp-2 font-normal">Schedule a consultation with our world-renowned specialists.</p>
-                              </div>
-                              <button className="bg-primary text-white px-5 py-2 rounded-full text-[12px] font-bold hover:bg-primary/90">
-                                Book Now
-                              </button>
-                            </div>
-                          )}
-                        </div>
-
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Standard Dropdown for other links (Who We Are, Resources etc) */}
-                  {hasDropdown && link.label !== "What We Do" && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 z-[9999] w-[300px]">
-                      <div className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-100 p-4 overflow-hidden transition-transform duration-300 translate-y-2 group-hover:translate-y-0">
-                        <div className="flex flex-col gap-1.5">
-                          {link.subCategories.flatMap(cat => cat.links).map((subLink) => {
-                            const isSubActive = pathname === subLink.href;
-                            return (
-                              <Link
-                                key={subLink.label}
-                                href={subLink.href}
-                                className={`group/btn relative w-full text-left px-4 py-2.5 rounded-xl text-[14px] font-normal flex items-center justify-between ${
-                                  isSubActive 
-                                    ? "bg-slate-100 text-primary/80" 
-                                    : "text-slate-500 hover:text-primary hover:bg-slate-100"
-                                }`}
-                              >
-                                {subLink.label}
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
@@ -269,7 +283,7 @@ const Navbar = () => {
               </button>
 
               {langDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 z-[10000] animate-in fade-in zoom-in duration-200">
+                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 z-10000 animate-in fade-in zoom-in duration-200">
                   {LANGUAGES.map((lang) => (
                     <button
                       key={lang.id}

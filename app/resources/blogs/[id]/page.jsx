@@ -87,9 +87,9 @@ export default async function BlogPostPage({ params }) {
         </div>
       </section> */}
 
-      {/* Main Image */}
-      <section className="relative  px-6 md:px-12 z-20">
-        <div className="max-w-5xl mx-auto relative h-[300px] md:h-[500px] w-full rounded-4xl overflow-hidden shadow-sm border border-white/20">
+      {/* Featured Image */}
+      <section className="relative px-6 md:px-12">
+        <div className="max-w-6xl mx-auto relative h-[300px] md:h-[400px] w-full rounded-[3rem] overflow-hidden shadow-2xl border border-white/20">
           <Image
             src={post.image}
             alt={post.title}
@@ -103,8 +103,33 @@ export default async function BlogPostPage({ params }) {
 
       {/* Article Content */}
       <section className="py-24 px-6 md:px-12 bg-white">
+        <div className="max-w-3xl mx-auto mb-20">
+          <div className="">
+            <h4 className="text-primary capitalize tracking-widest text-[14px] font-normal mb-4">At a Glance</h4>
+            <ul className="space-y-4">
+              {(post.takeaways || [
+                "Expert medical insights from our specialist team.",
+                "Evidence-based guidance for your health journey.",
+                "Commitment to excellence in patient education."
+              ]).map((item, i) => (
+                <li key={i} className="flex gap-4 text-slate-700 font-light text-base md:text-lg leading-relaxed">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         <article className="max-w-7xl mx-auto bg-white">
-          {post.content || mockContent}
+          {post.content ? (
+            <div 
+              className="blog-content-rich"
+              dangerouslySetInnerHTML={{ __html: post.content }} 
+            />
+          ) : (
+            mockContent
+          )}
         </article>
       </section>
 

@@ -50,12 +50,12 @@ const AutoCarousel = ({ images, interval = 5000 }) => {
 
 const CareerBanner = () => {
   const allImages = [
-    "/career/banner/1 (1).jpg",
-    "/career/banner/1 (2).jpg",
-    "/career/banner/1 (3).jpg",
-    "/career/banner/1 (4).jpg",
-    "/career/banner/1 (5).jpg",
-    "/career/banner/1 (6).jpg",
+    "/stock/staff-1.jpeg",
+    "/stock/staff-2.jpeg",
+    "/stock/staff-3.jpeg",
+    "/stock/staff-4.jpeg",
+    "/stock/staff-5.jpeg",
+    "/stock/staff-6.jpeg",
   ];
 
   return (
@@ -74,7 +74,7 @@ const CareerBanner = () => {
           <div className="flex flex-col gap-4 h-full">
             <div className="relative flex-1 rounded-3xl overflow-hidden shadow-sm">
               <Image 
-                src="/career/banner/1 (1).jpg" 
+                src="/stock/staff-1.jpeg" 
                 alt="Career 1" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 25vw"
@@ -83,7 +83,7 @@ const CareerBanner = () => {
             </div>
             <div className="relative h-[45%] rounded-3xl overflow-hidden shadow-sm">
               <Image 
-                src="/career/banner/1 (2).jpg" 
+                src="/stock/staff-9.jpeg" 
                 alt="Career 2" 
                 fill 
                 sizes="(max-width: 768px) 100vw, 25vw"
@@ -97,7 +97,7 @@ const CareerBanner = () => {
           
           <div className="relative h-full rounded-3xl overflow-hidden shadow-sm">
             <Image 
-              src="/career/banner/1 (3).jpg" 
+              src="/stock/staff-3.jpeg" 
               alt="Career 3" 
               fill 
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -108,7 +108,7 @@ const CareerBanner = () => {
           {/* Column 3 - Tall (Hidden on md, visible on lg) */}
           <div className="hidden lg:block relative h-full rounded-3xl overflow-hidden shadow-sm">
             <Image 
-              src="/career/banner/1 (4).jpg" 
+              src="/stock/sur-1.jpeg" 
               alt="Career 4" 
               fill 
               sizes="(max-width: 1024px) 100vw, 25vw"
@@ -120,7 +120,7 @@ const CareerBanner = () => {
           <div className="hidden lg:flex flex-col gap-4 h-full">
             <div className="relative h-[45%] rounded-3xl overflow-hidden shadow-sm">
               <Image 
-                src="/career/banner/1 (5).jpg" 
+                src="/stock/staff-8.jpeg" 
                 alt="Career 5" 
                 fill 
                 sizes="(max-width: 1024px) 100vw, 25vw"
@@ -129,7 +129,7 @@ const CareerBanner = () => {
             </div>
             <div className="relative flex-1 rounded-3xl overflow-hidden shadow-sm">
               <Image 
-                src="/career/banner/1 (6).jpg" 
+                src="/stock/staff-6.jpeg" 
                 alt="Career 6" 
                 fill 
                 sizes="(max-width: 1024px) 100vw, 25vw"

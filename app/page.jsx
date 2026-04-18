@@ -11,6 +11,7 @@ import Partners from "@/components/Partners";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
+import Newsletter from "@/components/Newsletter";
 import FloatingSocials from "@/components/FloatingSocials";
 import OurPartners from "@/components/OurPartners";
 import AboutDifference from "@/components/AboutDifference";
@@ -28,6 +29,7 @@ export default function Home() {
       <OurPartners />
       <Testimonials />
       <Faq />
+      {/* <Newsletter /> */}
       <Footer />
       <FloatingSocials />
     </main>

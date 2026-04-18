@@ -52,14 +52,14 @@ export default function CategoryPage({ params }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
             {cards.map((service, index) => {
               const slug = service.title.toLowerCase().replace(/\s+/g, '-');
               return (
                 <Link
                   key={index}
                   href={`/services/${category}/${slug}`}
-                  className={`group relative overflow-hidden bg-slate-200 transition-all duration-700 cursor-pointer shadow-xl ${
+                  className={`group relative overflow-hidden bg-slate-200 cursor-pointer shadow-xl ${
                     index === 0 
                       ? "sm:col-span-2 lg:col-span-2 lg:row-span-2 aspect-[4/3] sm:aspect-video lg:aspect-square" 
                       : "aspect-square"
@@ -75,12 +75,12 @@ export default function CategoryPage({ params }) {
                     fill
                     sizes={index === 0 ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
                     priority={index === 0}
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                    className="object-cover"
                   />
                   
-                  <div className={`absolute inset-0 bg-linear-to-t ${index === 0 ? "from-black/90 via-black/40" : "from-black/90 via-black/50"} to-transparent transition-opacity duration-500 group-hover:opacity-95`}></div>
+                  <div className={`absolute inset-0 bg-linear-to-t ${index === 0 ? "from-black/90 via-black/40" : "from-black/90 via-black/50"} to-transparent group-hover:opacity-95`}></div>
                   
-                  <div className={`absolute top-8 left-8 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:bg-white group-hover:-rotate-45 ${index === 0 ? "w-12 h-12" : "w-10 h-10"}`}>
+                  <div className={`absolute top-8 left-8 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white group-hover:-rotate-45 ${index === 0 ? "w-12 h-12" : "w-10 h-10"}`}>
                     <ArrowUpRight className={`${index === 0 ? "w-6 h-6" : "w-5 h-5"} text-white group-hover:text-black transition-colors`} />
                   </div>
 

@@ -1,4 +1,8 @@
+"use client";
+
 import { Lightbulb, ShieldCheck, Users } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 
 export default function AboutDifference() {
   const differences = [
@@ -20,25 +24,41 @@ export default function AboutDifference() {
   ];
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
-          <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="text-center max-w-3xl mx-auto space-y-4 mb-20"
+        >
+          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
             The Elemats Difference
-          </h2>
-          <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
+          </motion.h2>
+          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
             At Elemats Specialist Hospital, our core values guide how we work, serve, and grow—with our patients and for our community.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Info Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16"
+        >
           {differences.map((diff, index) => (
-            <div key={index} className="flex flex-col items-center text-center space-y-6">
+            <motion.div 
+              key={index} 
+              variants={fadeInUp}
+              className="flex flex-col items-center text-center space-y-6 group"
+            >
               {/* Icon Container */}
-              <div className="flex items-center justify-center p-2">
+              <div className="flex items-center justify-center p-2 transition-transform duration-500 group-hover:scale-110">
                 {diff.icon}
               </div>
 
@@ -51,9 +71,9 @@ export default function AboutDifference() {
                   {diff.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

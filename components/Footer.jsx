@@ -33,7 +33,7 @@ const Footer = () => {
   return (
     <>
       <DontDelay />
-      <footer className="section-padding p-2 md:p-4 bg-linear-to-t from-slate-50 to-slate-50/30">
+      <footer className="section-padding p-2 md:p-4 bg-slate-50">
         <div className="relative bg-linear-to-t from-primary/95 to-primary/80 w-full text-white rounded-3xl mx-auto pt-32 pb-8 px-6 md:px-12">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 z-30">
             {/* Logo */}

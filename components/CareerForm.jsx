@@ -10,7 +10,7 @@ const CareerForm = () => {
           <div className="lg:w-1/3 flex flex-col justify-between">
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.1] tracking-tight">
-                Become an Insider
+                Become An Insider
               </h2>
               <p className="text-lg text-slate-500 leading-relaxed font-light">
                 Thinking about joining us in the future? Elemats Insiders stay connected, get an inside look at our culture, and are the first to know about new opportunities to be part of our growing team.
@@ -23,14 +23,14 @@ const CareerForm = () => {
 
           {/* Right Column: Form */}
           <div className="lg:w-2/3">
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
               {/* First Name */}
               <div className="space-y-2">
                 <label className="text-lg font-normal text-slate-700 ml-1">First Name</label>
                 <input
                   type="text"
-                  className="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
+                  className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
                   placeholder=""
                 />
               </div>
@@ -40,7 +40,7 @@ const CareerForm = () => {
                 <label className="text-lg font-normal text-slate-700 ml-1">Last Name</label>
                 <input
                   type="text"
-                  className="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
+                  className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
                   placeholder=""
                 />
               </div>
@@ -51,7 +51,7 @@ const CareerForm = () => {
                 <input
                   type="text"
                   required
-                  className="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
+                  className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
                   placeholder=""
                 />
               </div>
@@ -62,7 +62,7 @@ const CareerForm = () => {
                 <input
                   type="email"
                   required
-                  className="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
+                  className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
                   placeholder=""
                 />
               </div>
@@ -73,7 +73,7 @@ const CareerForm = () => {
                 <input
                   type="tel"
                   required
-                  className="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
+                  className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
                   placeholder=""
                 />
               </div>
@@ -83,18 +83,18 @@ const CareerForm = () => {
                 <label className="text-lg font-normal text-slate-700 ml-1">Tell us briefly about yourself</label>
                 <textarea
                   rows={4}
-                  className="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900 resize-none"
+                  className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900 resize-none"
                   placeholder=""
                 />
               </div>
 
               {/* Submit Button */}
-              <div className="col-span-1 md:col-span-2 pt-4">
+              <div className="group col-span-1 md:col-span-2 pt-4">
                 <button
                   type="submit"
-                  className="flex items-center gap-2 text-white px-8 py-3.5 rounded-full text-sm font-normal bg-primary hover:bg-primary/80 shadow-xl shadow-primary/20 transition-all"
+                  className="flex items-center gap-2 text-white px-8 py-3.5 rounded-full text-sm font-normal bg-primary/90 hover:bg-primary shadow-lg shadow-primary/20 transition-all"
                 >
-                  Submit
+                  Submit Your Application
                   <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform inline-block ml-2" />
                 </button>
               </div>

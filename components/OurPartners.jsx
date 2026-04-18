@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 
 export default function OurPartners() {
   const partners = [
@@ -11,25 +13,35 @@ export default function OurPartners() {
   ];
 
   return (
-    <section id="partners" className="flex flex-row justify-center section-padding items-center bg-white">
+    <section id="partners" className="flex flex-row justify-center section-padding items-center bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header Content */}
-        <div className="max-w-3xl space-y-4 mb-16 text-center">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="max-w-3xl space-y-4 mb-20 text-center mx-auto"
+        >
           <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
             Our Partners & HMOs
           </h2>
-          {/* <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
-            We&apos;re proud to collaborate with leading Health Management Organizations, international agencies, and corporate institutions that share our vision for medical excellence. These partnerships help us deliver extensive and accessible healthcare to communities across The Gambia and beyond.
-          </p> */}
-        </div>
+        </motion.div>
 
         {/* Logos Grid */}
-        <div className="flex flex-wrap items-center gap-12 md:gap-16">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+          className="flex flex-wrap items-center justify-center gap-12 md:gap-16 lg:gap-20"
+        >
           {partners.map((partner, index) => (
-            <div 
+            <motion.div 
               key={index} 
-              className="relative w-32 h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              variants={fadeInUp}
+              className="relative w-32 h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer"
             >
               <Image
                 src={partner.src}
@@ -38,9 +50,9 @@ export default function OurPartners() {
                 sizes="(max-width: 768px) 128px, 160px"
                 className="object-contain"
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

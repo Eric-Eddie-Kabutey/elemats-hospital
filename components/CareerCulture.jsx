@@ -40,10 +40,10 @@ const CareerCulture = () => {
               <CarouselContent className="-ml-4 flex items-stretch">
                 {WORK_CULTURE.map((data, index) => (
                   <CarouselItem key={data.id} className="pl-4 md:basis-1/2 lg:basis-1/2">
-                    <Card className="h-full flex flex-col md:flex-row gap-4 bg-white border-none shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group">
+                    <Card className="h-full flex flex-col md:flex-row gap-4 bg-white border border-gray-200 transition-all duration-500 overflow-hidden group">
                       <div className="flex-1 flex flex-col gap-4 p-8">
                         <CardHeader className="p-0">
-                          <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center">
+                          <div className="w-12 h-12 flex items-center justify-center">
                             {data.icon && <data.icon className="w-6 h-6 text-primary" />}
                           </div>
                         </CardHeader>
@@ -77,10 +77,10 @@ const CareerCulture = () => {
                 ))}
               </CarouselContent>
               {/* Nav Arrows */}
-              <div className="hidden md:block">
+              {/* <div className="hidden md:block">
                 <CarouselPrevious className="absolute -left-16 " />
                 <CarouselNext className="absolute -right-16" />
-              </div>
+              </div> */}
             </Carousel>
           </div>
         </div>

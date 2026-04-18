@@ -1,11 +1,12 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const DontDelay = () => {
 
     return (
-        <section id="dont-delay" className="relative section-padding bg-linear-to-r from-slate-50 to-slate-50/30">
+        <section id="dont-delay" className="relative section-padding bg-slate-50">
             <div className="xl:max-w-7xl w-full mx-auto rounded-3xl">
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     
@@ -28,7 +29,7 @@ const DontDelay = () => {
                                 <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed mb-8">
                                     Your health is our priority. Schedule an appointment with our team of dedicated specialists today.
                                 </p>
-                                <button className="capitalize inline-flex items-center gap-2 bg-primary text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-primary/80 transition-all shadow-lg group">
+                                <button className="capitalize inline-flex items-center gap-2 bg-primary/80 text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-primary transition-all shadow-lg group">
                                     Book an Appointment
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </button>

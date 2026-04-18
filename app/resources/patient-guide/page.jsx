@@ -53,9 +53,9 @@ export default function PatientGuidePage() {
               {/* Guide Accordion/Grid */}
               <div className="space-y-6">
                 {PATIENT_GUIDE_DATA.map((item, index) => (
-                  <div key={index} className="group p-8 md:p-10 bg-white rounded-4xl border border-neutral-100 shadow-xs transition-all duration-500">
+                  <div key={index} className="group p-8 md:p-10 bg-white rounded-3xl transition-all duration-500">
                     <div className="flex flex-col md:flex-row gap-6 md:items-start">
-                      <div className="shrink-0 w-16 h-16 bg-primary/10 rounded-3xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                      <div className="shrink-0 w-16 h-16 bg-primary/5 rounded-3xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
                         {item.icon && <item.icon className="w-8 h-8" />}
                       </div>
                       <div className="space-y-4">
