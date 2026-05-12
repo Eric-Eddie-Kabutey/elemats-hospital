@@ -39,48 +39,14 @@ export default function LeadershipTeam() {
         role: "Chief Financial Officer",
         image: ""
       }
-    ],
-    board: [
-      {
-        name: "Dr. Lamin Drammeh",
-        role: "Chief Medical Director & Founder",
-        image: ""
-      },
-      {
-        name: "Dr. Ya Ida Drammeh",
-        role: "Director of Clinical Operations",
-        image: ""
-      },
-      {
-        name: "Nicholas Jatta",
-        role: "Head of Hospital Infrastructure",
-        image: ""
-      }
-    ],
-    management: [
-      {
-        name: "Awa Ceesay",
-        role: "Nursing Superintendent",
-        image: ""
-      },
-      {
-        name: "Musa Njie",
-        role: "Client Relations Manager",
-        image: ""
-      },
-      {
-        name: "Fatou Sanneh",
-        role: "Chief Financial Officer",
-        image: ""
-      }
     ]
   };
 
   const currentTeam = teamData[activeTab];
 
   return (
-    <section id="team" className="py-24 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="team" className="section-padding bg-slate-50">
+      <div className="max-w-7xl mx-auto">
 
         {/* Header & Tabs */}
         <div className="mb-16">
@@ -93,7 +59,7 @@ export default function LeadershipTeam() {
             </p>
           </div>
 
-          <div className="flex gap-2 mt-10">
+          {/* <div className="flex gap-2 mt-10">
             <button
               onClick={() => setActiveTab("all")}
               className={`px-8 py-3 rounded-full text-sm font transition-all duration-300 bg-primary/5 ${activeTab === "all"
@@ -103,25 +69,7 @@ export default function LeadershipTeam() {
             >
               All
             </button>
-            <button
-              onClick={() => setActiveTab("board")}
-              className={`px-8 py-3 rounded-full text-sm font transition-all duration-300 bg-primary/5 ${activeTab === "board"
-                  ? "bg-primary/90 hover:bg-primary text-white shadow-md"
-                  : "text-primary hover:bg-primary/10"
-                }`}
-            >
-              Board
-            </button>
-            <button
-              onClick={() => setActiveTab("management")}
-              className={`px-8 py-3 rounded-full text-sm font transition-all duration-300 bg-primary/5 ${activeTab === "management"
-                  ? "bg-primary/90 hover:bg-primary text-white shadow-md"
-                  : "text-primary hover:bg-primary/10"
-                }`}
-            >
-              Management
-            </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Team Grid */}

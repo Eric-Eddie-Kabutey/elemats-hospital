@@ -44,15 +44,12 @@ export default function ResourcesPage() {
             {PATIENT_GUIDE_DATA.map((item, index) => (
               <div
                 key={index}
-                className="group p-8 bg-gray-50 rounded-4xl border border-neutral-100 hover:bg-primary hover:border-primary transition-all duration-500 cursor-pointer"
+                className=""
               >
-                <div className="w-12 h-12 bg-primary/10 group-hover:bg-white/20 rounded-2xl flex items-center justify-center text-primary group-hover:text-white transition-all duration-500 mb-6">
-                  {item.icon && <item.icon className="w-6 h-6" />}
-                </div>
-                <h3 className="text-xl font-normal text-slate-900 group-hover:text-white mb-3 transition-colors duration-500">
+                <h3 className="text-2xl font-normal text-slate-900  mb-3 transition-colors duration-500">
                   {item.title}
                 </h3>
-                <p className="text-slate-500 group-hover:text-white/70 font-light text-sm leading-relaxed line-clamp-3 transition-colors duration-500">
+                <p className="text-slate-500 font-light text-sm leading-relaxed line-clamp-3 ">
                   {item.content}
                 </p>
               </div>

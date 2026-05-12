@@ -35,11 +35,11 @@ const Footer = () => {
       <DontDelay />
       <footer className="section-padding p-2 md:p-4 bg-slate-50">
         <div className="relative bg-linear-to-t from-primary/95 to-primary/80 w-full text-white rounded-3xl mx-auto pt-10 md:pt-16 pb-8 px-6 md:px-12 overflow-hidden">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 z-30 relative">
-            {/* Logo & Brand */}
-            <div className="col-span-1 flex flex-col items-center sm:items-start text-center sm:text-left">
-              <Link href="/" className="flex items-center mb-8">
-                <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-white/10 bg-white p-2 shadow-xl">
+          <div className="max-w-7xl mx-auto flex flex-row flex-wrap justify-between items-center mb-12 z-30 relative">
+            {/* Large Decorative Text */}
+            <div className="w-full flex flex-row justify-center items-center select-none pointer-events-none relative z-0">
+              <Link href="/" className="flex items-center">
+                <div className="relative w-[16vw] h-[16vw] rounded-full overflow-hidden border border-white/10 bg-slate-50 p-2 shadow-xl">
                   <Image
                     src="/logo.svg"
                     alt="Elemats Logo"
@@ -48,86 +48,98 @@ const Footer = () => {
                   />
                 </div>
               </Link>
-              <p className="text-white/60 text-sm md:text-base leading-relaxed mb-8 max-w-sm">
-                {FOOTER_CONTENT.description}
-              </p>
+              <h2 className="text-center text-[24vw] font-light font-serif capitalize text-slate-50 tracking-tighter leading-none whitespace-nowrap">
+                Elemat
+              </h2>
+            </div>
 
-              <div className="flex gap-4">
-                {FOOTER_CONTENT.socials.map((social) => {
-                  const Icon = SOCIAL_ICONS[social.platform];
-                  return (
-                    <Link
-                      key={social.platform}
-                      href={social.href}
-                      className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 border border-white/10 group"
-                      title={social.platform}
-                    >
-                      {Icon ? <Icon className="w-4 h-4" /> : <span className="text-xs font-bold">{social.platform.charAt(0)}</span>}
-                    </Link>
-                  );
-                })}
+            <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-20 justify-between mt-6">
+              {/* Services */}
+              <div className="col-span-1 text-center md:text-left">
+                <h4 className="text-xl font-normal mb-6 text-white capitalize tracking-widest pb-2 inline-block sm:block ">{FOOTER_CONTENT.sections[0].title}</h4>
+                <ul className="space-y-4">
+                  {FOOTER_CONTENT.sections[0].links.map((link) => (
+                    <li key={link.label}>
+                      <Link href={link.href} className="text-white/50 hover:text-white transition-colors text-[15px] block tracking-wider">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
 
-            {/* Services */}
-            <div className="col-span-1 text-center sm:text-left">
-              <h4 className="text-lg font-bold mb-6 text-white capitalize tracking-widest border-b border-white/10 pb-2 inline-block sm:block sm:border-0 sm:pb-0">{FOOTER_CONTENT.sections[0].title}</h4>
-              <ul className="space-y-4">
-                {FOOTER_CONTENT.sections[0].links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-white/50 hover:text-white transition-colors text-[15px] block">
-                      {link.label}
-                    </Link>
+              {/* Quick Links */}
+              <div className="col-span-1 text-center md:text-left">
+                <h4 className="text-xl font-normal mb-6 text-white capitalize tracking-widest pb-2 inline-block sm:block">{FOOTER_CONTENT.sections[1].title}</h4>
+                <ul className="space-y-4">
+                  {FOOTER_CONTENT.sections[1].links.map((link) => (
+                    <li key={link.label}>
+                      <Link href={link.href} className="text-white/50 hover:text-white transition-colors text-[15px] block tracking-wider">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact */}
+              <div className="col-span-1 hidden lg:block text-left">
+                <h4 className="text-xl font-normal mb-6 text-white capitalize tracking-widest pb-2">Contact</h4>
+                <ul className="space-y-4">
+                  <li className="flex flex-row items-center sm:items-center gap-4 text-white/50 group">
+                    <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/10 transition-colors">
+                      <Phone className="w-4 h-4 text-white/80" />
+                    </div>
+                    <span className="text-[14px] md:text-[15px] tracking-wider">{FOOTER_CONTENT.contact.phone}</span>
                   </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div className="col-span-1 text-center sm:text-left">
-              <h4 className="text-lg font-bold mb-6 text-white capitalize tracking-widest border-b border-white/10 pb-2 inline-block sm:block sm:border-0 sm:pb-0">Contact</h4>
-              <ul className="space-y-4">
-                <li className="flex flex-col sm:flex-row items-center sm:items-center gap-4 text-white/50 group">
-                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/10 transition-colors">
-                    <Phone className="w-4 h-4 text-white/80" />
-                  </div>
-                  <span className="text-[14px] md:text-[15px]">{FOOTER_CONTENT.contact.phone}</span>
-                </li>
-                <li className="flex flex-col sm:flex-row items-center sm:items-center gap-4 text-white/50 group">
-                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/10 transition-colors">
-                    <Mail className="w-4 h-4 text-white/80" />
-                  </div>
-                  <span className="text-[14px] md:text-[15px] break-all">{FOOTER_CONTENT.contact.email}</span>
-                </li>
-                <li className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-white/50 group">
-                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/10 transition-colors">
-                    <MapPin className="w-4 h-4 text-white/80" />
-                  </div>
-                  <span className="text-[14px] md:text-[15px] leading-relaxed max-w-[200px]">{FOOTER_CONTENT.contact.address}</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Quick Links */}
-            <div className="col-span-1 text-center sm:text-left">
-              <h4 className="text-lg font-bold mb-6 text-white capitalize tracking-widest border-b border-white/10 pb-2 inline-block sm:block sm:border-0 sm:pb-0">{FOOTER_CONTENT.sections[1].title}</h4>
-              <ul className="space-y-4">
-                {FOOTER_CONTENT.sections[1].links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-white/50 hover:text-white transition-colors text-[15px] block">
-                      {link.label}
-                    </Link>
+                  <li className="flex flex-row items-center sm:items-center gap-4 text-white/50 group">
+                    <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/10 transition-colors">
+                      <Mail className="w-4 h-4 text-white/80" />
+                    </div>
+                    <span className="text-[14px] md:text-[15px] tracking-wider">{FOOTER_CONTENT.contact.email}</span>
                   </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+                  <li className="flex flex-row items-center sm:items-start gap-4 text-white/50 group">
+                    <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/10 transition-colors">
+                      <MapPin className="w-4 h-4 text-white/80" />
+                    </div>
+                    <span className="text-[14px] md:text-[15px] tracking-wider">{FOOTER_CONTENT.contact.address}</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Logo & Brand */}
+              <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
+                {/* <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-sm">
+                  {FOOTER_CONTENT.description}
+                </p> */}
 
-          {/* Large Decorative Text */}
-          <div className="max-w-7xl mx-auto select-none pointer-events-none  relative z-0">
-            <h2 className="text-[18vw] font-bold font-sans text-white/10 tracking-tighter leading-none text-center whitespace-nowrap">
-              Elemat
-            </h2>
+                <div className="relative w-[40%] md:w-full bg-white aspect-square rounded-2xl mb-4">
+                  <Image
+                    src="/qr.png"
+                    alt="Elemats Logo"
+                    fill
+                    className="object-cover rounded-2xl p-2"
+                  />
+                </div>
+
+                <div className="w-full flex flex-wrap justify-center items-center gap-4">
+                  {FOOTER_CONTENT.socials.map((social) => {
+                    const Icon = SOCIAL_ICONS[social.platform];
+                    return (
+                      <Link
+                        key={social.platform}
+                        href={social.href}
+                        className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 border border-white/10 group"
+                        title={social.platform}
+                      >
+                        {Icon ? <Icon className="w-4 h-4" /> : <span className="text-xs font-bold">{social.platform.charAt(0)}</span>}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+            </div>
           </div>
 
           {/* Bottom bar */}

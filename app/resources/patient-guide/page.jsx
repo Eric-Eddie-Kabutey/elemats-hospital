@@ -18,7 +18,7 @@ export default function PatientGuidePage() {
         <div className="bg-gray-50 rounded-3xl">
           <div className="w-full max-w-7xl mx-auto py-24 px-6 md:px-12">
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-6">
 
               {/* Introduction Text */}
               <div className="space-y-8">
@@ -53,16 +53,16 @@ export default function PatientGuidePage() {
               {/* Guide Accordion/Grid */}
               <div className="space-y-6">
                 {PATIENT_GUIDE_DATA.map((item, index) => (
-                  <div key={index} className="group p-8 md:p-10 bg-white rounded-3xl transition-all duration-500">
+                  <div key={index} className="group transition-all duration-500">
                     <div className="flex flex-col md:flex-row gap-6 md:items-start">
-                      <div className="shrink-0 w-16 h-16 bg-primary/5 rounded-3xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                        {item.icon && <item.icon className="w-8 h-8" />}
-                      </div>
-                      <div className="space-y-4">
-                        <h3 className="text-2xl font-normal text-slate-900 leading-tight">
+                      {/* <h1 className="shrink-0 group-hover:text-primary text-slate-900 font-normal text-2xl">
+                        {index + 1}.
+                      </h1> */}
+                      <div className="w-full space-y-4 text-left">
+                        <h3 className="text-2xl font-normal group-hover:text-primary text-slate-900 leading-tight group-hover:underline transition-all duration-500">
                           {item.title}
                         </h3>
-                        <p className="text-slate-500 font-light leading-relaxed">
+                        <p className="text-slate-500 font-light leading-relaxed ">
                           {item.content}
                         </p>
                       </div>

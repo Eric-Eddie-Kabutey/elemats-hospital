@@ -71,7 +71,7 @@ const Services = () => {
                   <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-500 group-hover:opacity-95"></div>
 
                   {/* Top-left Arrow Icon */}
-                  <div className="absolute top-6 left-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/10 transition-all duration-500 group-hover:bg-white group-hover:scale-110 group-hover:-rotate-45">
+                  <div className="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/10 transition-all duration-500 group-hover:bg-white group-hover:scale-110 group-hover:-rotate-45">
                     <ArrowUpRight className="w-5 h-5 text-white group-hover:text-primary transition-colors" />
                   </div>
 

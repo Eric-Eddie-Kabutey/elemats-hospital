@@ -24,11 +24,11 @@ export default function Home() {
       {/* <AboutDifference /> */}
       {/* <CareFor2 /> */}
       <Services />
-      <OurPartners />
       {/* <AboutUs />
       <AboutUs2 /> */}
 
       <Testimonials />
+      <OurPartners />
       <Faq />
       {/* <Newsletter /> */}
       <Footer />

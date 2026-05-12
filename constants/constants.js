@@ -323,9 +323,11 @@ export const FOOTER_CONTENT = {
       title: "Quick Links",
       links: [
         { label: "Who We Are", href: "/about" },
-        { label: "Blog", href: "/resources/blogs" },
-        { label: "Patient Guide", href: "/resources/patient-guide" },
         { label: "Careers", href: "/careers" },
+        { label: "Blog content", href: "/resources/blogs" },
+        { label: "Patient Guide", href: "/resources/patient-guide" },
+        { label: "Our Facilities", href: "/about/facilities" },
+        { label: "Our Team", href: "/about#team" },
       ],
     },
     // {

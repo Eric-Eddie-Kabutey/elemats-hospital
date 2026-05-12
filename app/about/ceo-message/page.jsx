@@ -18,7 +18,7 @@ export default function CEOMessagePage() {
             
             {/* CEO Image Content */}
             <div className="sticky top-32">
-              <div className="aspect-4/5 relative rounded-4xl overflow-hidden shadow-2xl">
+              <div className="aspect-4/5 relative rounded-xl overflow-hidden shadow-sm">
                 <Image 
                   src="/career/banner/1 (1).jpg" 
                   alt="Dr. Lamin Drammeh"
@@ -44,18 +44,6 @@ export default function CEOMessagePage() {
               
               <p>
                 From our very first day, Elemats has been driven by a singular vision: to create a healthcare environment where clinical excellence meets genuine compassion. We understood early on that a hospital is not just a building—it is a sanctuary for healing, a place of hope for families, and a center of innovation.
-              </p>
-
-              <p>
-                Our commitment to "Advanced Care with a Human Touch" is evident in every interaction. Whether it's our state-of-the-art Fertility and IVF center helping families grow, or our emergency team working around the clock to save lives, we prioritize the dignity and well-being of every patient who walks through our doors.
-              </p>
-
-              <p>
-                As we continue to expand our facilities and integrate the latest medical technologies, our core values remain unchanged. We invest in our people, our infrastructure, and our community to ensure that Elemats Specialist Hospital remains a beacon of quality healthcare in the region.
-              </p>
-
-              <p>
-                Our commitment to "Advanced Care with a Human Touch" is evident in every interaction. Whether it's our state-of-the-art Fertility and IVF center helping families grow, or our emergency team working around the clock to save lives, we prioritize the dignity and well-being of every patient who walks through our doors.
               </p>
 
               <p>

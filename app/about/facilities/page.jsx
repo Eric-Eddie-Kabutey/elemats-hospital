@@ -8,27 +8,27 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 const facilities = [
   {
     title: "Fertility & IVF Center",
-    description: "Our world-class fertility clinic features state-of-the-art embryology labs and comfortable treatment suites.",
+    description: "Our world-class fertility clinic features.",
     image: "/stock/fac-8.jpeg"
   },
   {
     title: "Modern Operating Theatres",
-    description: "Fully equipped surgical suites designed for both major and minimally invasive procedures with advanced monitoring systems.",
+    description: "Fully equipped surgical suites designed.",
     image: "/stock/sur-1.jpeg"
   },
   {
     title: "Maternity & Delivery Suites",
-    description: "Private, serene delivery rooms designed to provide a safe and comfortable environment for new mothers and their babies.",
+    description: "Private, serene delivery rooms.",
     image: "/stock/fac-3.jpeg"
   },
   {
     title: "Diagnostics & Imaging Hub",
-    description: "High-resolution radio-diagnostics and fully automated laboratory services for rapid and accurate testing.",
+    description: "High-resolution radio-diagnostics and fully automated laboratory services.",
     image: "/stock/fac-5.jpeg"
   },
   {
     title: "Intensive Care Unit (ICU)",
-    description: "Specialized unit with 24/7 dedicated nursing and life-support systems for critically ill patients.",
+    description: "Specialized unit with 24/7 dedicated nursing and life-support systems.",
     image: "/stock/fac-4.jpeg"
   },
   // {
@@ -47,12 +47,12 @@ export default function FacilitiesPage() {
         description="Explore the advanced medical infrastructure and healing environments we've built to ensure your comfort and safety."
       />
 
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto">
           <div className="space-y-32">
 
             {/* Intro Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-8">
                 <h2 className="text-4xl capitalize md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
                   State of the art Healing Environments
@@ -81,13 +81,13 @@ export default function FacilitiesPage() {
                   className="object-cover"
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* Facilities Grid */}
             <div>
-              <div className="mb-16 text-center">
+              {/* <div className="mb-16 text-center">
                 <h3 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Specialized Units</h3>
-              </div>
+              </div> */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {facilities.map((fac, idx) => (
                   <div key={fac.title} className={`group cursor-pointer flex flex-col h-full ${idx === 0 ? "md:col-span-2 lg:col-span-2 lg:row-span-2" : ""}`}>
@@ -110,7 +110,7 @@ export default function FacilitiesPage() {
             </div>
 
             {/* Locations Section */}
-            <div id="locations" className="">
+            {/* <div id="locations" className="">
               <div className="mb-16 text-center max-w-2xl mx-auto space-y-4">
                 <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Where to Find Us</h2>
                 <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
@@ -122,7 +122,6 @@ export default function FacilitiesPage() {
                 {LOCATIONS.map((loc) => (
                   <div key={loc.id} className="overflow-hidden transition-all duration-700 group flex flex-col h-full">
 
-                    {/* Location Image */}
                     <div className="relative h-72 md:h-80 overflow-hidden rounded-3xl mb-6">
                       <Image
                         src={loc.image}
@@ -149,7 +148,6 @@ export default function FacilitiesPage() {
                       </div>
                     </div>
 
-                    {/* Location Content */}
                     <div className="flex flex-col flex-1 space-y-8">
                       <div className="space-y-4 flex-1">
                         <h3 className="text-2xl font-bold text-slate-900 leading-tight group-hover:text-primary transition-colors">
@@ -175,16 +173,11 @@ export default function FacilitiesPage() {
                           </div>
                         </div>
                       </div>
-
-
-                      {/* <button className="bg-slate-50 border border-slate-100 py-5 rounded-2xl font-bold text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm hover:shadow-primary/25">
-                        Get Directions
-                      </button> */}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>

@@ -21,7 +21,7 @@ const Faq = () => {
           {FAQ_ITEMS.map((item, index) => (
             <div
               key={index}
-              className="group border border-neutral-200 rounded-3xl overflow-hidden transition-all duration-300 hover:border-primary/30 hover:bg-slate-50/50"
+              className="group border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 hover:bg-slate-50/50"
               onMouseEnter={() => setOpenIndex(index)}
               onMouseLeave={() => setOpenIndex(-1)}
             >

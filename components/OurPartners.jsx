@@ -9,14 +9,13 @@ export default function OurPartners() {
   const duplicatedPartners = [...PARTNERS, ...PARTNERS, ...PARTNERS];
 
   return (
-    <section id="partners" className="py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+    <section id="partners" className="section-padding bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         
         {/* Left Side: Static Text */}
         <div className="w-full lg:w-1/3 flex-none text-center lg:text-left">
           <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
-            Our Trusted <br className="hidden lg:block" />
-            <span className="text-primary">Partners</span>
+            Our Partners
           </h2>
           <p className="mt-4 text-lg md:text-xl text-slate-500 font-light leading-relaxed max-w-md mx-auto lg:mx-0">
             Collaborating with world-class institutions to deliver excellence in specialized healthcare.

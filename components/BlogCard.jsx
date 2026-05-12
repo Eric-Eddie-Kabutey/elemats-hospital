@@ -4,9 +4,9 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 export default function BlogCard({ post }) {
   return (
-    <article className="group bg-white rounded-4xl overflow-hidden cursor-pointer transition-all duration-500">
+    <article className="group bg-white rounded-xl overflow-hidden cursor-pointer transition-all duration-500">
       <Link href={`/resources/blogs/${post.id}`} className="block">
-        <div className="relative h-64 w-full overflow-hidden rounded-3xl">
+        <div className="relative h-64 w-full overflow-hidden rounded-xl">
           <Image
             src={post.image}
             alt={post.title}

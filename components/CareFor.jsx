@@ -7,7 +7,7 @@ import { fadeInUp } from "@/lib/motion_variants";
 
 const CareFor = () => {
   return (
-    <section className="py-24 md:py-32 bg-white overflow-hidden">
+    <section className="section-padding bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 text-center">
         <motion.h2 
           initial="hidden"

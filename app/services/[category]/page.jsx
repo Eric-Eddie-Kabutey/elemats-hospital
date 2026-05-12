@@ -37,7 +37,7 @@ export default function CategoryPage({ params }) {
       />
 
       <section id="services-grid" className="relative section-padding p-2 md:p-4 bg-white min-h-[50vh]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
+        <div className="max-w-7xl mx-auto mb-12">
           
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start my-12 pt-12">
             <div className="lg:w-1/2">
@@ -80,7 +80,7 @@ export default function CategoryPage({ params }) {
                   
                   <div className={`absolute inset-0 bg-linear-to-t ${index === 0 ? "from-black/90 via-black/40" : "from-black/90 via-black/50"} to-transparent group-hover:opacity-95`}></div>
                   
-                  <div className={`absolute top-8 left-8 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white group-hover:-rotate-45 ${index === 0 ? "w-12 h-12" : "w-10 h-10"}`}>
+                  <div className={`absolute top-8 right-8 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white group-hover:-rotate-45 ${index === 0 ? "w-12 h-12" : "w-10 h-10"}`}>
                     <ArrowUpRight className={`${index === 0 ? "w-6 h-6" : "w-5 h-5"} text-white group-hover:text-black transition-colors`} />
                   </div>
 
