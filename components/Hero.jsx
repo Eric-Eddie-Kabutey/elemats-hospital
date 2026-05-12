@@ -15,7 +15,7 @@ const Hero = () => {
 
         {/* Background Image */}
         <div className="absolute inset-0 rounded-b-3xl">
-          <motion.div 
+          <motion.div
             initial={{ scale: 1.15 }}
             animate={{ scale: 1 }}
             transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
@@ -43,23 +43,23 @@ const Hero = () => {
           <div className="h-full w-full max-w-[1800px] mx-auto pr-6 md:pr-0 pl-6 md:pl-12 flex flex-col lg:flex-row justify-between lg:items-end gap-12 lg:gap-12 pb-16 lg:pb-0">
 
             {/* Left Main Content */}
-            <motion.div 
+            <motion.div
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
               className="w-full lg:max-w-4xl pb-16 lg:pb-24"
             >
-              <motion.h1 
+              <motion.h1
                 variants={fadeInUp}
-                className="text-6xl md:text-7xl lg:text-[100px] font-bold leading-tight md:leading-none tracking-tight mb-6 md:mb-8"
+                className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight md:leading-none tracking-tight mb-6 md:mb-8"
               >
                 Elemats<br />
                 <span className="flex items-center gap-6">Specialist Hospital</span>
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 variants={fadeInUp}
-                className="text-xl md:text-2xl text-white/90 max-w-2xl font-light leading-relaxed mb-8 md:mb-10"
+                className="text-lg md:text-2xl text-white/90 max-w-2xl font-light leading-relaxed mb-8 md:mb-10"
               >
                 At Elemats Specialist Hospital, our main goal is to make Couples a Family. We run Infertility Programmes and make your worries fade out.
               </motion.p>
@@ -73,7 +73,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Right: Refill Medication Card - Compressed for Mobile */}
-            <motion.div 
+            <motion.div
               variants={slideInRight}
               initial="hidden"
               animate="visible"

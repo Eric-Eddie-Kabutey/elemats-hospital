@@ -17,6 +17,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const dropdownRef = useRef(null);
+  const [expandedMobileLink, setExpandedMobileLink] = useState(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -110,7 +111,7 @@ const Navbar = () => {
           <div className={`hidden lg:flex items-center backdrop-blur-xl px-2 gap-1 rounded-full shadow-2xl border transition-all duration-500 overflow-visible bg-white/10 border-white/20`}>
             {NAV_LINKS.map((link) => {
               const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
-              const hasDropdown = link.subCategories && link.subCategories.length > 0;
+              const hasDropdown = link.links && link.links.length > 0;
               const isOpen = openDropdown === link.label;
 
               return (
@@ -132,7 +133,7 @@ const Navbar = () => {
                   </Link>
                   
                   {/* Dropdown Logic - Unified Mega Menu */}
-                  <AnimatePresence>
+                  {/* <AnimatePresence>
                     {hasDropdown && link.label === "What We Do" && isOpen && (
                       <motion.div 
                         initial={{ opacity: 0, y: 15 }}
@@ -143,7 +144,7 @@ const Navbar = () => {
                       >
                         <div className="bg-transparent rounded-3xl border border-slate-100 overflow-hidden flex min-h-[450px]">
                           
-                          {/* 1. Left Sidebar: Solutions */}
+                          
                           <div className="w-[280px] bg-slate-50 p-6 flex flex-col rounded-bl-3xl">
                             <div className="mb-6">
                               <h3 className="text-xl md:text-5xl capitalize font-normal text-slate-800 tracking-tight leading-tight">Services</h3>
@@ -177,7 +178,7 @@ const Navbar = () => {
                             </div>
                           </div>
 
-                          {/* 2. Content Area: Detailed Cards */}
+                          
                           <div className="flex-1 p-8 bg-white relative overflow-y-auto max-h-[600px] rounded-br-3xl">
                             <div className="grid grid-cols-2 gap-2">
                               {link.subCategories.find(c => {
@@ -210,7 +211,7 @@ const Navbar = () => {
                               })}
                             </div>
 
-                            {/* Featured Highlight for Fertility */}
+                            
                             {hoveredServiceCategory === "fertility" && (
                               <div className="mt-2 p-6 rounded-2xl bg-slate-50/50 border border-primary/5 flex items-center justify-between">
                                 <div className="space-y-0.5">
@@ -227,11 +228,11 @@ const Navbar = () => {
                         </div>
                       </motion.div>
                     )}
-                  </AnimatePresence>
+                  </AnimatePresence> */}
 
                   {/* Standard Dropdown for other links (Who We Are, Resources etc) */}
                   <AnimatePresence>
-                    {hasDropdown && link.label !== "What We Do" && isOpen && (
+                    {hasDropdown && isOpen && (
                       <motion.div 
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -241,7 +242,7 @@ const Navbar = () => {
                       >
                         <div className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-100 p-4 overflow-hidden">
                           <div className="flex flex-col gap-1.5">
-                            {link.subCategories.flatMap(cat => cat.links).map((subLink) => {
+                            {link.links.map((subLink) => {
                               const isSubActive = pathname === subLink.href;
                               return (
                                 <Link
@@ -306,7 +307,7 @@ const Navbar = () => {
               )}
             </div>
 
-            <button className="flex items-center gap-2 bg-white text-black px-4 py-2.5 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold hover:bg-zinc-100 transition-all shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
+            <button className="hidden lg:flex items-center gap-2 bg-white text-black px-4 py-2.5 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold hover:bg-zinc-100 transition-all shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
               <Phone size={14} fill="currentColor" stroke="none" className="md:w-4 md:h-4" />
               Call Now
             </button>
@@ -334,63 +335,59 @@ const Navbar = () => {
       >
         <div className="flex flex-col gap-0 pt-4 h-full overflow-y-auto pb-12">
           {NAV_LINKS.map((link, i) => {
-            const hasSublinks = link.subLinks && link.subLinks.length > 0;
-            const hasSubCategories = link.subCategories && link.subCategories.length > 0;
-            const hasDropdown = hasSublinks || hasSubCategories;
+            const hasDropdown = link.links && link.links.length > 0;
+            const isExpanded = expandedMobileLink === link.label;
 
             return (
               <div key={link.label} className="space-y-4 mb-8">
-                <Link
-                  href={link.href}
-                  onClick={() => !hasDropdown && setIsOpen(false)}
-                  className="text-2xl font-normal text-slate-800 hover:text-black transition-colors block "
-                >
-                  <div className="flex justify-between items-center">
+                {hasDropdown ? (
+                  <div
+                    onClick={() => setExpandedMobileLink(isExpanded ? null : link.label)}
+                    className="text-2xl font-normal text-slate-800 hover:text-black transition-colors block cursor-pointer"
+                  >
+                    <div className="flex justify-between items-center">
+                      {link.label}
+                      <ChevronDown 
+                        size={20} 
+                        className={`text-slate-300 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} 
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-2xl font-normal text-slate-800 hover:text-black transition-colors block"
+                  >
                     {link.label}
-                    {hasDropdown && <ChevronDown size={20} className="text-slate-300" />}
-                  </div>
-                </Link>
-
-                {/* Mobile Sublinks (Resources) */}
-                {hasSublinks && (
-                  <div className="flex flex-col gap-4">
-                    {link.subLinks.map((sub) => (
-                      <Link
-                        key={sub.label}
-                        href={sub.href}
-                        onClick={() => setIsOpen(false)}
-                        className="text-lg font-normal text-slate-500 hover:text-primary transition-colors"
-                      >
-                        {sub.label}
-                      </Link>
-                    ))}
-                  </div>
+                  </Link>
                 )}
 
-                {/* Mobile Subcategories (What We Do) */}
-                {hasSubCategories && (
-                  <div className="space-y-6">
-                    {link.subCategories.map((cat) => (
-                      <div key={cat.label} className="space-y-3">
-                        <h4 className="text-md font-normal uppercase tracking-widest text-primary opacity-60">
-                          {cat.label}
-                        </h4>
-                        <div className="flex flex-col gap-3">
-                          {cat.links.map((subLink) => (
-                            <Link
-                              key={subLink.label}
-                              href={subLink.href}
-                              onClick={() => setIsOpen(false)}
-                              className="text-md font-normal text-slate-500 underline hover:text-primary transition-colors"
-                            >
-                              {subLink.label}
-                            </Link>
-                          ))}
-                        </div>
+                {/* Mobile Sublinks */}
+                <AnimatePresence>
+                  {hasDropdown && isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="flex flex-col gap-4 pl-4 pt-2 border-l border-slate-100 ml-1">
+                        {link.links.map((sub) => (
+                          <Link
+                            key={sub.label}
+                            href={sub.href}
+                            onClick={() => setIsOpen(false)}
+                            className="text-lg font-normal text-slate-500 hover:text-primary transition-colors"
+                          >
+                            {sub.label}
+                          </Link>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}

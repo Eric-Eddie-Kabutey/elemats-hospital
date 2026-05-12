@@ -5,7 +5,7 @@ import { FAQ_ITEMS } from "@/constants/constants";
 import { Plus, Minus } from "lucide-react";
 
 const Faq = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   return (
     <section id="faq" className="w-full section-padding bg-white">
@@ -13,7 +13,7 @@ const Faq = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Frequently Asked Questions</h2>
           <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
-            Find answers to common questions about our dental services and procedures.
+            Find answers to common questions about our medical services and procedures.
           </p>
         </div>
 
@@ -21,14 +21,16 @@ const Faq = () => {
           {FAQ_ITEMS.map((item, index) => (
             <div
               key={index}
-              className="group border border-neutral-200 rounded-3xl overflow-hidden"
+              className="group border border-neutral-200 rounded-3xl overflow-hidden transition-all duration-300 hover:border-primary/30 hover:bg-slate-50/50"
+              onMouseEnter={() => setOpenIndex(index)}
+              onMouseLeave={() => setOpenIndex(-1)}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
                 className="w-full px-8 py-6 text-left flex items-center justify-between transition-colors"
                 aria-expanded={openIndex === index}
               >
-                <span className="text-lg md:text-xl text-slate-900 font-normal leading-relaxed">{item.question}</span>
+                <span className={`text-lg md:text-xl font-normal leading-relaxed transition-colors duration-300 ${openIndex === index ? 'text-primary' : 'text-slate-900'}`}>{item.question}</span>
                 <span className={`text-2xl transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
                   {openIndex === index ? <Minus className="w-5 h-5 text-primary" /> : <Plus className="w-5 h-5 text-primary" />}
                 </span>

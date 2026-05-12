@@ -34,38 +34,33 @@ const Footer = () => {
     <>
       <DontDelay />
       <footer className="section-padding p-2 md:p-4 bg-slate-50">
-        <div className="relative bg-linear-to-t from-primary/95 to-primary/80 w-full text-white rounded-3xl mx-auto pt-32 pb-8 px-6 md:px-12">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 z-30">
-            {/* Logo */}
-            <div className="col-span-1 sm:col-span-2 lg:col-span-4 flex justify-center sm:justify-start">
-              <Link href="/" className="flex items-center">
-                <div className="relative w-30 h-30 md:w-30 md:h-30 rounded-full overflow-hidden border border-white/20 bg-white">
+        <div className="relative bg-linear-to-t from-primary/95 to-primary/80 w-full text-white rounded-3xl mx-auto pt-10 md:pt-16 pb-8 px-6 md:px-12 overflow-hidden">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 z-30 relative">
+            {/* Logo & Brand */}
+            <div className="col-span-1 flex flex-col items-center sm:items-start text-center sm:text-left">
+              <Link href="/" className="flex items-center mb-8">
+                <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-white/10 bg-white p-2 shadow-xl">
                   <Image
                     src="/logo.svg"
                     alt="Elemats Logo"
                     fill
-                    sizes="(max-width: 768px) 40px, 48px"
-                    className="object-cover"
-                    priority
-                    loading="eager"
+                    className="object-contain p-2"
                   />
                 </div>
               </Link>
-            </div>
-
-            {/* Brand */}
-            <div className="col-span-1 flex flex-col items-center sm:items-start">
-              <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-sm text-center sm:text-left">
+              <p className="text-white/60 text-sm md:text-base leading-relaxed mb-8 max-w-sm">
                 {FOOTER_CONTENT.description}
               </p>
-              <div className="flex gap-2">
+
+              <div className="flex gap-4">
                 {FOOTER_CONTENT.socials.map((social) => {
                   const Icon = SOCIAL_ICONS[social.platform];
                   return (
                     <Link
                       key={social.platform}
                       href={social.href}
-                      className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/15 transition-all duration-300"
+                      className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 border border-white/10 group"
+                      title={social.platform}
                     >
                       {Icon ? <Icon className="w-4 h-4" /> : <span className="text-xs font-bold">{social.platform.charAt(0)}</span>}
                     </Link>
@@ -74,59 +69,84 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Links */}
-            {FOOTER_CONTENT.sections.map((section) => (
-              <div key={section.title} className="col-span-1 text-center sm:text-left">
-                <h4 className="text-lg font-bold mb-4 text-white capitalize tracking-widest">{section.title}</h4>
-                <ul className="space-y-3">
-                  {section.links.map((link) => (
-                    <li key={link.label}>
-                      <Link href={link.href} className="text-white/60 hover:underline">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {/* Services */}
+            <div className="col-span-1 text-center sm:text-left">
+              <h4 className="text-lg font-bold mb-6 text-white capitalize tracking-widest border-b border-white/10 pb-2 inline-block sm:block sm:border-0 sm:pb-0">{FOOTER_CONTENT.sections[0].title}</h4>
+              <ul className="space-y-4">
+                {FOOTER_CONTENT.sections[0].links.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-white/50 hover:text-white transition-colors text-[15px] block">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             {/* Contact */}
-            <div className="col-span-1 sm:col-span-2 lg:col-span-4 text-center sm:text-left">
-              <h4 className="text-lg font-bold mb-8 text-white capitalize tracking-widest">Contact</h4>
-              <div className="flex flex-row flex-wrap gap-6 items-center justify-center sm:justify-start">
-                <div className="flex items-center gap-4 text-white/60">
-                  <span className="w-10 h-10 bg-white/10 hover:bg-gray-500 rounded-full flex items-center justify-center text-sm"><Phone className="w-4 h-4 text-white" /></span>
-                  {FOOTER_CONTENT.contact.phone}
-                </div>
-                <div className="flex items-center gap-4 text-white/60">
-                  <span className="w-10 h-10 bg-white/10 hover:bg-gray-500 rounded-full flex items-center justify-center text-sm"><Mail className="w-4 h-4 text-white" /></span>
-                  {FOOTER_CONTENT.contact.email}
-                </div>
-                <div className="flex items-center gap-4 text-white/60">
-                  <span className="w-10 h-10 bg-white/10 hover:bg-white/15 rounded-full flex items-center justify-center text-sm shrink-0 text-center"><MapPin className="w-4 h-4 text-white" /></span>
-                  {FOOTER_CONTENT.contact.address}
-                </div>
-              </div>
+            <div className="col-span-1 text-center sm:text-left">
+              <h4 className="text-lg font-bold mb-6 text-white capitalize tracking-widest border-b border-white/10 pb-2 inline-block sm:block sm:border-0 sm:pb-0">Contact</h4>
+              <ul className="space-y-4">
+                <li className="flex flex-col sm:flex-row items-center sm:items-center gap-4 text-white/50 group">
+                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/10 transition-colors">
+                    <Phone className="w-4 h-4 text-white/80" />
+                  </div>
+                  <span className="text-[14px] md:text-[15px]">{FOOTER_CONTENT.contact.phone}</span>
+                </li>
+                <li className="flex flex-col sm:flex-row items-center sm:items-center gap-4 text-white/50 group">
+                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/10 transition-colors">
+                    <Mail className="w-4 h-4 text-white/80" />
+                  </div>
+                  <span className="text-[14px] md:text-[15px] break-all">{FOOTER_CONTENT.contact.email}</span>
+                </li>
+                <li className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-white/50 group">
+                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/10 transition-colors">
+                    <MapPin className="w-4 h-4 text-white/80" />
+                  </div>
+                  <span className="text-[14px] md:text-[15px] leading-relaxed max-w-[200px]">{FOOTER_CONTENT.contact.address}</span>
+                </li>
+              </ul>
             </div>
+
+            {/* Quick Links */}
+            <div className="col-span-1 text-center sm:text-left">
+              <h4 className="text-lg font-bold mb-6 text-white capitalize tracking-widest border-b border-white/10 pb-2 inline-block sm:block sm:border-0 sm:pb-0">{FOOTER_CONTENT.sections[1].title}</h4>
+              <ul className="space-y-4">
+                {FOOTER_CONTENT.sections[1].links.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-white/50 hover:text-white transition-colors text-[15px] block">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Large Decorative Text */}
+          <div className="max-w-7xl mx-auto select-none pointer-events-none  relative z-0">
+            <h2 className="text-[18vw] font-bold font-sans text-white/10 tracking-tighter leading-none text-center whitespace-nowrap">
+              Elemat
+            </h2>
           </div>
 
           {/* Bottom bar */}
-          <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/60 text-sm z-10">
-            <p>© {new Date().getFullYear()} {FOOTER_CONTENT.brand} Specialists Hospital. All rights reserved.</p>
-            <div className="flex gap-8">
-              <Link href="#" className="hover:underline">Privacy Policy</Link>
-              <Link href="#" className="hover:underline">Terms of Service</Link>
+          <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/60 text-xs md:text-sm z-10 relative">
+            <p className="text-center md:text-left">© {new Date().getFullYear()} {FOOTER_CONTENT.brand} Specialists Hospital. All rights reserved.</p>
+            <div className="flex gap-6 md:gap-8">
+              <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
             </div>
           </div>
 
-          <Image
+          {/* <Image
             src="/logo.svg"
             alt="Elemats Logo"
             fill
             className="object-contain pointer-events-none z-0 opacity-25"
             priority
             loading="eager"
-          />
+          /> */}
         </div>
       </footer>
     </>

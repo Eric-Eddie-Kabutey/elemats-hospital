@@ -74,10 +74,10 @@ export const CARE_FOR_ITEMS = [
 ];
 
 export const SERVICES_TABS = [
-  { id: "fertility", label: "Fertility and IVF", description: "Advanced reproductive health and assisted conception services." },
-  { id: "womens_health", label: "Women's Health", description: "Comprehensive obstetric and gynecological care for every stage of life." },
-  { id: "pediatrics", label: "Pediatrics", description: "Dedicated medical care for infants, children, and adolescents." },
-  { id: "general_medical", label: "General Medical Services", description: "Expert primary care and advanced surgical solutions." },
+  { id: "fertility", label: "Fertility and IVF", description: "Advanced reproductive health and assisted conception services.", image: "/WhatWeOffer/Specialist Services.jpg" },
+  { id: "womens_health", label: "Women's Health", description: "Comprehensive obstetric and gynecological care for every stage of life.", image: "/WhatWeOffer/OB-GYN Services.jpg" },
+  { id: "pediatrics", label: "Pediatrics", description: "Dedicated medical care for infants, children, and adolescents.", image: "/WhatWeOffer/PrimaryCare.jpg" },
+  { id: "general_medical", label: "General Medical Services", description: "Expert primary care and advanced surgical solutions.", image: "/WhatWeOffer/Surgery.jpg" },
   { id: "diagnostics", label: "Diagnostics", description: "High-precision laboratory testing and specialized medical imaging." },
   { id: "emergency_care", label: "Emergency and Care", description: "Rapid response emergency services and compassionate inpatient care." },
 ];
@@ -105,7 +105,6 @@ export const SERVICE_CARDS = {
       image: "/WhatWeOffer/Wellness Screening.jpg"
     },
   ],
-
   pediatrics: [
     {
       title: "General Pediatrics",
@@ -210,41 +209,28 @@ export const NAV_LINKS = [
   {
     label: "Who We Are",
     href: "/about",
-    subCategories: [
-      {
-        label: "About Us",
-        links: [
-          { label: "Message from our CEO", href: "/about/ceo-message" },
-          { label: "Our Team", href: "/about#team" },
-          { label: "Our Partners", href: "/about#partners" },
-          { label: "Our Facilities", href: "/about/facilities" }
-        ]
-      }
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Message from our CEO", href: "/about/ceo-message" },
+      { label: "Our Team", href: "/about#team" },
+      { label: "Our Partners", href: "/about#partners" },
+      { label: "Our Facilities", href: "/about/facilities" }
     ]
   },
   {
     label: "What We Do",
     href: "/services/fertility",
-    subCategories: SERVICES_TABS.map(tab => ({
+    links: SERVICES_TABS.map(tab => ({
       label: tab.label,
-      links: SERVICE_CARDS[tab.id].map(s => ({
-        label: s.title,
-        href: `/services/${tab.id}/${s.title.toLowerCase().replace(/\s+/g, '-')}`
-      }))
+      href: `/services/${tab.id}`
     }))
   },
   {
     label: "Resources",
     href: "/resources",
-    subCategories: [
-      {
-        label: "Hospital Guide",
-        links: [{ label: "Patient Guide", href: "/resources/patient-guide" }]
-      },
-      {
-        label: "Our Hub",
-        links: [{ label: "Blogs", href: "/resources/blogs" }]
-      }
+    links: [
+      { label: "Patient Guide", href: "/resources/patient-guide" },
+      { label: "Blogs", href: "/resources/blogs" }
     ]
   },
   { label: "Careers", href: "/careers" },
@@ -326,13 +312,13 @@ export const FOOTER_CONTENT = {
   brand: "Elemats",
   description: "Your partner in modern, elegant dental and healthcare solutions.",
   sections: [
-    ...SERVICES_TABS.map(tab => ({
-      title: tab.label,
-      links: SERVICE_CARDS[tab.id].map(service => ({
-        label: service.title,
-        href: `/services/${tab.id}/${service.title.toLowerCase().replace(/\s+/g, '-')}`
+    {
+      title: "Services",
+      links: SERVICES_TABS.map(tab => ({
+        label: tab.label,
+        href: `/services/${tab.id}`
       }))
-    })),
+    },
     {
       title: "Quick Links",
       links: [

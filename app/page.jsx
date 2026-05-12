@@ -21,12 +21,13 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50">
       <Hero />
       <CareFor />
-      <AboutDifference />
+      {/* <AboutDifference /> */}
       {/* <CareFor2 /> */}
       <Services />
+      <OurPartners />
       {/* <AboutUs />
       <AboutUs2 /> */}
-      <OurPartners />
+
       <Testimonials />
       <Faq />
       {/* <Newsletter /> */}
