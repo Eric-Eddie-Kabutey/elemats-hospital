@@ -63,16 +63,16 @@ const CareerBanner = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Mobile View: AutoCarousel */}
-        <div className="block md:hidden">
+        {/* <div className="block md:hidden">
           <AutoCarousel images={allImages} />
-        </div>
+        </div> */}
 
         {/* Desktop & Tablet View: Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 h-[560px]">
+        <div className="grid grid-cols-4 gap-1 sm:gap-2 md:gap-3 lg:gap-4 h-[240px] md:h-[420px] lg:h-[560px]">
           
           {/* Column 1 */}
-          <div className="flex flex-col gap-4 h-full">
-            <div className="relative flex-1 rounded-3xl overflow-hidden shadow-sm">
+          <div className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4h-full">
+            <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
               <Image 
                 src="/stock/staff-1.jpeg" 
                 alt="Career 1" 
@@ -81,7 +81,7 @@ const CareerBanner = () => {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-[45%] rounded-3xl overflow-hidden shadow-sm">
+            <div className="relative h-[45%] rounded-xl overflow-hidden shadow-sm">
               <Image 
                 src="/stock/staff-9.jpeg" 
                 alt="Career 2" 
@@ -95,7 +95,7 @@ const CareerBanner = () => {
           {/* Column 2 - Tall (Hidden on md, visible on lg) or part of 2nd col on md? */}
           {/* If 2 columns on tablet, we can show Col 1 & Col 2? Or Combine them. */}
           
-          <div className="relative h-full rounded-3xl overflow-hidden shadow-sm">
+          <div className="relative h-full rounded-xl overflow-hidden shadow-sm">
             <Image 
               src="/stock/staff-3.jpeg" 
               alt="Career 3" 
@@ -106,7 +106,7 @@ const CareerBanner = () => {
           </div>
 
           {/* Column 3 - Tall (Hidden on md, visible on lg) */}
-          <div className="hidden lg:block relative h-full rounded-3xl overflow-hidden shadow-sm">
+          <div className="relative h-full rounded-xl overflow-hidden shadow-sm">
             <Image 
               src="/stock/sur-1.jpeg" 
               alt="Career 4" 
@@ -117,8 +117,8 @@ const CareerBanner = () => {
           </div>
 
           {/* Column 4 (Hidden on md, visible on lg) */}
-          <div className="hidden lg:flex flex-col gap-4 h-full">
-            <div className="relative h-[45%] rounded-3xl overflow-hidden shadow-sm">
+          <div className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4 h-full">
+            <div className="relative h-[45%] rounded-xl overflow-hidden shadow-sm">
               <Image 
                 src="/stock/staff-8.jpeg" 
                 alt="Career 5" 
@@ -127,7 +127,7 @@ const CareerBanner = () => {
                 className="object-cover"
               />
             </div>
-            <div className="relative flex-1 rounded-3xl overflow-hidden shadow-sm">
+            <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
               <Image 
                 src="/stock/staff-6.jpeg" 
                 alt="Career 6" 
@@ -152,10 +152,7 @@ const CareerBanner = () => {
           <div className="lg:w-1/2">
             <p className="capitalize text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
               We are working in a workplace where staff bonds like a family built on mutual respect and shared goals. 
-              A corporation where your ideas matter and your growth is a priority. 
-              The culture blends professionalism with genuine care and support. 
-              Team spirit is strong, and every success is celebrated together. 
-              Here you don&apos;t just clock in, the culture makes you belong.
+              A corporation where your ideas matter and your growth is a priority.
             </p>
           </div>
         </div>

@@ -12,9 +12,9 @@ import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
-import FloatingSocials from "@/components/FloatingSocials";
 import OurPartners from "@/components/OurPartners";
 import AboutDifference from "@/components/AboutDifference";
+import AboutVideo from "@/components/AboutVideo";
 
 export default function Home() {
   return (
@@ -24,6 +24,7 @@ export default function Home() {
       {/* <AboutDifference /> */}
       {/* <CareFor2 /> */}
       <Services />
+      <AboutVideo />
       {/* <AboutUs />
       <AboutUs2 /> */}
 
@@ -32,7 +33,6 @@ export default function Home() {
       <Faq />
       {/* <Newsletter /> */}
       <Footer />
-      <FloatingSocials />
     </main>
   );
 }

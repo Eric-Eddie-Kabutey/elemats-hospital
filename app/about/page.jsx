@@ -3,7 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InnerPageHero from "@/components/InnerPageHero";
 import AboutDifference from "@/components/AboutDifference";
+import AboutVideo from "@/components/AboutVideo";
 import OurPartners from "@/components/OurPartners";
+import CareForAbout from "@/components/CareForAbout";
 import LeadershipTeam from "@/components/LeadershipTeam";
 import Faq from "@/components/Faq";
 
@@ -15,8 +17,10 @@ export default function AboutPage() {
         title="Who We Are" 
         description="A team of dedicated professionals committed to excellence in dental care and patient well-being."
       />
+      <CareForAbout />
       <CareFor2 />
       <AboutDifference />
+      <AboutVideo />
       <OurPartners />
       <LeadershipTeam />
       <Faq />

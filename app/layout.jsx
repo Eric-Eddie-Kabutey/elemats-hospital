@@ -1,5 +1,6 @@
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import FloatingSocials from "@/components/FloatingSocials";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         className={`${inter.variable} ${outfit.variable} font-sans antialiased bg-[#FDFCFB] text-slate-900`}
       >
         {children}
+        <FloatingSocials />
       </body>
     </html>
   );

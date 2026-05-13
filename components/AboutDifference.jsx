@@ -7,19 +7,19 @@ import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 export default function AboutDifference() {
   const differences = [
     {
-      icon: <Lightbulb size={48} className="text-primary" strokeWidth={1.5} />,
+      icon: <Lightbulb size={34} className="text-primary" strokeWidth={2} />,
       title: "Clinical Excellence",
-      description: "We leverage advanced medical technology and clinical expertise to solve real health challenges. Finding better, faster, and smarter ways to enhance patient care and recovery."
+      description: "We leverage advanced medical technology and clinical expertise to solve real health challenges."
     },
     {
-      icon: <ShieldCheck size={48} className="text-primary" strokeWidth={1.5} />,
+      icon: <ShieldCheck size={34} className="text-primary" strokeWidth={2} />,
       title: "Integrity You Can Count On",
-      description: "We believe in doing the right thing, always. That means being honest, accountable, and transparent in how we operate and deliver healthcare services."
+      description: "We believe in doing the right thing, always. That means being honest, accountable, and transparent."
     },
     {
-      icon: <Users size={48} className="text-primary" strokeWidth={1.5} />,
+      icon: <Users size={34} className="text-primary" strokeWidth={2} />,
       title: "Putting Patients First",
-      description: "Our patients come first. We listen, adapt, and evolve—because true medical impact starts with understanding the unique individuals we serve and the challenges they face."
+      description: "Our patients come first. We listen, adapt, and evolve—because true medical impact starts with understanding."
     }
   ];
 
@@ -33,14 +33,11 @@ export default function AboutDifference() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="text-center max-w-3xl mx-auto space-y-4 mb-20"
+          className="text-center max-w-3xl mx-auto space-y-4 mb-16"
         >
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
             The Elemats Difference
           </motion.h2>
-          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
-            At Elemats Specialist Hospital, our core values guide how we work, serve, and grow—with our patients and for our community.
-          </motion.p>
         </motion.div>
 
         {/* Info Cards Grid */}
@@ -58,7 +55,7 @@ export default function AboutDifference() {
               className="flex flex-col items-center text-center space-y-6 group"
             >
               {/* Icon Container */}
-              <div className="flex items-center justify-center p-2 transition-transform duration-500 group-hover:scale-110">
+              <div className="flex items-center justify-center p-4 bg-slate-100 rounded-xl transition-transform duration-500 group-hover:scale-110">
                 {diff.icon}
               </div>
 

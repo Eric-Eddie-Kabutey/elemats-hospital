@@ -2,6 +2,7 @@
 
 import { HERO_CONTENT } from "@/constants/constants";
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "./Navbar";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -80,27 +81,29 @@ const Hero = () => {
               custom={0.5}
               className="hidden lg:block cursor-pointer mr-2 md:mr-4 mb-2 md:mb-4 max-w-[290px] bg-white/95 backdrop-blur-md rounded-[16px] p-2 sm:p-4 text-slate-900 shadow-2xl border border-white/20 transform hover:-translate-y-2 transition-all duration-500"
             >
-              <div className="relative h-28 sm:h-40 rounded-[16px] overflow-hidden mb-2 sm:mb-4">
-                <Image
-                  src="/stock/fac-2.jpeg"
-                  alt="Refill Medication"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 340px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="space-y-3 sm:space-y-4">
-                <h3 className="text-xl md:text-2xl font-normal text-slate-800 tracking-tight leading-tight mb-1">Refill Medication</h3>
-                <p className="text-md text-slate-500 font-light leading-tight mb-6">
-                  Easily request refills for your prescriptions online and pick them up at your convenience.
-                </p>
-                <div className="flex justify-start">
-                  <button className="flex items-center gap-2 bg-black text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-zinc-800 transition-all shadow-lg group">
-                    Request Refill
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+              <Link href="/refill">
+                <div className="relative h-28 sm:h-40 rounded-[16px] overflow-hidden mb-2 sm:mb-4">
+                  <Image
+                    src="/stock/fac-2.jpeg"
+                    alt="Refill Medication"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 340px"
+                    className="object-cover"
+                  />
                 </div>
-              </div>
+                <div className="space-y-3 sm:space-y-4">
+                  <h3 className="text-xl md:text-2xl font-normal text-slate-800 tracking-tight leading-tight mb-1">Refill Medication</h3>
+                  <p className="text-md text-slate-500 font-light leading-tight mb-6">
+                    Easily request refills for your prescriptions online and pick them up at your convenience.
+                  </p>
+                  <div className="flex justify-start">
+                    <button className="flex items-center gap-2 bg-black text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-zinc-800 transition-all shadow-lg group">
+                      Request Refill
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
 
           </div>

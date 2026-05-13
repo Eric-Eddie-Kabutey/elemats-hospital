@@ -17,7 +17,7 @@ export default function CareersPage() {
       <CareerBanner />
       <CareerCulture />
       <CareerOpenRoles />
-      <CareerForm />
+      {/* <CareerForm /> */}
       <Footer />
     </main>
   );

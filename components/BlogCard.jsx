@@ -16,14 +16,14 @@ export default function BlogCard({ post }) {
           <div className="absolute inset-0 bg-linear-to-t from-black/30 via-black/10 to-black/5 transition-opacity duration-500 group-hover:opacity-95"></div>
         </div>
 
-        <div className="mt-4 flex flex-col justify-between h-full">
+        <div className="mt-2 flex flex-col justify-between h-full">
           <div>
-            <div className="flex items-center gap-2 text-slate-400 text-xs mb-4">
+            <div className="flex items-center gap-2 text-slate-400 text-xs mb-6">
               <Calendar className="w-3 h-3" />
               <span>{post.date}</span>
             </div>
 
-            <h2 className="text-2xl font-normal text-slate-900 mb-4 leading-tight group-hover:text-primary transition-colors">
+            <h2 className="text-2xl font-normal text-slate-900 mb-2 leading-tight group-hover:text-primary transition-colors">
               {post.title}
             </h2>
 

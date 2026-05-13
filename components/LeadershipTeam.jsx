@@ -77,10 +77,10 @@ export default function LeadershipTeam() {
           {currentTeam.map((member, index) => (
             <div
               key={index}
-              className="bg-white rounded-4xl overflow-hidden shadow-xs transition-all duration-500 group border border-slate-100"
+              className="bg-white rounded-xl overflow-hidden shadow-xs transition-all duration-500 group border border-slate-100"
             >
               {/* Image Container */}
-              <div className="relative aspect-4/5 bg-slate-200 w-full overflow-hidden flex items-center justify-center">
+              <div className="relative aspect-4/4 bg-slate-200 w-full overflow-hidden flex items-center justify-center">
                 {member.image ? (
                   <Image
                     src={member.image}

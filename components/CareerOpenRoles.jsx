@@ -62,7 +62,7 @@ const CareerOpenRoles = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {filteredRoles.map((role) => (
-                <div key={role.id} className="group flex flex-col justify-between bg-slate-50 rounded-4xl p-8 transition-all duration-500">
+                <div key={role.id} className="group flex flex-col justify-between bg-slate-50 rounded-xl p-8 transition-all duration-500">
                   <div>
                     <div className="flex justify-between items-start mb-6">
                       <span className={`px-4 py-1.5 ${getTagColor(role.category)} text-[12px] font-medium rounded-full uppercase tracking-widest`}>

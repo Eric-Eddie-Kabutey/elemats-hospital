@@ -35,16 +35,23 @@ const FloatingSocials = () => {
     <>
       {/* Bottom Right Cluster */}
       <div className="fixed right-6 bottom-8 z-50 flex flex-col gap-4">
-        {/* Call Button */}
+        {/* Call Button (Emergency) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 20 }}
+          className="relative flex items-center justify-end group"
         >
+          {/* Label */}
+          <div className="absolute right-full mr-4 bg-red-600 text-white px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 pointer-events-none shadow-lg">
+            Emergency Call
+            {/* Arrow */}
+            <div className="absolute right-[-4px] top-1/2 -translate-y-1/2 w-2 h-2 bg-red-600 rotate-45" />
+          </div>
+
           <Link
             href="tel:+2201234567"
-            className="w-14 h-14 bg-[#051c1c] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform group border border-white/5"
-            title="Call Us"
+            className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform group border border-white/5"
           >
             <Phone size={24} className="group-hover:rotate-12 transition-transform" />
           </Link>
@@ -55,11 +62,18 @@ const FloatingSocials = () => {
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ delay: 0.7, type: "spring", stiffness: 260, damping: 20 }}
+          className="relative flex items-center justify-end group"
         >
+          {/* Label */}
+          <div className="absolute right-full mr-4 bg-[#25D366] text-white px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 pointer-events-none shadow-lg">
+            WhatsApp Us
+            {/* Arrow */}
+            <div className="absolute right-[-4px] top-1/2 -translate-y-1/2 w-2 h-2 bg-[#25D366] rotate-45" />
+          </div>
+
           <Link
             href="https://wa.me/2201234567"
             className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform group"
-            title="Chat on WhatsApp"
           >
             <SOCIAL_ICONS.WhatsApp className="w-7 h-7" />
           </Link>
