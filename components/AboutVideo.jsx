@@ -22,7 +22,7 @@ export default function AboutVideo() {
 
   return (
     <section className="section-padding  bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10 items-start">
           
           {/* Left: Text Content */}

@@ -18,7 +18,7 @@ const AboutUs = () => {
 
   return (
     <section id="about" className="section-padding p-2 md:p-4 bg-gray-50">
-      <div className="bg-blue-100 w-full text-slate-900 rounded-3xl mx-auto py-24 md:py-32 px-6 md:px-12 transition-colors duration-1000">
+      <div className="bg-blue-100 w-full text-slate-900 rounded-3xl mx-auto py-24 md:py-32 transition-colors duration-1000">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16">
             <div className="max-w-2xl">

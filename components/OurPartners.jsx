@@ -25,7 +25,7 @@ export default function OurPartners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="relative w-32 md:w-40 h-16 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              className="relative w-32 md:w-40 h-16 opacity-40 hover:opacity-100 transition-all duration-500"
             >
               <Image
                 src={partner.logo}

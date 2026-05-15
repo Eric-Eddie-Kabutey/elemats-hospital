@@ -5,7 +5,7 @@ import { NAV_LINKS, LANGUAGES, SERVICES_TABS } from "@/constants/constants";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, X, ChevronDown, Globe, HeartPulse, Activity, Stethoscope, Microscope, Syringe, Pill } from "lucide-react";
+import { Phone, Menu, X, ChevronDown, Globe, HeartPulse, Activity, Stethoscope, Microscope, Syringe, Pill, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
@@ -78,7 +78,7 @@ const Navbar = () => {
     const domain = window.location.hostname;
     document.cookie = `googtrans=/en/${lang.code}; path=/;`;
     document.cookie = `googtrans=/en/${lang.code}; path=/; domain=.${domain};`;
-    
+
     // Clear other domains if needed
     const domains = [`.${domain}`, domain.replace("www.", "")];
     domains.forEach(d => {
@@ -108,7 +108,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Nav - Glass Pill */}
-          <div className={`hidden lg:flex items-center backdrop-blur-xl px-2 gap-1 rounded-full shadow-2xl border transition-all duration-500 overflow-visible bg-white/10 border-white/20`}>
+          <div className={`hidden lg:flex items-center backdrop-blur-xl px-2 rounded-full shadow-2xl border transition-all duration-500 overflow-visible bg-white/10 border-white/20`}>
             {NAV_LINKS.map((link) => {
               const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               const hasDropdown = link.links && link.links.length > 0;
@@ -123,7 +123,7 @@ const Navbar = () => {
                 >
                   <Link
                     href={link.href}
-                    className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 outline-none cursor-pointer ${isActive
+                    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 outline-none cursor-pointer ${isActive
                       ? "bg-white text-slate-900 shadow-lg"
                       : "text-white hover:bg-white/10"
                       }`}
@@ -131,7 +131,7 @@ const Navbar = () => {
                     {link.label}
                     {hasDropdown && <ChevronDown size={14} className={`opacity-50 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />}
                   </Link>
-                  
+
                   {/* Dropdown Logic - Unified Mega Menu */}
                   {/* <AnimatePresence>
                     {hasDropdown && link.label === "What We Do" && isOpen && (
@@ -233,7 +233,7 @@ const Navbar = () => {
                   {/* Standard Dropdown for other links (Who We Are, Resources etc) */}
                   <AnimatePresence>
                     {hasDropdown && isOpen && (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 15 }}
@@ -248,11 +248,10 @@ const Navbar = () => {
                                 <Link
                                   key={subLink.label}
                                   href={subLink.href}
-                                  className={`group/btn relative w-full text-left px-4 py-2.5 rounded-xl text-[14px] font-normal flex items-center justify-between ${
-                                    isSubActive 
-                                      ? "bg-slate-100 text-primary/80" 
+                                  className={`group/btn relative w-full text-left px-4 py-2.5 rounded-xl text-[14px] font-normal flex items-center justify-between ${isSubActive
+                                      ? "bg-slate-100 text-primary/80"
                                       : "text-slate-500 hover:text-primary hover:bg-slate-100"
-                                  }`}
+                                    }`}
                                 >
                                   {subLink.label}
                                 </Link>
@@ -271,10 +270,10 @@ const Navbar = () => {
           {/* Right CTA / Mobile Toggle */}
           <div className="flex items-center gap-2 md:gap-4">
             <div id="google_translate_element" className="hidden"></div>
-            
+
             {/* Language Switcher */}
             <div className="relative" ref={dropdownRef}>
-              <button 
+              <button
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
                 className={`flex items-center gap-2 px-3 py-2 rounded-full border transition-all duration-300 bg-white/10 border-white/20 text-white hover:bg-white/20`}
               >
@@ -307,10 +306,11 @@ const Navbar = () => {
               )}
             </div>
 
-            <button className="hidden lg:flex items-center gap-2 bg-white text-black px-4 py-2.5 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold hover:bg-zinc-100 transition-all shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
-              <Phone size={14} fill="currentColor" stroke="none" className="md:w-4 md:h-4" />
-              Call Now
-            </button>
+            <Link href="/appointment">
+              <button className="hidden lg:flex items-center gap-2 bg-white text-black px-4 py-2.5 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold hover:bg-zinc-100 transition-all shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
+                Book Appointment
+              </button>
+            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 z-50 transition-all active:scale-95"
@@ -329,79 +329,119 @@ const Navbar = () => {
       ></div>
 
       {/* Mobile Menu Drawer */}
-      <div
-        className={`fixed right-0 top-0 bottom-0 z-50 w-3/4 max-w-sm bg-white p-8 shadow-2xl transition-transform duration-500 lg:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-      >
-        <div className="flex flex-col gap-0 pt-4 h-full overflow-y-auto pb-12">
-          {NAV_LINKS.map((link, i) => {
-            const hasDropdown = link.links && link.links.length > 0;
-            const isExpanded = expandedMobileLink === link.label;
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-50 bg-white flex flex-col lg:hidden"
+          >
+            {/* Mobile Header */}
+            <div className="flex items-center justify-between px-6 py-6">
+              <Link href="/" onClick={() => setIsOpen(false)} className="relative w-12 h-12">
+                <Image
+                  src="/logo.svg"
+                  alt="Elemats Logo"
+                  fill
+                  className="object-contain"
+                />
+              </Link>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2 text-slate-800 hover:bg-slate-50 rounded-full transition-colors"
+              >
+                <X size={28} strokeWidth={1.5} />
+              </button>
+            </div>
 
-            return (
-              <div key={link.label} className="space-y-4 mb-8">
-                {hasDropdown ? (
-                  <div
-                    onClick={() => setExpandedMobileLink(isExpanded ? null : link.label)}
-                    className="text-2xl font-normal text-slate-800 hover:text-black transition-colors block cursor-pointer"
-                  >
-                    <div className="flex justify-between items-center">
-                      {link.label}
-                      <ChevronDown 
-                        size={20} 
-                        className={`text-slate-300 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} 
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-2xl font-normal text-slate-800 hover:text-black transition-colors block"
-                  >
-                    {link.label}
-                  </Link>
-                )}
-
-                {/* Mobile Sublinks */}
-                <AnimatePresence>
-                  {hasDropdown && isExpanded && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="flex flex-col gap-4 pl-4 pt-2 border-l border-slate-100 ml-1">
-                        {link.links.map((sub) => (
-                          <Link
-                            key={sub.label}
-                            href={sub.href}
-                            onClick={() => setIsOpen(false)}
-                            className="text-lg font-normal text-slate-500 hover:text-primary transition-colors"
-                          >
-                            {sub.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+            <div className="flex-1 overflow-y-auto px-6 py-8">
+              {/* Primary Action Buttons */}
+              <div className="grid grid-cols-2 gap-4 mb-10">
+                <Link href="/appointment" onClick={() => setIsOpen(false)}>
+                  <button className="w-full py-4 px-4 bg-primary text-white rounded-2xl text-[15px] font-bold shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+                    Book Appointment
+                  </button>
+                </Link>
+                <Link href="/refill" onClick={() => setIsOpen(false)}>
+                  <button className="w-full py-4 px-4 bg-slate-100 text-slate-900 rounded-2xl text-[15px] font-bold active:scale-95 transition-transform">
+                    Refill
+                  </button>
+                </Link>
               </div>
-            );
-          })}
-          <button className="mb-4 flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-xl font-normal shadow-xl active:scale-95 transition-transform">
-            <Phone size={20} fill="currentColor" stroke="none" />
-            Call Now
-          </button>
 
-          <button className="flex items-center justify-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-xl font-normal shadow-xl active:scale-95 transition-transform">
-            <Pill size={20} fill="currentColor" stroke="none" />
-            Refill
-          </button>
-        </div>
-      </div>
+              {/* Navigation Links */}
+              <div className="space-y-0">
+                {NAV_LINKS.map((link) => {
+                  const hasDropdown = link.links && link.links.length > 0;
+                  const isExpanded = expandedMobileLink === link.label;
+
+                  return (
+                    <div key={link.label} className="border-b border-slate-50">
+                      {hasDropdown ? (
+                        <button
+                          onClick={() => setExpandedMobileLink(isExpanded ? null : link.label)}
+                          className="w-full flex items-center justify-between py-6 text-xl font-medium text-slate-800 group"
+                        >
+                          <span className="group-active:text-primary transition-colors">{link.label}</span>
+                          <ChevronDown
+                            size={20}
+                            className={`text-slate-400 transition-transform duration-300 ${isExpanded ? "rotate-180" : "-rotate-90"}`}
+                          />
+                        </button>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className="w-full flex items-center justify-between py-6 text-xl font-medium text-slate-800 group"
+                        >
+                          <span className="group-active:text-primary transition-colors">{link.label}</span>
+                        </Link>
+                      )}
+
+                      {/* Mobile Sublinks */}
+                      <AnimatePresence>
+                        {hasDropdown && isExpanded && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="overflow-hidden bg-slate-50/50 rounded-2xl mb-4"
+                          >
+                            <div className="flex flex-col py-2 px-4">
+                              {link.links.map((sub) => (
+                                <Link
+                                  key={sub.label}
+                                  href={sub.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="py-4 text-lg font-normal text-slate-600 active:text-primary transition-colors flex items-center justify-between"
+                                >
+                                  {sub.label}
+                                  <ArrowRight size={16} className="text-slate-300" />
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Mobile Footer / Bottom Info */}
+            <div className="p-6 border-t border-slate-50">
+              <div className="flex items-center gap-4 text-slate-400">
+                <Globe size={18} />
+                <span className="text-sm font-medium">Elemat International Excellence</span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

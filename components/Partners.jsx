@@ -14,7 +14,7 @@ const Partners = () => {
           {PARTNERS.map((partner, index) => (
             <div
               key={index}
-              className="relative w-32 h-16 md:w-40 md:h-20 transition-all duration-500 cursor-default opacity-80 hover:opacity-100"
+              className="relative w-32 h-16 md:w-40 md:h-20 transition-all duration-500 cursor-default"
             >
               <Image
                 src={partner.logo}

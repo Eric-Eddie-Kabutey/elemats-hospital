@@ -25,7 +25,7 @@ const CareerOpenRoles = () => {
 
   return (
     <section className="w-full section-padding bg-white ">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
           {/* Column 1: Header & Filter */}
@@ -55,7 +55,7 @@ const CareerOpenRoles = () => {
           {/* Column 2 & 3: Description & Roles Grid */}
           <div className="lg:col-span-2 flex flex-col gap-12">
             <div>
-              <p className="capitalize text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
+              <p className="hidden sm:block capitalize text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
                 Now that you know what we stand for, why not take the next step? Join a passionate team driving Gambia’s digital future with smart, reliable tech solutions. Grow with us, make a difference, and be part of something bigger.
               </p>
             </div>

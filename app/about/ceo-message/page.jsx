@@ -12,13 +12,13 @@ export default function CEOMessagePage() {
         description="A word from the leadership on our commitment to excellence, innovation, and compassionate patient care."
       />
       
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-20 items-start">
             
             {/* CEO Image Content */}
-            <div className="sticky top-32">
-              <div className="aspect-4/5 relative rounded-xl overflow-hidden shadow-sm">
+            <div className="lg:sticky lg:top-32 flex flex-col-reverse md:flex-col justify-center">
+              <div className="aspect-4/5 relative rounded-2xl overflow-hidden">
                 <Image 
                   src="/staff3.jpg" 
                   alt="Dr. Lamin Drammeh"
@@ -26,16 +26,16 @@ export default function CEOMessagePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="mt-8 space-y-2">
-                <h3 className="text-2xl font-normal text-slate-900">Dr. Lamin Drammeh</h3>
-                <p className="text-primary font-normal tracking-widest uppercase text-sm">Founder & CEO, Elemats Hospital</p>
+              <div className="mt-0 md:mt-8 mb-10 md:mb-0 space-y-2">
+                <h3 className="text-xl sm:text-3xl md:text-4xl font-normal text-slate-900">Dr. Lamin Drammeh</h3>
+                <p className="text-primary font-normal tracking-widest uppercase md:text-sm text-xs">Founder & CEO, Elemats Hospital</p>
               </div>
             </div>
 
             {/* Message Content */}
             <div className="space-y-8 text-lg text-slate-600 leading-relaxed font-light">
-              <p className="text-2xl text-slate-900 font-normal leading-normal">
-                "At Elemats Hospital, our mission is more than just providing healthcare; it's about building a legacy of trust and restorative care within our community."
+              <p className="text-xl md:text-2xl text-slate-900 font-normal leading-normal">
+                &quot;At Elemats Hospital, our mission is more than just providing healthcare; it&apos;s about building a legacy of trust and restorative care within our community.&quot;
               </p>
 
               <p>

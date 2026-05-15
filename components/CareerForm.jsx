@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 const CareerForm = () => {
   return (
     <section className="w-full section-padding bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-8">
 
           {/* Left Column: Text */}

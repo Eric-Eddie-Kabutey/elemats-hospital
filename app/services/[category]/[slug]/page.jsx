@@ -57,21 +57,8 @@ function ServiceDetailContent({ category, slug }) {
          <InnerPageHero
             title={service.title}
             description={service.description}
+            backgroundImage={service.image}
          />
-
-         {/* Featured Service Image */}
-         <div className="max-w-7xl mx-auto px-6 md:px-12 pt-12">
-            <div className="relative h-96 w-full rounded-3xl overflow-hidden border border-slate-100">
-               <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  priority
-               />
-               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-black/10 opacity-80" />
-            </div>
-         </div>
 
          <div className="w-full bg-white relative">
             <div className="max-w-7xl mx-auto py-16 px-6 md:px-12">
@@ -93,12 +80,12 @@ function ServiceDetailContent({ category, slug }) {
                            Our {service.title} department is dedicated to providing high-precision medical solutions through a patient-first approach. We combine years of clinical expertise with the latest diagnostic technologies to ensure that every patient receives the best possible outcome.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
-                           <div className="p-8 bg-slate-50 rounded-3xl transition-colors group">
-                              <h3 className="text-xl font-bold text-primary mb-4  transition-colors">Our Approach</h3>
+                           <div className="p-8 bg-slate-50 rounded-xl transition-colors group">
+                              <h3 className="text-xl font-normal text-primary mb-4  transition-colors">Our Approach</h3>
                               <p className="text-slate-500 leading-relaxed font-light">We focus on minimally invasive techniques and personalized care pathways for enhanced recovery.</p>
                            </div>
-                           <div className="p-8 bg-slate-50 rounded-3xl transition-colors group">
-                              <h3 className="text-xl font-bold text-primary mb-4 transition-colors">Expert Team</h3>
+                           <div className="p-8 bg-slate-50 rounded-xl transition-colors group">
+                              <h3 className="text-xl font-normal text-primary mb-4 transition-colors">Expert Team</h3>
                               <p className="text-slate-500 leading-relaxed font-light">Lead by internationally trained consultants with deep roots in modern clinical practices.</p>
                            </div>
                         </div>
@@ -117,7 +104,7 @@ function ServiceDetailContent({ category, slug }) {
                               { step: "3", label: "Treatment", desc: "Expert medical execution" },
                               { step: "4", label: "Recovery", desc: "Post-op support & care" }
                            ].map((step, idx) => (
-                              <div key={idx} className="relative px-6 bg-primary/85 rounded-3xl group">
+                              <div key={idx} className="relative px-6 bg-primary/85 rounded-xl group">
                                  <div className="w-full flex justify-center items-center">
                                     <p className="block text-[12rem] font-black text-primary transition-colors mb-4">{step.step}</p>
                                  </div>
@@ -143,21 +130,21 @@ function ServiceDetailContent({ category, slug }) {
                                  <Clock className="w-5 h-5" />
                               </div>
                               <h4 className="text-4xl md:text-5xl font-normal text-slate-900">Efficient Delivery</h4>
-                              <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light">Minimizing wait times through smart digital scheduling systems.</p>
+                              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">Minimizing wait times through smart digital scheduling systems.</p>
                            </div>
                            <div className="space-y-4 bg-slate-50 rounded-3xl p-8">
                               <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary">
                                  <ShieldCheck className="w-5 h-5" />
                               </div>
                               <h4 className="text-4xl md:text-5xl font-normal text-slate-900">Patient Safety</h4>
-                              <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light">Adhering to international sterile protocols for all surgical areas.</p>
+                              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">Adhering to international sterile protocols for all surgical areas.</p>
                            </div>
                            <div className="space-y-4 bg-slate-50 rounded-3xl p-8">
                               <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary">
                                  <Star className="w-5 h-5" />
                               </div>
                               <h4 className="text-4xl md:text-5xl font-normal text-slate-900">Global Standards</h4>
-                              <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light">Using FDA/ISO approved medical equipment and supplies.</p>
+                              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">Using FDA/ISO approved medical equipment and supplies.</p>
                            </div>
                         </div>
                      </section>
@@ -175,7 +162,7 @@ function ServiceDetailContent({ category, slug }) {
                                  <Link
                                     key={rel.title}
                                     href={`/services/${actualCategory}/${rel.title.toLowerCase().replace(/\s+/g, '-')}`}
-                                    className={`group relative aspect-square overflow-hidden shadow-2xl
+                                    className={`group relative aspect-square overflow-hidden
                           ${index % 2 === 0
                                           ? "rounded-tl-[4rem] rounded-br-[4rem] rounded-tr-xl rounded-bl-xl"
                                           : "rounded-tr-[4rem] rounded-bl-[4rem] rounded-tl-xl rounded-br-xl"
@@ -219,10 +206,13 @@ function ServiceDetailContent({ category, slug }) {
                            <h3 className="text-4xl md:text-5xl font-normal text-primary leading-[1.1] tracking-tight">Ready to start your healing?</h3>
                            <p className="text-lg text-slate-500 leading-relaxed font-light">Book a session with one of our specialized consultants for a detailed clinical evaluation.</p>
                         </div>
-                        <button className="capitalize inline-flex items-center gap-2 bg-primary/80 text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-primary transition-all group">
+                        <Link 
+                           href="/appointment"
+                           className="capitalize inline-flex items-center gap-2 bg-primary/80 text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-primary transition-all group"
+                        >
                            Book Consultant
                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                         {/* <button className="w-full py-5 bg-slate-900 text-white rounded-full font-bold hover:bg-primary transition-all active:scale-95 duration-300">
                      Book Consultant
                   </button> */}

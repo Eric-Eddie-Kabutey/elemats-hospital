@@ -55,7 +55,7 @@ const Footer = () => {
 
             <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-20 justify-between mt-6">
               {/* Services */}
-              <div className="col-span-1 text-center md:text-left">
+              <div className="hidden md:block col-span-1 text-center md:text-left">
                 <h4 className="text-xl font-normal mb-6 text-white capitalize tracking-widest pb-2 inline-block sm:block ">{FOOTER_CONTENT.sections[0].title}</h4>
                 <ul className="space-y-4">
                   {FOOTER_CONTENT.sections[0].links.map((link) => (
@@ -69,7 +69,7 @@ const Footer = () => {
               </div>
 
               {/* Quick Links */}
-              <div className="col-span-1 text-center md:text-left">
+              <div className="hidden md:block col-span-1 text-center md:text-left">
                 <h4 className="text-xl font-normal mb-6 text-white capitalize tracking-widest pb-2 inline-block sm:block">{FOOTER_CONTENT.sections[1].title}</h4>
                 <ul className="space-y-4">
                   {FOOTER_CONTENT.sections[1].links.map((link) => (

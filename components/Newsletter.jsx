@@ -5,7 +5,7 @@ import { Mail, ArrowRight } from 'lucide-react';
 const Newsletter = () => {
   return (
     <section className="section-padding py-16 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <div className="max-w-7xl mx-auto">
         <div className="relative bg-[#0b1220] rounded-[2.5rem] overflow-hidden group border border-slate-900 shadow-2xl">
           
           {/* Very Subtle Background Glow */}

@@ -41,10 +41,10 @@ export default function LeadershipTeam() {
         {/* Header & Tabs */}
         <div className="mb-16">
           <div className="max-w-3xl space-y-6">
-            <h2 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.1]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.1]">
               Leadership & Executive Management
             </h2>
-            <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
+            <p className="hidden md:block text-lg md:text-xl text-slate-500 font-light leading-relaxed">
               Meet the experts behind our clinical success—a diverse team of medical professionals dedicated to delivering the best healthcare for our patients.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function LeadershipTeam() {
                 <h3 className="text-xl font-bold text-white mb-2">
                   {member.name}
                 </h3>
-                <p className="text-sm font-medium text-white">
+                <p className="text-sm font-medium text-white line-clamp-1">
                   {member.role}
                 </p>
               </div>

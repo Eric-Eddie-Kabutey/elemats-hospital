@@ -39,38 +39,42 @@ const CareerCulture = () => {
             >
               <CarouselContent className="-ml-4 flex items-stretch">
                 {WORK_CULTURE.map((data, index) => (
-                  <CarouselItem key={data.id} className="pl-4 md:basis-1/2 lg:basis-1/2">
-                    <Card className="h-full flex flex-col md:flex-row gap-4 bg-white border border-gray-200 transition-all duration-500 overflow-hidden group">
-                      <div className="flex-1 flex flex-col gap-4 p-8">
+                  <CarouselItem key={data.id} className="pl-4 basis-[90%] md:basis-1/2 lg:basis-1/2">
+                    <Card className="h-full flex flex-row bg-white border border-gray-200 transition-all duration-500 overflow-hidden group">
+                      {/* Text Content */}
+                      <div className="flex-1 flex flex-col gap-3 p-3 sm:p-6 md:p-10">
                         <CardHeader className="p-0">
-                          <div className="w-12 h-12 flex items-center justify-center">
-                            {data.icon && <data.icon className="w-6 h-6 text-primary" />}
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-slate-50 rounded-xl mb-2">
+                            {data.icon && <data.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary" />}
                           </div>
                         </CardHeader>
-                        <CardContent className="p-0 space-y-4">
+                        <CardContent className="p-0 space-y-3">
                           <Typography
                             typo="header-6-semibold"
-                            className="text-2xl text-slate-900"
+                            className="text-sm sm:text-lg md:text-2xl text-slate-900"
                           >
                             {data.title}
                           </Typography>
                           <Typography
                             typo="body-small-regular"
-                            className="text-lg leading-snug text-slate-500 font-light"
+                            className="text-xs sm:text-sm md:text-lg leading-relaxed text-slate-500 font-light"
                           >
                             {data.description}
                           </Typography>
                         </CardContent>
                       </div>
 
-                      <div className="flex-1 min-h-[300px] relative overflow-hidden">
+                      {/* Image */}
+                      <div className="flex-1 relative overflow-hidden min-h-[100px] md:min-h-[200px]">
                         <Image
                           src={data.img}
                           alt={`Working ${index + 1}`}
                           fill
-                          sizes="(max-width: 768px) 100vw, 50vw"
+                          sizes="(max-width: 768px) 40vw, 30vw"
                           className="object-cover group-hover:scale-110 transition-transform duration-1000"
                         />
+                        {/* Overlay to soften the image on mobile */}
+                        <div className="absolute inset-0 bg-linear-to-r from-white via-transparent to-transparent md:hidden opacity-20" />
                       </div>
                     </Card>
                   </CarouselItem>

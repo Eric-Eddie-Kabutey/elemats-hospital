@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const crosses = [
   // [x%, y%, size, opacity]
   [88, 15, 28, 0.12],
@@ -33,22 +35,39 @@ const Cross = ({ x, y, size, opacity }) => {
   );
 };
 
-const InnerPageHero = ({ title, description }) => {
+const InnerPageHero = ({ title, description, backgroundImage }) => {
   return (
     <section className="w-full p-2 md:p-4 bg-white">
-      <div className="bg-primary rounded-3xl relative overflow-hidden">
+      <div className={`rounded-3xl relative overflow-hidden ${!backgroundImage ? 'bg-primary' : ''}`}>
+        
+        {/* Background Image Mode */}
+        {backgroundImage && (
+          <>
+            <div className="absolute inset-0 z-0">
+              <Image 
+                src={backgroundImage} 
+                alt={title} 
+                fill 
+                priority
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/70 to-black/60 z-10" />
+              <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10" />
+            </div>
+          </>
+        )}
 
-        {/* Medical cross pattern */}
+        {/* Medical cross pattern - Only show if no background image */}
         {crosses.map(([x, y, size, opacity], i) => (
           <Cross key={i} x={x} y={y} size={size} opacity={opacity} />
         ))}
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto pt-52 pb-24 px-6 md:px-12">
+        <div className="relative z-20 w-full max-w-7xl mx-auto pt-52 pb-24 px-6 md:px-12">
           <h1 className="text-5xl md:text-8xl font-normal text-white tracking-tight leading-[1.1]">
             {title}
           </h1>
-          <p className="max-w-2xl text-xl md:text-2xl text-white/70 font-normal leading-relaxed mt-4">
+          <p className="max-w-2xl text-xl md:text-2xl text-white/90 font-normal leading-relaxed mt-4">
             {description}
           </p>
         </div>

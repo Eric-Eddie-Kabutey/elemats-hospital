@@ -8,15 +8,15 @@ import { fadeInUp } from "@/lib/motion_variants";
 const CareForAbout = () => {
   return (
     <section className="section-padding bg-white overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 text-center">
+      <div className="max-w-[1400px] mx-auto text-center">
         <motion.h2 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight"
+          className="text-xl sm:text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight"
         >
-          Offering specialized excellence in <span className="text-primary font-normal">Fertility & IVF, Women's Health, and Pediatrics, </span>
+          Offering specialized excellence in <span className="text-primary font-normal">Fertility & IVF, Women&apos;s Health, and Pediatrics, </span>
           supported by <span className="text-primary font-normal">advanced diagnostics and 24/7 emergency care</span>.
         </motion.h2>
 

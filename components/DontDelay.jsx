@@ -29,10 +29,12 @@ const DontDelay = () => {
                                 <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed mb-8">
                                     Your health is our priority. Schedule an appointment with our team of dedicated specialists today.
                                 </p>
-                                <button className="capitalize inline-flex items-center gap-2 bg-primary/80 text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-primary transition-all shadow-lg group">
-                                    Book an Appointment
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                <Link href="/appointment">
+                                    <button className="capitalize inline-flex items-center gap-2 bg-primary/80 text-white px-8 py-3.5 rounded-full text-sm font-normal hover:bg-primary transition-all shadow-lg group">
+                                        Book an Appointment
+                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

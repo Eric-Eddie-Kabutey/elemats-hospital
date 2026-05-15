@@ -10,9 +10,9 @@ import { fadeInUp, slideInRight, staggerContainer } from "@/lib/motion_variants"
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[85vh] md:min-h-screen p-2 md:p-4 bg-white">
+    <section className="relative min-h-[5vh] sm:min-h-[85vh] md:min-h-screen p-2 md:p-4 bg-white">
       {/* Main Rounded Box */}
-      <div className="relative w-full min-h-[95vh] flex flex-col justify-center lg:justify-end rounded-3xl overflow-hidden shadow-sm">
+      <div className="relative w-full min-h-[5vh] sm:min-h-[95vh] flex flex-col justify-center lg:justify-end rounded-3xl overflow-hidden shadow-sm">
 
         {/* Background Image */}
         <div className="absolute inset-0 rounded-b-3xl">
@@ -23,7 +23,7 @@ const Hero = () => {
             className="absolute inset-0"
           >
             <Image
-              src="/hos1.jpg"
+              src="/team1.jpg"
               alt="LifePath Dental Care"
               fill
               sizes="100vw"
@@ -33,7 +33,7 @@ const Hero = () => {
             />
           </motion.div>
           {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-black/30"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/40 to-black/40"></div>
         </div>
 
         {/* Global Navbar - Inside the rounded box for that 'embedded' look */}
@@ -48,7 +48,7 @@ const Hero = () => {
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="w-full lg:max-w-4xl pb-16 lg:pb-24"
+              className="w-full lg:max-w-4xl pb-0 sm:pb-16 lg:pb-24"
             >
               <motion.h1
                 variants={fadeInUp}
@@ -66,10 +66,12 @@ const Hero = () => {
               </motion.p>
 
               <motion.div variants={fadeInUp}>
-                <button className="flex items-center gap-3 bg-white text-black px-6 py-3.5 md:px-10 md:py-5 rounded-full text-xl font-normal hover:bg-zinc-100 transition-all shadow-2xl group/btn">
-                  Book Appointment
-                  <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover/btn:translate-x-2 transition-transform duration-300" />
-                </button>
+                <Link href="/appointment">
+                  <button className="flex items-center gap-3 bg-white text-black px-6 py-3.5 md:px-10 md:py-5 rounded-full text-xl font-normal hover:bg-zinc-100 transition-all shadow-2xl group/btn">
+                    Book Appointment
+                    <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover/btn:translate-x-2 transition-transform duration-300" />
+                  </button>
+                </Link>
               </motion.div>
             </motion.div>
 

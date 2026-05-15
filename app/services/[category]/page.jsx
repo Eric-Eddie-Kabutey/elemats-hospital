@@ -34,10 +34,11 @@ export default function CategoryPage({ params }) {
       <InnerPageHero
         title={tab.label}
         description={tab.description}
+        backgroundImage={tab.image}
       />
 
       <section id="services-grid" className="relative section-padding p-2 md:p-4 bg-white min-h-[50vh]">
-        <div className="max-w-7xl mx-auto mb-12">
+        <div className="max-w-7xl mx-auto mb-12 px-8">
           
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start my-12 pt-12">
             <div className="lg:w-1/2">

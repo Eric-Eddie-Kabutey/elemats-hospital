@@ -34,7 +34,7 @@ const FloatingSocials = () => {
   return (
     <>
       {/* Bottom Right Cluster */}
-      <div className="fixed right-6 bottom-8 z-50 flex flex-col gap-4">
+      <div className="fixed right-6 bottom-8 z-50 flex flex-col gap-2">
         {/* Call Button (Emergency) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5, y: 20 }}

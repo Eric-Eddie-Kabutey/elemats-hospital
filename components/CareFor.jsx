@@ -8,13 +8,13 @@ import { fadeInUp } from "@/lib/motion_variants";
 const CareFor = () => {
   return (
     <section className="section-padding bg-white overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 text-center">
+      <div className="max-w-[1400px] mx-auto text-center">
         <motion.h2 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight"
+          className="text-xl sm:text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight"
         >
           We are a <span className="text-primary font-normal">leading private specialist</span> hospital — blending 
           <span className="text-primary font-normal">clinical precision, cutting-edge technology, and deep compassion</span> to 
