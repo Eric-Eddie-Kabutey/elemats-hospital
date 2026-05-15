@@ -20,7 +20,7 @@ export default function CEOMessagePage() {
             <div className="sticky top-32">
               <div className="aspect-4/5 relative rounded-xl overflow-hidden shadow-sm">
                 <Image 
-                  src="/career/banner/1 (1).jpg" 
+                  src="/staff3.jpg" 
                   alt="Dr. Lamin Drammeh"
                   fill
                   className="object-cover"

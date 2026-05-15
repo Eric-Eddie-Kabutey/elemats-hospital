@@ -12,32 +12,22 @@ export default function LeadershipTeam() {
       {
         name: "Dr. Lamin Drammeh",
         role: "Chief Medical Director & Founder",
-        image: ""
+        image: "/staff33.jpg"
       },
       {
         name: "Dr. Ya Ida Drammeh",
         role: "Director of Clinical Operations",
-        image: ""
+        image: "/staff11.jpg"
       },
       {
         name: "Nicholas Jatta",
         role: "Head of Hospital Infrastructure",
-        image: ""
+        image: "/staff2.jpg"
       },
       {
         name: "Awa Ceesay",
         role: "Nursing Superintendent",
-        image: ""
-      },
-      {
-        name: "Musa Njie",
-        role: "Client Relations Manager",
-        image: ""
-      },
-      {
-        name: "Fatou Sanneh",
-        role: "Chief Financial Officer",
-        image: ""
+        image: "/staff4.jpg"
       }
     ]
   };

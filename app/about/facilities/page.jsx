@@ -16,22 +16,22 @@ const HOSPITAL_FACILITIES = [
   {
     title: "Modern Operating Theatres",
     description: "Fully equipped surgical suites designed for complex procedures with advanced life support systems.",
-    image: "/stock/sur-1.jpeg"
+    image: "/fac6.jpg"
   },
   {
     title: "Maternity & Delivery Suites",
     description: "Private, serene delivery rooms providing a safe and welcoming environment for mothers and newborns.",
-    image: "/stock/fac-3.jpeg"
+    image: "/fac2.jpg"
   },
   {
     title: "Diagnostics & Imaging Hub",
     description: "High-resolution radio-diagnostics and fully automated laboratory services for precise medical insights.",
-    image: "/stock/fac-5.jpeg"
+    image: "/eq1.jpg"
   },
   {
     title: "Intensive Care Unit (ICU)",
     description: "Specialized unit with 24/7 dedicated nursing and advanced monitoring for critical patient care.",
-    image: "/stock/fac-4.jpeg"
+    image: "/fac15.jpg"
   }
 ];
 
@@ -39,22 +39,22 @@ const PHARMACY_FACILITIES = [
   {
     title: "Main Hospital Pharmacy",
     description: "Our 24-hour in-house pharmacy ensures that all hospitalized patients have immediate access to life-saving medications.",
-    image: "/stock/fac-5.jpeg"
+    image: "/fac1.jpg"
   },
-  {
-    title: "Prescription Dispensing",
-    description: "Fast and accurate dispensing of all essential medications with professional pharmacist oversight and guidance.",
-    image: "/stock/fac-8.jpeg"
-  },
+  // {
+  //   title: "Prescription Dispensing",
+  //   description: "Fast and accurate dispensing of all essential medications with professional pharmacist oversight and guidance.",
+  //   image: "/stock/fac-8.jpeg"
+  // },
   {
     title: "Specialized Medication Hub",
     description: "Access to rare and specialized drugs for fertility treatments, chronic care, and specialized medical conditions.",
-    image: "/stock/fac-3.jpeg"
+    image: "/eq5.jpg"
   },
   {
     title: "Wellness & OTC Section",
     description: "A wide selection of trusted health and wellness products, vitamins, and first-aid essentials for daily health.",
-    image: "/stock/fac-4.jpeg"
+    image: "/eq6.jpg"
   }
 ];
 

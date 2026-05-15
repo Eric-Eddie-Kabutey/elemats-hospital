@@ -23,7 +23,7 @@ const Hero = () => {
             className="absolute inset-0"
           >
             <Image
-              src="/stock/loc-2.jpeg"
+              src="/hos1.jpg"
               alt="LifePath Dental Care"
               fill
               sizes="100vw"
@@ -84,7 +84,7 @@ const Hero = () => {
               <Link href="/refill">
                 <div className="relative h-28 sm:h-40 rounded-[16px] overflow-hidden mb-2 sm:mb-4">
                   <Image
-                    src="/stock/fac-2.jpeg"
+                    src="/fac1.jpg"
                     alt="Refill Medication"
                     fill
                     sizes="(max-width: 768px) 100vw, 340px"

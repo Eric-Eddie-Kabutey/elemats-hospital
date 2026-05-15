@@ -18,9 +18,8 @@ const AutoCarousel = ({ images, interval = 5000 }) => {
       {images.map((img, idx) => (
         <div
           key={idx}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            idx === currentIndex ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
         >
           <Image
             src={img}
@@ -32,15 +31,14 @@ const AutoCarousel = ({ images, interval = 5000 }) => {
         </div>
       ))}
       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-black/60 to-transparent"></div>
-      
+
       {/* Indicators */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
         {images.map((_, idx) => (
           <div
             key={idx}
-            className={`h-1 rounded-full transition-all duration-500 ${
-              idx === currentIndex ? "w-6 bg-white" : "w-1.5 bg-white/30"
-            }`}
+            className={`h-1 rounded-full transition-all duration-500 ${idx === currentIndex ? "w-6 bg-white" : "w-1.5 bg-white/30"
+              }`}
           />
         ))}
       </div>
@@ -50,18 +48,18 @@ const AutoCarousel = ({ images, interval = 5000 }) => {
 
 const CareerBanner = () => {
   const allImages = [
-    "/stock/staff-1.jpeg",
-    "/stock/staff-2.jpeg",
-    "/stock/staff-3.jpeg",
-    "/stock/staff-4.jpeg",
-    "/stock/staff-5.jpeg",
-    "/stock/staff-6.jpeg",
+    "/team1.jpg",
+    "/team2.jpg",
+    "/team3.jpg",
+    "/team1.jpg",
+    "/team2.jpg",
+    "/team3.jpg",
   ];
 
   return (
     <section className="w-full py-12 px-2 md:px-4 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
+
         {/* Mobile View: AutoCarousel */}
         {/* <div className="block md:hidden">
           <AutoCarousel images={allImages} />
@@ -69,23 +67,23 @@ const CareerBanner = () => {
 
         {/* Desktop & Tablet View: Grid */}
         <div className="grid grid-cols-4 gap-1 sm:gap-2 md:gap-3 lg:gap-4 h-[240px] md:h-[420px] lg:h-[560px]">
-          
+
           {/* Column 1 */}
           <div className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4h-full">
             <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
-              <Image 
-                src="/stock/staff-1.jpeg" 
-                alt="Career 1" 
-                fill 
+              <Image
+                src="/team1.jpg"
+                alt="Career 1"
+                fill
                 sizes="(max-width: 768px) 100vw, 25vw"
                 className="object-cover"
               />
             </div>
             <div className="relative h-[45%] rounded-xl overflow-hidden shadow-sm">
-              <Image 
-                src="/stock/staff-9.jpeg" 
-                alt="Career 2" 
-                fill 
+              <Image
+                src="/staff1.jpg"
+                alt="Career 2"
+                fill
                 sizes="(max-width: 768px) 100vw, 25vw"
                 className="object-cover"
               />
@@ -94,12 +92,12 @@ const CareerBanner = () => {
 
           {/* Column 2 - Tall (Hidden on md, visible on lg) or part of 2nd col on md? */}
           {/* If 2 columns on tablet, we can show Col 1 & Col 2? Or Combine them. */}
-          
+
           <div className="relative h-full rounded-xl overflow-hidden shadow-sm">
-            <Image 
-              src="/stock/staff-3.jpeg" 
-              alt="Career 3" 
-              fill 
+            <Image
+              src="/team3.jpg"
+              alt="Career 3"
+              fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
@@ -107,10 +105,10 @@ const CareerBanner = () => {
 
           {/* Column 3 - Tall (Hidden on md, visible on lg) */}
           <div className="relative h-full rounded-xl overflow-hidden shadow-sm">
-            <Image 
-              src="/stock/sur-1.jpeg" 
-              alt="Career 4" 
-              fill 
+            <Image
+              src="/staff333.jpg"
+              alt="Career 4"
+              fill
               sizes="(max-width: 1024px) 100vw, 25vw"
               className="object-cover"
             />
@@ -119,19 +117,19 @@ const CareerBanner = () => {
           {/* Column 4 (Hidden on md, visible on lg) */}
           <div className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4 h-full">
             <div className="relative h-[45%] rounded-xl overflow-hidden shadow-sm">
-              <Image 
-                src="/stock/staff-8.jpeg" 
-                alt="Career 5" 
-                fill 
+              <Image
+                src="/staff22.jpg"
+                alt="Career 5"
+                fill
                 sizes="(max-width: 1024px) 100vw, 25vw"
                 className="object-cover"
               />
             </div>
             <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
-              <Image 
-                src="/stock/staff-6.jpeg" 
-                alt="Career 6" 
-                fill 
+              <Image
+                src="/staff44.jpg"
+                alt="Career 6"
+                fill
                 sizes="(max-width: 1024px) 100vw, 25vw"
                 className="object-cover"
               />
@@ -151,7 +149,7 @@ const CareerBanner = () => {
           {/* Right Side: Description */}
           <div className="lg:w-1/2">
             <p className="capitalize text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
-              We are working in a workplace where staff bonds like a family built on mutual respect and shared goals. 
+              We are working in a workplace where staff bonds like a family built on mutual respect and shared goals.
               A corporation where your ideas matter and your growth is a priority.
             </p>
           </div>
