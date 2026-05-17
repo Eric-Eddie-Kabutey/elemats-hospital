@@ -99,11 +99,17 @@ const Services = () => {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4"
+        >
           {SERVICES_TABS.slice(0, 4).map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
-        </div>
+        </motion.div>
 
         {/* Mobile Carousel */}
         <div className="block sm:hidden">

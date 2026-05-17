@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const crosses = [
@@ -35,6 +37,9 @@ const Cross = ({ x, y, size, opacity }) => {
   );
 };
 
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
+
 const InnerPageHero = ({ title, description, backgroundImage }) => {
   return (
     <section className="w-full p-2 md:p-4 bg-white">
@@ -44,13 +49,20 @@ const InnerPageHero = ({ title, description, backgroundImage }) => {
         {backgroundImage && (
           <>
             <div className="absolute inset-0 z-0">
-              <Image 
-                src={backgroundImage} 
-                alt={title} 
-                fill 
-                priority
-                className="object-cover"
-              />
+              <motion.div
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0"
+              >
+                <Image 
+                  src={backgroundImage} 
+                  alt={title} 
+                  fill 
+                  priority
+                  className="object-cover"
+                />
+              </motion.div>
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/70 to-black/60 z-10" />
               <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10" />
             </div>
@@ -63,14 +75,25 @@ const InnerPageHero = ({ title, description, backgroundImage }) => {
         ))}
 
         {/* Content */}
-        <div className="relative z-20 w-full max-w-7xl mx-auto pt-52 pb-24 px-6 md:px-12">
-          <h1 className="text-5xl md:text-8xl font-normal text-white tracking-tight leading-[1.1]">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="relative z-20 w-full max-w-7xl mx-auto pt-52 pb-24 px-6 md:px-12"
+        >
+          <motion.h1 
+            variants={fadeInUp}
+            className="text-5xl md:text-8xl font-normal text-white tracking-tight leading-[1.1]"
+          >
             {title}
-          </h1>
-          <p className="max-w-2xl text-xl md:text-2xl text-white/90 font-normal leading-relaxed mt-4">
+          </motion.h1>
+          <motion.p 
+            variants={fadeInUp}
+            className="max-w-2xl text-xl md:text-2xl text-white/90 font-normal leading-relaxed mt-4"
+          >
             {description}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
     </section>
   );

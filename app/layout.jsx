@@ -19,13 +19,17 @@ export const metadata = {
   description: "At Elemats Specialist Hospital,our main goal is to make Couples a Family",
 };
 
+import PageWrapper from "@/components/PageWrapper";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <body
         className={`${inter.variable} ${outfit.variable} font-sans antialiased bg-[#FDFCFB] text-slate-900`}
       >
-        {children}
+        <PageWrapper>
+          {children}
+        </PageWrapper>
         <FloatingSocials />
       </body>
     </html>

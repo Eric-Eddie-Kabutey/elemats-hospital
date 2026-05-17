@@ -13,19 +13,28 @@ import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card"
 import { Typography } from "@/components/ui/typography";
 import Autoplay from "embla-carousel-autoplay";
 
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
+
 const CareerCulture = () => {
   return (
-    <section className="w-full p-2 md:p-4 bg-white">
+    <section className="w-full p-2 md:p-4 bg-white overflow-hidden">
       <div className="bg-gray-50 rounded-3xl">
-        <div className="w-full max-w-7xl mx-auto py-24 px-6 md:px-12">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="w-full max-w-7xl mx-auto py-24 px-6 md:px-12"
+        >
           {/* Culture Carousel Section */}
-          <div className="text-center mb-12">
+          <motion.div variants={fadeInUp} className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.1] tracking-tight">
               Why you&apos;ll love working here
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="w-full py-6">
+          <motion.div variants={fadeInUp} className="w-full py-6">
             <Carousel
               plugins={[
                 Autoplay({
@@ -80,14 +89,9 @@ const CareerCulture = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              {/* Nav Arrows */}
-              {/* <div className="hidden md:block">
-                <CarouselPrevious className="absolute -left-16 " />
-                <CarouselNext className="absolute -right-16" />
-              </div> */}
             </Carousel>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -5,15 +5,19 @@ import Footer from "@/components/Footer";
 import InnerPageHero from "@/components/InnerPageHero";
 import AppointmentForm from "@/components/AppointmentForm";
 
+import AnimateOnScroll from "@/components/AnimateOnScroll";
+
 export default function AppointmentPage() {
   return (
-    <main>
+    <main className="overflow-hidden">
       <Navbar />
       <InnerPageHero 
         title="Book Appointment"
         description="Schedule a consultation with our world-class specialists. Choose your preferred time and department, and our team will get back to you to confirm."
       />
+      
       <AppointmentForm />
+      
       <Footer />
     </main>
   );

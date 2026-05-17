@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InnerPageHero from "@/components/InnerPageHero";
@@ -7,9 +9,12 @@ import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
 import Faq from "@/components/Faq";
 
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
+
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white overflow-hidden">
       <Navbar />
       <InnerPageHero
         title="Resources"
@@ -17,12 +22,18 @@ export default function ResourcesPage() {
       />
 
       {/* Patient Guide Section */}
-      <section className="w-full py-24 px-6 md:px-12 bg-white">
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="w-full py-24 px-6 md:px-12 bg-white"
+      >
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div className="space-y-4">
+            <motion.div variants={fadeInUp} className="space-y-4">
               <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Patient Guide</span>
               <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight max-w-xl">
                 Know before you arrive
@@ -30,20 +41,23 @@ export default function ResourcesPage() {
               <p className="text-lg text-slate-500 font-light leading-relaxed max-w-lg">
                 Essential information to help you prepare for your visit, billing, and what to expect during your stay.
               </p>
-            </div>
-            <Link
-              href="/resources/patient-guide"
-              className="shrink-0 inline-flex items-center gap-2 text-primary font-medium hover:underline underline-offset-4 text-sm"
-            >
-              View full guide <ArrowRight className="w-4 h-4" />
-            </Link>
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <Link
+                href="/resources/patient-guide"
+                className="shrink-0 inline-flex items-center gap-2 text-primary font-medium hover:underline underline-offset-4 text-sm"
+              >
+                View full guide <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
           </div>
 
           {/* Guide Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {PATIENT_GUIDE_DATA.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={fadeInUp}
                 className=""
               >
                 <h3 className="text-2xl font-normal text-slate-900  mb-3 transition-colors duration-500">
@@ -52,11 +66,11 @@ export default function ResourcesPage() {
                 <p className="text-slate-500 font-light text-sm leading-relaxed line-clamp-3 ">
                   {item.content}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Divider */}
       <div className="w-full px-6 md:px-12">
@@ -64,12 +78,18 @@ export default function ResourcesPage() {
       </div>
 
       {/* Blog Section */}
-      <section className="w-full py-24 px-6 md:px-12 bg-white">
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="w-full py-24 px-6 md:px-12 bg-white"
+      >
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div className="space-y-4">
+            <motion.div variants={fadeInUp} className="space-y-4">
               <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Our Blog</span>
               <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight max-w-xl">
                 Latest insights & news
@@ -77,13 +97,15 @@ export default function ResourcesPage() {
               <p className="text-lg text-slate-500 font-light leading-relaxed max-w-lg">
                 Stay informed with the latest medical insights, healthy living tips, and news from our specialists.
               </p>
-            </div>
-            <Link
-              href="/resources/blogs"
-              className="shrink-0 inline-flex items-center gap-2 text-primary font-medium hover:underline underline-offset-4 text-sm"
-            >
-              View all articles <ArrowRight className="w-4 h-4" />
-            </Link>
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <Link
+                href="/resources/blogs"
+                className="shrink-0 inline-flex items-center gap-2 text-primary font-medium hover:underline underline-offset-4 text-sm"
+              >
+                View all articles <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
           </div>
 
           {/* Blog Cards */}
@@ -93,7 +115,7 @@ export default function ResourcesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Faq />
 

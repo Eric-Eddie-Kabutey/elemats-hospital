@@ -5,43 +5,54 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
+
 const RefillForm = () => {
   const [method, setMethod] = useState("pickup");
 
   return (
-    <section className="w-full section-padding bg-white">
+    <section className="w-full section-padding bg-white overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col lg:flex-row gap-16 z-20">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="flex flex-col lg:flex-row gap-16 z-20"
+        >
 
           {/* Left Column: Text & Info */}
           <div className="lg:w-1/3 space-y-12">
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.1] tracking-tight">
+              <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.1] tracking-tight">
                 Quick Refill <br /> Request
-              </h2>
-              <p className="text-lg text-slate-500 leading-relaxed font-light">
+              </motion.h2>
+              <motion.p variants={fadeInUp} className="text-lg text-slate-500 leading-relaxed font-light">
                 Running low on your essential medications? Our pharmacy team is ready to assist. Submit your request below, and we&apos;ll have it ready for you.
-              </p>
+              </motion.p>
             </div>
 
             <div className="space-y-8">
-              <div className="flex flex-col items-start gap-2">
+              <motion.div variants={fadeInUp} className="flex flex-col items-start gap-2">
                 <h4 className="font-normal text-slate-900">Expert Review</h4>
                 <p className="text-slate-500 font-light text-sm">Every refill is cross-checked by our clinical pharmacists for safety.</p>
-              </div>
-              <div className="flex flex-col items-start gap-2">
+              </motion.div>
+              <motion.div variants={fadeInUp} className="flex flex-col items-start gap-2">
                 <h4 className="font-normal text-slate-900">Home Delivery</h4>
                 <p className="text-slate-500 font-light text-sm">Enjoy the convenience of medications delivered straight to your door.</p>
-              </div>
+              </motion.div>
             </div>
           </div>
 
           {/* Right Column: Form */}
           <div className="lg:w-2/3">
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.form 
+              variants={staggerContainer}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            >
 
               {/* Full Name */}
-              <div className="space-y-2">
+              <motion.div variants={fadeInUp} className="space-y-2">
                 <label className="text-lg font-normal text-slate-700 ml-1">Patient Full Name*</label>
                 <input
                   type="text"
@@ -49,20 +60,20 @@ const RefillForm = () => {
                   className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
                   placeholder="e.g. John Doe"
                 />
-              </div>
+              </motion.div>
 
               {/* Prescription Number */}
-              <div className="space-y-2">
+              <motion.div variants={fadeInUp} className="space-y-2">
                 <label className="text-lg font-normal text-slate-700 ml-1">Prescription Number (if known)</label>
                 <input
                   type="text"
                   className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
                   placeholder="e.g. RX-12345"
                 />
-              </div>
+              </motion.div>
 
               {/* Email */}
-              <div className="space-y-2">
+              <motion.div variants={fadeInUp} className="space-y-2">
                 <label className="text-lg font-normal text-slate-700 ml-1">Email Address*</label>
                 <input
                   type="email"
@@ -70,10 +81,10 @@ const RefillForm = () => {
                   className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
                   placeholder="your@email.com"
                 />
-              </div>
+              </motion.div>
 
               {/* Phone Number */}
-              <div className="space-y-2">
+              <motion.div variants={fadeInUp} className="space-y-2">
                 <label className="text-lg font-normal text-slate-700 ml-1">Phone Number*</label>
                 <input
                   type="tel"
@@ -81,10 +92,10 @@ const RefillForm = () => {
                   className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900"
                   placeholder="+220 ..."
                 />
-              </div>
+              </motion.div>
 
               {/* Medication Details */}
-              <div className="col-span-1 md:col-span-2 space-y-2">
+              <motion.div variants={fadeInUp} className="col-span-1 md:col-span-2 space-y-2">
                 <label className="text-lg font-normal text-slate-700 ml-1">Medication Name & Dosage*</label>
                 <textarea
                   rows={3}
@@ -92,10 +103,10 @@ const RefillForm = () => {
                   className="mt-2 w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-1 focus:ring-primary/20 transition-all outline-none text-slate-900 resize-none"
                   placeholder="List the medications you need refilled..."
                 />
-              </div>
+              </motion.div>
 
               {/* Fulfillment Method */}
-              <div className="col-span-1 md:col-span-2 space-y-4">
+              <motion.div variants={fadeInUp} className="col-span-1 md:col-span-2 space-y-4">
                 <label className="text-lg font-normal text-slate-700 ml-1">Fulfillment Method*</label>
                 <div className="grid grid-cols-2 gap-4">
                   <div
@@ -121,7 +132,7 @@ const RefillForm = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Delivery Address (Conditional) */}
               {method === "delivery" && (
@@ -141,7 +152,7 @@ const RefillForm = () => {
               )}
 
               {/* Submit Button */}
-              <div className="group col-span-1 md:col-span-2 pt-4">
+              <motion.div variants={fadeInUp} className="group col-span-1 md:col-span-2 pt-4">
                 <button
                   type="submit"
                   className="flex items-center gap-2 text-white px-10 py-4 rounded-full text-sm font-normal bg-primary/90 hover:bg-primary shadow-lg shadow-primary/20 transition-all"
@@ -149,12 +160,12 @@ const RefillForm = () => {
                   Submit Refill Request
                   <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform inline-block ml-2" />
                 </button>
-              </div>
+              </motion.div>
 
-            </form>
+            </motion.form>
           </div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

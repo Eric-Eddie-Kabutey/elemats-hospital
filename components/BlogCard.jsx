@@ -1,10 +1,14 @@
-import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/lib/motion_variants";
 import Link from "next/link";
-import { ArrowRight, Calendar } from "lucide-react";
-
+import Image from "next/image";
+import { Calendar, ArrowRight } from "lucide-react";
 export default function BlogCard({ post }) {
   return (
-    <article className="group bg-white rounded-xl overflow-hidden cursor-pointer transition-all duration-500">
+    <motion.article 
+      variants={fadeInUp}
+      className="group bg-white rounded-xl overflow-hidden cursor-pointer transition-all duration-500"
+    >
       <Link href={`/resources/blogs/${post.id}`} className="block">
         <div className="relative h-64 w-full overflow-hidden rounded-xl">
           <Image
@@ -38,6 +42,6 @@ export default function BlogCard({ post }) {
           </div>
         </div>
       </Link>
-    </article>
+    </motion.article>
   );
 }

@@ -2,15 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeInUp } from "@/lib/motion_variants";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 
-const StatCard = ({ color, number, text, subtext, delay }) => (
+const StatCard = ({ color, number, text, subtext }) => (
   <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
     variants={fadeInUp}
-    transition={{ delay }}
     className={`p-4 md:p-6 rounded-xl flex flex-col justify-between h-full min-h-[160px] md:min-h-[220px] lg:min-h-[260px] ${color}`}
   >
     <div className="space-y-1.5 md:space-y-4">
@@ -27,13 +23,9 @@ const StatCard = ({ color, number, text, subtext, delay }) => (
   </motion.div>
 );
 
-const ServiceCard = ({ image, title, description, delay, aspect = "aspect-[4/5]" }) => (
+const ServiceCard = ({ image, title, description, aspect = "aspect-[4/5]" }) => (
   <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
     variants={fadeInUp}
-    transition={{ delay }}
     className={`relative rounded-xl overflow-hidden group ${aspect}`}
   >
     <Image
@@ -52,20 +44,26 @@ const ServiceCard = ({ image, title, description, delay, aspect = "aspect-[4/5]"
 
 const CareFor2 = () => {
   const items = [
-    { type: 'service', image: "/WhatWeOffer/Surgery.jpg", title: "General Medical", description: "Expert primary care and advanced surgical solutions for your family.", delay: 0.1, aspect: "aspect-[4/7]" },
-    { type: 'stat', color: "bg-indigo-500", number: "15k+", text: "Successful surgeries performed annually.", subtext: "Excellence in every procedure", delay: 0.2 },
-    { type: 'service', image: "/WhatWeOffer/Specialist Services.jpg", title: "Fertility & IVF", description: "Advanced reproductive health and assisted conception services.", delay: 0.3, aspect: "aspect-square md:aspect-[4/5]" },
-    { type: 'service', image: "/WhatWeOffer/OB-GYN Services.jpg", title: "Women's Health", description: "Comprehensive obstetric and gynecological care for every stage of life.", delay: 0.4, aspect: "aspect-[4/5]" },
-    { type: 'stat', color: "bg-emerald-500", number: "24/7", text: "Emergency medical support available.", subtext: "Always here when it matters", delay: 0.5 },
-    { type: 'service', image: "/WhatWeOffer/Radio Diagnostics.jpg", title: "Diagnostics", description: "High-precision laboratory testing and specialized medical imaging.", delay: 0.6, aspect: "aspect-square md:aspect-[4/5]" },
-    { type: 'stat', color: "bg-primary", number: "500+", text: "World-class medical professionals.", subtext: "Expertise you can trust", delay: 0.7 },
-    { type: 'service', image: "/WhatWeOffer/PrimaryCare.jpg", title: "Pediatrics", description: "Dedicated medical care for infants, children, and adolescents.", delay: 0.8, aspect: "aspect-[4/6]" },
+    { type: 'service', image: "/WhatWeOffer/Surgery.jpg", title: "General Medical", description: "Expert primary care and advanced surgical solutions for your family.", aspect: "aspect-[4/7]" },
+    { type: 'stat', color: "bg-indigo-500", number: "15k+", text: "Successful surgeries performed annually.", subtext: "Excellence in every procedure" },
+    { type: 'service', image: "/WhatWeOffer/Specialist Services.jpg", title: "Fertility & IVF", description: "Advanced reproductive health and assisted conception services.", aspect: "aspect-square md:aspect-[4/5]" },
+    { type: 'service', image: "/WhatWeOffer/OB-GYN Services.jpg", title: "Women's Health", description: "Comprehensive obstetric and gynecological care for every stage of life.", aspect: "aspect-[4/5]" },
+    { type: 'stat', color: "bg-emerald-500", number: "24/7", text: "Emergency medical support available.", subtext: "Always here when it matters" },
+    { type: 'service', image: "/WhatWeOffer/Radio Diagnostics.jpg", title: "Diagnostics", description: "High-precision laboratory testing and specialized medical imaging.", aspect: "aspect-square md:aspect-[4/5]" },
+    { type: 'stat', color: "bg-primary", number: "500+", text: "World-class medical professionals.", subtext: "Expertise you can trust" },
+    { type: 'service', image: "/WhatWeOffer/PrimaryCare.jpg", title: "Pediatrics", description: "Dedicated medical care for infants, children, and adolescents.", aspect: "aspect-[4/6]" },
   ];
 
   return (
     <section className="bg-white overflow-hidden pb-12 md:pb-24">
       <div className="max-w-[1400px] mx-auto px-2 md:px-6">
-        <div className="columns-3 lg:columns-4 gap-1.5 md:gap-4 lg:gap-6 space-y-1.5 md:space-y-4 lg:space-y-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="columns-3 lg:columns-4 gap-1.5 md:gap-4 lg:gap-6 space-y-1.5 md:space-y-4 lg:space-y-6"
+        >
           {items.map((item, idx) => (
             <div key={idx} className="break-inside-avoid">
               {item.type === 'stat' ? (
@@ -75,7 +73,7 @@ const CareFor2 = () => {
               )}
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

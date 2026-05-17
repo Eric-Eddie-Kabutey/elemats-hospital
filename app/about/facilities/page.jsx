@@ -58,12 +58,14 @@ const PHARMACY_FACILITIES = [
   }
 ];
 
+import AnimateOnScroll from "@/components/AnimateOnScroll";
+
 export default function FacilitiesPage() {
   const [activeTab, setActiveTab] = useState("hospital");
   const facilities = activeTab === "hospital" ? HOSPITAL_FACILITIES : PHARMACY_FACILITIES;
 
   return (
-    <main>
+    <main className="overflow-hidden">
       <Navbar />
       <InnerPageHero
         title="Our Facilities"
@@ -73,31 +75,33 @@ export default function FacilitiesPage() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-6">
           
-          {/* Tabs Navigation */}
-          <div className="flex justify-center mb-16">
-            <div className="inline-flex p-1 bg-slate-100 rounded-2xl">
-              <button
-                onClick={() => setActiveTab("hospital")}
-                className={`px-8 py-3.5 rounded-xl text-sm font-medium transition-all duration-300 ${
-                  activeTab === "hospital" 
-                    ? "bg-white text-primary shadow-sm" 
-                    : "text-slate-500 hover:text-slate-800"
-                }`}
-              >
-                Hospital
-              </button>
-              <button
-                onClick={() => setActiveTab("pharmacy")}
-                className={`px-8 py-3.5 rounded-xl text-sm font-medium transition-all duration-300 ${
-                  activeTab === "pharmacy" 
-                    ? "bg-white text-primary shadow-sm" 
-                    : "text-slate-500 hover:text-slate-800"
-                }`}
-              >
-                Pharmacy
-              </button>
+          <AnimateOnScroll>
+            {/* Tabs Navigation */}
+            <div className="flex justify-center mb-16">
+              <div className="inline-flex p-1 bg-slate-100 rounded-2xl">
+                <button
+                  onClick={() => setActiveTab("hospital")}
+                  className={`px-8 py-3.5 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    activeTab === "hospital" 
+                      ? "bg-white text-primary shadow-sm" 
+                      : "text-slate-500 hover:text-slate-800"
+                  }`}
+                >
+                  Hospital
+                </button>
+                <button
+                  onClick={() => setActiveTab("pharmacy")}
+                  className={`px-8 py-3.5 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    activeTab === "pharmacy" 
+                      ? "bg-white text-primary shadow-sm" 
+                      : "text-slate-500 hover:text-slate-800"
+                  }`}
+                >
+                  Pharmacy
+                </button>
+              </div>
             </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* Facilities Grid */}
           <AnimatePresence mode="wait">

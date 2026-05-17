@@ -4,23 +4,39 @@ import { useState } from "react";
 import { FAQ_ITEMS } from "@/constants/constants";
 import { Plus, Minus } from "lucide-react";
 
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
+
 const Faq = () => {
   const [openIndex, setOpenIndex] = useState(-1);
 
   return (
-    <section id="faq" className="w-full section-padding bg-white">
+    <section id="faq" className="w-full section-padding bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto ">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Frequently Asked Questions</h2>
-          <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="text-center mb-16"
+        >
+          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Frequently Asked Questions</motion.h2>
+          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
             Find answers to common questions about our medical services and procedures.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="space-y-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+          className="space-y-4"
+        >
           {FAQ_ITEMS.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={fadeInUp}
               className="group border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 hover:bg-slate-50/50"
               onMouseEnter={() => setOpenIndex(index)}
               onMouseLeave={() => setOpenIndex(-1)}
@@ -44,9 +60,9 @@ const Faq = () => {
                   {item.answer}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

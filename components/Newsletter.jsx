@@ -1,6 +1,11 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import { Mail, ArrowRight } from 'lucide-react';
+
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 
 const Newsletter = () => {
   return (
@@ -13,22 +18,28 @@ const Newsletter = () => {
             <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[140px] -translate-y-1/2 -translate-x-1/4" />
           </div>
 
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 items-center">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="relative grid grid-cols-1 lg:grid-cols-2 items-center"
+          >
             
             {/* Left Content */}
             <div className="p-8 md:p-12 lg:p-16 space-y-10 z-10">
               <div className="space-y-6">
-                <h2 className="text-3xl md:text-3xl lg:text-5xl font-normal text-white tracking-tight leading-tight">
+                <motion.h2 variants={fadeInUp} className="text-3xl md:text-3xl lg:text-5xl font-normal text-white tracking-tight leading-tight">
                   Join the Future of <br />
                   <span className="text-primary italic">Healthcare</span> Excellence
-                </h2>
-                <p className="text-base md:text-lg text-slate-400 font-light max-w-sm leading-relaxed">
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-base md:text-lg text-slate-400 font-light max-w-sm leading-relaxed">
                   Stay updated with medical innovations, wellness tips, and hospital news from Elemats Specialist Hospital.
-                </p>
+                </motion.p>
               </div>
 
               {/* Form */}
-              <div className="space-y-4">
+              <motion.div variants={fadeInUp} className="space-y-4">
                 <form className="flex flex-col sm:flex-row gap-3 max-w-lg">
                   <div className="relative flex-1 group/input">
                     <div className="absolute left-5 top-1/2 -translate-y-1/2">
@@ -52,11 +63,11 @@ const Newsletter = () => {
                 <p className="text-[11px] uppercase tracking-widest text-slate-600 font-medium">
                   SECURE & PRIVACY-FIRST UPDATES
                 </p>
-              </div>
+              </motion.div>
             </div>
 
             {/* Right Mockup Branded */}
-            <div className="relative h-[400px] lg:h-[500px] flex items-center justify-center bg-[#0b1220]">
+            <motion.div variants={fadeInUp} className="relative h-[400px] lg:h-[500px] flex items-center justify-center bg-[#0b1220]">
               <div className="relative w-full h-full scale-125 lg:scale-150 lg:translate-x-12 translate-y-4">
                 <Image
                   src="/images/mockup.jpg"
@@ -66,9 +77,9 @@ const Newsletter = () => {
                   priority
                 />
               </div>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

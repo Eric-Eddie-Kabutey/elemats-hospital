@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 import { PARTNERS } from "@/constants/constants";
 
 export default function OurPartners() {
@@ -10,21 +11,30 @@ export default function OurPartners() {
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-12 lg:gap-16">
         
         {/* Header Text */}
-        <div className="w-full text-center">
-          <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="w-full text-center"
+        >
+          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">
             Our Partners
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
         {/* Partners Grid */}
-        <div className="w-full max-w-5xl mx-auto flex flex-wrap justify-center items-center gap-x-12 gap-y-10 md:gap-x-20">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+          className="w-full max-w-5xl mx-auto flex flex-wrap justify-center items-center gap-x-12 gap-y-10 md:gap-x-20"
+        >
           {PARTNERS.map((partner, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              variants={fadeInUp}
               className="relative w-32 md:w-40 h-16 opacity-40 hover:opacity-100 transition-all duration-500"
             >
               <Image
@@ -35,7 +45,7 @@ export default function OurPartners() {
               />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

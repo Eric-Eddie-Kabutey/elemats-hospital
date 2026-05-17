@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { User } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 
 export default function LeadershipTeam() {
   const [activeTab, setActiveTab] = useState("all");
@@ -35,38 +36,39 @@ export default function LeadershipTeam() {
   const currentTeam = teamData[activeTab];
 
   return (
-    <section id="team" className="section-padding bg-slate-50">
+    <section id="team" className="section-padding bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* Header & Tabs */}
-        <div className="mb-16">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="mb-16"
+        >
           <div className="max-w-3xl space-y-6">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.1]">
+            <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.1]">
               Leadership & Executive Management
-            </h2>
-            <p className="hidden md:block text-lg md:text-xl text-slate-500 font-light leading-relaxed">
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="hidden md:block text-lg md:text-xl text-slate-500 font-light leading-relaxed">
               Meet the experts behind our clinical success—a diverse team of medical professionals dedicated to delivering the best healthcare for our patients.
-            </p>
+            </motion.p>
           </div>
-
-          {/* <div className="flex gap-2 mt-10">
-            <button
-              onClick={() => setActiveTab("all")}
-              className={`px-8 py-3 rounded-full text-sm font transition-all duration-300 bg-primary/5 ${activeTab === "all"
-                  ? "bg-primary/90 hover:bg-primary text-white shadow-md"
-                  : "text-primary hover:bg-primary/10"
-                }`}
-            >
-              All
-            </button>
-          </div> */}
-        </div>
+        </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+        >
           {currentTeam.map((member, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={fadeInUp}
               className="bg-white rounded-xl overflow-hidden shadow-xs transition-all duration-500 group border border-slate-100"
             >
               {/* Image Container */}
@@ -97,9 +99,9 @@ export default function LeadershipTeam() {
                   {member.role}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

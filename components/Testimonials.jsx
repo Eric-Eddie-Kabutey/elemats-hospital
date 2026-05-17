@@ -10,8 +10,14 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
+
 const TestimonialCard = ({ testimonial }) => (
-  <div className="premium-card p-6 md:p-10 flex flex-col justify-between h-full bg-white rounded-3xl border border-slate-100 shadow-sm">
+  <motion.div 
+    variants={fadeInUp}
+    className="premium-card p-6 md:p-10 flex flex-col justify-between h-full bg-white rounded-3xl border border-slate-100 shadow-sm"
+  >
     <div>
       {/* Stars */}
       <div className="flex gap-1 mb-8 text-yellow-400">
@@ -40,7 +46,7 @@ const TestimonialCard = ({ testimonial }) => (
         </p>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 const Testimonials = () => {
@@ -58,21 +64,33 @@ const Testimonials = () => {
   }, [api]);
 
   return (
-    <section className="w-full section-padding bg-slate-50/30">
+    <section className="w-full section-padding bg-slate-50/30 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Patient Transformations</h2>
-          <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto mt-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="text-center mb-16"
+        >
+          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-normal text-slate-800 tracking-tight leading-tight">Patient Transformations</motion.h2>
+          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto mt-4">
             See what our patients say about their experience at Elemats Specialist Hospital.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+          className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {TESTIMONIALS.map((testimonial, index) => (
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}
-        </div>
+        </motion.div>
 
         {/* Mobile Carousel */}
         <div className="block md:hidden">

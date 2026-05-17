@@ -46,6 +46,9 @@ const AutoCarousel = ({ images, interval = 5000 }) => {
   );
 };
 
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
+
 const CareerBanner = () => {
   const allImages = [
     "/team1.jpg",
@@ -57,103 +60,103 @@ const CareerBanner = () => {
   ];
 
   return (
-    <section className="w-full py-12 px-2 md:px-4 bg-white">
+    <section className="w-full py-12 px-2 md:px-4 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
-        {/* Mobile View: AutoCarousel */}
-        {/* <div className="block md:hidden">
-          <AutoCarousel images={allImages} />
-        </div> */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="space-y-12"
+        >
+          {/* Desktop & Tablet View: Grid */}
+          <motion.div variants={fadeInUp} className="grid grid-cols-4 gap-1 sm:gap-2 md:gap-3 lg:gap-4 h-[240px] md:h-[420px] lg:h-[560px]">
 
-        {/* Desktop & Tablet View: Grid */}
-        <div className="grid grid-cols-4 gap-1 sm:gap-2 md:gap-3 lg:gap-4 h-[240px] md:h-[420px] lg:h-[560px]">
+            {/* Column 1 */}
+            <div className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4h-full">
+              <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
+                <Image
+                  src="/team1.jpg"
+                  alt="Career 1"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-[45%] rounded-xl overflow-hidden shadow-sm">
+                <Image
+                  src="/staff1.jpg"
+                  alt="Career 2"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
 
-          {/* Column 1 */}
-          <div className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4h-full">
-            <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
+            <div className="relative h-full rounded-xl overflow-hidden shadow-sm">
               <Image
-                src="/team1.jpg"
-                alt="Career 1"
+                src="/team3.jpg"
+                alt="Career 3"
                 fill
-                sizes="(max-width: 768px) 100vw, 25vw"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
-            <div className="relative h-[45%] rounded-xl overflow-hidden shadow-sm">
+
+            {/* Column 3 - Tall (Hidden on md, visible on lg) */}
+            <div className="relative h-full rounded-xl overflow-hidden shadow-sm">
               <Image
-                src="/staff1.jpg"
-                alt="Career 2"
-                fill
-                sizes="(max-width: 768px) 100vw, 25vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Column 2 - Tall (Hidden on md, visible on lg) or part of 2nd col on md? */}
-          {/* If 2 columns on tablet, we can show Col 1 & Col 2? Or Combine them. */}
-
-          <div className="relative h-full rounded-xl overflow-hidden shadow-sm">
-            <Image
-              src="/team3.jpg"
-              alt="Career 3"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-
-          {/* Column 3 - Tall (Hidden on md, visible on lg) */}
-          <div className="relative h-full rounded-xl overflow-hidden shadow-sm">
-            <Image
-              src="/staff333.jpg"
-              alt="Career 4"
-              fill
-              sizes="(max-width: 1024px) 100vw, 25vw"
-              className="object-cover"
-            />
-          </div>
-
-          {/* Column 4 (Hidden on md, visible on lg) */}
-          <div className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4 h-full">
-            <div className="relative h-[45%] rounded-xl overflow-hidden shadow-sm">
-              <Image
-                src="/staff22.jpg"
-                alt="Career 5"
+                src="/staff333.jpg"
+                alt="Career 4"
                 fill
                 sizes="(max-width: 1024px) 100vw, 25vw"
                 className="object-cover"
               />
             </div>
-            <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
-              <Image
-                src="/staff44.jpg"
-                alt="Career 6"
-                fill
-                sizes="(max-width: 1024px) 100vw, 25vw"
-                className="object-cover"
-              />
+
+            {/* Column 4 (Hidden on md, visible on lg) */}
+            <div className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4 h-full">
+              <div className="relative h-[45%] rounded-xl overflow-hidden shadow-sm">
+                <Image
+                  src="/staff22.jpg"
+                  alt="Career 5"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
+                <Image
+                  src="/staff44.jpg"
+                  alt="Career 6"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
-          </div>
 
-        </div>
+          </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start mt-12">
-          {/* Left Side: Heading */}
-          <div className="lg:w-1/2">
-            <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.1] tracking-tight">
-              Let&apos;s talk about what makes us a <span className="text-primary">great place</span> to work.
-            </h2>
-          </div>
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
+            {/* Left Side: Heading */}
+            <motion.div variants={fadeInUp} className="lg:w-1/2">
+              <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.1] tracking-tight">
+                Let&apos;s talk about what makes us a <span className="text-primary">great place</span> to work.
+              </h2>
+            </motion.div>
 
-          {/* Right Side: Description */}
-          <div className="lg:w-1/2">
-            <p className="capitalize text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
-              We are working in a workplace where staff bonds like a family built on mutual respect and shared goals.
-              A corporation where your ideas matter and your growth is a priority.
-            </p>
+            {/* Right Side: Description */}
+            <motion.div variants={fadeInUp} className="lg:w-1/2">
+              <p className="capitalize text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
+                We are working in a workplace where staff bonds like a family built on mutual respect and shared goals.
+                A corporation where your ideas matter and your growth is a priority.
+              </p>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

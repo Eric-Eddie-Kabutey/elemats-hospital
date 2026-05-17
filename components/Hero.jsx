@@ -6,7 +6,7 @@ import Link from "next/link";
 import Navbar from "./Navbar";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { fadeInUp, slideInRight, staggerContainer } from "@/lib/motion_variants";
+import { fadeInUp, slideInRight, slideInLeft, staggerContainer } from "@/lib/motion_variants";
 
 const Hero = () => {
   return (
@@ -51,7 +51,7 @@ const Hero = () => {
               className="w-full lg:max-w-4xl pb-0 sm:pb-16 lg:pb-24"
             >
               <motion.h1
-                variants={fadeInUp}
+                variants={slideInLeft}
                 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight md:leading-none tracking-tight mb-6 md:mb-8"
               >
                 Elemats<br />
@@ -59,7 +59,7 @@ const Hero = () => {
               </motion.h1>
 
               <motion.p
-                variants={fadeInUp}
+                variants={slideInLeft}
                 className="text-lg md:text-2xl text-white/90 max-w-2xl font-light leading-relaxed mb-8 md:mb-10"
               >
                 At Elemats Specialist Hospital, our main goal is to make Couples a Family. We run Infertility Programmes and make your worries fade out.

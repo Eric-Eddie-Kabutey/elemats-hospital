@@ -1,7 +1,11 @@
+"use client";
+
 import { FOOTER_CONTENT } from "@/constants/constants";
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 import DontDelay from "./DontDelay";
 
 const SOCIAL_ICONS = {
@@ -35,9 +39,15 @@ const Footer = () => {
       <DontDelay />
       <footer className="section-padding p-2 md:p-4 bg-slate-50">
         <div className="relative bg-linear-to-t from-primary/95 to-primary/80 w-full text-white rounded-3xl mx-auto pt-10 md:pt-16 pb-8 px-6 md:px-12 overflow-hidden">
-          <div className="max-w-7xl mx-auto flex flex-row flex-wrap justify-between items-center mb-12 z-30 relative">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-7xl mx-auto flex flex-row flex-wrap justify-between items-center mb-12 z-30 relative"
+          >
             {/* Large Decorative Text */}
-            <div className="w-full flex flex-row justify-center items-center select-none pointer-events-none relative z-0">
+            <motion.div variants={fadeInUp} className="w-full flex flex-row justify-center items-center select-none pointer-events-none relative z-0">
               <Link href="/" className="flex items-center">
                 <div className="relative w-[16vw] h-[16vw] rounded-full overflow-hidden border border-white/10 bg-slate-50 p-2 shadow-xl">
                   <Image
@@ -51,11 +61,11 @@ const Footer = () => {
               <h2 className="text-center text-[24vw] font-light font-serif capitalize text-slate-50 tracking-tighter leading-none whitespace-nowrap">
                 Elemat
               </h2>
-            </div>
+            </motion.div>
 
             <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-20 justify-between mt-6">
               {/* Services */}
-              <div className="hidden md:block col-span-1 text-center md:text-left">
+              <motion.div variants={fadeInUp} className="hidden md:block col-span-1 text-center md:text-left">
                 <h4 className="text-xl font-normal mb-6 text-white capitalize tracking-widest pb-2 inline-block sm:block ">{FOOTER_CONTENT.sections[0].title}</h4>
                 <ul className="space-y-4">
                   {FOOTER_CONTENT.sections[0].links.map((link) => (
@@ -66,10 +76,10 @@ const Footer = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
 
               {/* Quick Links */}
-              <div className="hidden md:block col-span-1 text-center md:text-left">
+              <motion.div variants={fadeInUp} className="hidden md:block col-span-1 text-center md:text-left">
                 <h4 className="text-xl font-normal mb-6 text-white capitalize tracking-widest pb-2 inline-block sm:block">{FOOTER_CONTENT.sections[1].title}</h4>
                 <ul className="space-y-4">
                   {FOOTER_CONTENT.sections[1].links.map((link) => (
@@ -80,10 +90,10 @@ const Footer = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
 
               {/* Contact */}
-              <div className="col-span-1 hidden lg:block text-left">
+              <motion.div variants={fadeInUp} className="col-span-1 hidden lg:block text-left">
                 <h4 className="text-xl font-normal mb-6 text-white capitalize tracking-widest pb-2">Contact</h4>
                 <ul className="space-y-4">
                   <li className="flex flex-row items-center sm:items-center gap-4 text-white/50 group">
@@ -105,10 +115,10 @@ const Footer = () => {
                     <span className="text-[14px] md:text-[15px] tracking-wider">{FOOTER_CONTENT.contact.address}</span>
                   </li>
                 </ul>
-              </div>
+              </motion.div>
               
               {/* Logo & Brand */}
-              <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
+              <motion.div variants={fadeInUp} className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
                 {/* <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-sm">
                   {FOOTER_CONTENT.description}
                 </p> */}
@@ -137,10 +147,10 @@ const Footer = () => {
                     );
                   })}
                 </div>
-              </div>
+              </motion.div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* Bottom bar */}
           <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/60 text-xs md:text-sm z-10 relative">

@@ -9,14 +9,17 @@ import CareForAbout from "@/components/CareForAbout";
 import LeadershipTeam from "@/components/LeadershipTeam";
 import Faq from "@/components/Faq";
 
+import AnimateOnScroll from "@/components/AnimateOnScroll";
+
 export default function AboutPage() {
   return (
-    <main>
+    <main className="overflow-hidden">
       <Navbar />
       <InnerPageHero 
         title="Who We Are" 
         description="A team of dedicated professionals committed to excellence in dental care and patient well-being."
       />
+      
       <CareForAbout />
       <CareFor2 />
       <AboutDifference />
@@ -24,6 +27,7 @@ export default function AboutPage() {
       <OurPartners />
       <LeadershipTeam />
       <Faq />
+
       <Footer />
     </main>
   );

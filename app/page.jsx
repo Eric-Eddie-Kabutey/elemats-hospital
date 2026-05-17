@@ -16,22 +16,21 @@ import OurPartners from "@/components/OurPartners";
 import AboutDifference from "@/components/AboutDifference";
 import AboutVideo from "@/components/AboutVideo";
 
+import AnimateOnScroll from "@/components/AnimateOnScroll";
+import { fadeInUp, slideInRight, slideInLeft } from "@/lib/motion_variants";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 overflow-hidden">
       <Hero />
+      
       <CareFor />
-      {/* <AboutDifference /> */}
-      {/* <CareFor2 /> */}
       <Services />
       <AboutVideo />
-      {/* <AboutUs />
-      <AboutUs2 /> */}
-
       <Testimonials />
       <OurPartners />
       <Faq />
-      {/* <Newsletter /> */}
+
       <Footer />
     </main>
   );

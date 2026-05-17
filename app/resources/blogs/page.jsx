@@ -1,12 +1,17 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InnerPageHero from "@/components/InnerPageHero";
 import { BLOG_POSTS } from "@/constants/constants";
 import BlogCard from "@/components/BlogCard";
 
+import { motion } from "framer-motion";
+import { staggerContainer } from "@/lib/motion_variants";
+
 export default function BlogsPage() {
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-white min-h-screen overflow-hidden">
       <Navbar />
       <InnerPageHero
         title="Our Blogs"
@@ -15,11 +20,17 @@ export default function BlogsPage() {
 
       <div className="">
         <div className="w-full max-w-7xl mx-auto py-24 px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {BLOG_POSTS.map((post) => (
               <BlogCard key={post.id} post={post} />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 
