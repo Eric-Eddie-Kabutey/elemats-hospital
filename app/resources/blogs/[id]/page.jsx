@@ -67,11 +67,11 @@ export default async function BlogPostPage({ params }) {
       {/* Main Content Grid */}
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-16 lg:gap-32 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-4 lg:gap-8 items-start">
             
             {/* Left Column: Image & Meta */}
             <div className="lg:sticky lg:top-32 space-y-12">
-              <div className="relative aspect-video lg:aspect-4/5 rounded-xl overflow-hidden">
+              <div className="relative aspect-video lg:aspect-4/5 rounded-xl overflow-hidden mb-4 lg:mb-8">
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -80,16 +80,7 @@ export default async function BlogPostPage({ params }) {
                   className="object-cover"
                 />
               </div>
-              
-              <div className="space-y-8">
-                 {/* <div className="flex flex-col gap-2">
-                    <span className="w-fit text-slate-900 font-medium text-lg inline-flex items-center gap-2 px-6 py-2 bg-slate-100  rounded-full">
-                      {post.category}
-                    </span> 
-                 </div> */}
-                 
-                 <BlogShare title={post.title} />
-              </div>
+              <BlogShare title={post.title} />
             </div>
 
             {/* Right Column: Article Content */}
@@ -97,7 +88,7 @@ export default async function BlogPostPage({ params }) {
               {Array.isArray(post.content) ? (
                 <div className="space-y-10">
                   {post.content.map((paragraph, i) => (
-                    <p key={i} className="text-lg md:text-xl font-light text-slate-600 leading-[1.8] tracking-tight">
+                    <p key={i} className="text-lg md:text-xl font-light text-slate-600 leading-[1.8] tracking-tight mb-4 lg:mb-8">
                       {paragraph}
                     </p>
                   ))}

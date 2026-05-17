@@ -43,7 +43,7 @@ import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 const InnerPageHero = ({ title, description, backgroundImage }) => {
   return (
     <section className="w-full p-2 md:p-4 bg-white">
-      <div className={`rounded-3xl relative overflow-hidden ${!backgroundImage ? 'bg-primary' : ''}`}>
+      <div className={`rounded-3xl relative overflow-hidden  px-6 md:px-12  ${!backgroundImage ? 'bg-primary' : ''}`}>
         
         {/* Background Image Mode */}
         {backgroundImage && (
@@ -79,7 +79,7 @@ const InnerPageHero = ({ title, description, backgroundImage }) => {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="relative z-20 w-full max-w-7xl mx-auto pt-52 pb-24 px-6 md:px-12"
+          className="relative z-20 w-full max-w-7xl mx-auto pt-52 pb-24"
         >
           <motion.h1 
             variants={fadeInUp}

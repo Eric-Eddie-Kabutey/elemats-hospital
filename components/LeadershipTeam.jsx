@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
+import { User } from "lucide-react";
 
 export default function LeadershipTeam() {
   const [activeTab, setActiveTab] = useState("all");
@@ -11,24 +12,28 @@ export default function LeadershipTeam() {
   const teamData = {
     all: [
       {
-        name: "Dr. Lamin Drammeh",
-        role: "Chief Medical Director & Founder",
+        name: "Prof Matthew Anyanwu",
+        role: "CEO",
         image: "/staff33.jpg"
       },
       {
-        name: "Dr. Ya Ida Drammeh",
-        role: "Director of Clinical Operations",
-        image: "/staff11.jpg"
-      },
-      {
-        name: "Nicholas Jatta",
-        role: "Head of Hospital Infrastructure",
+        name: "Awa Bah",
+        role: "Matron",
         image: "/staff2.jpg"
       },
       {
-        name: "Awa Ceesay",
-        role: "Nursing Superintendent",
+        name: "Babou Jatta",
+        role: "Head of Pharmacy",
+        image: "/staff11.jpg"
+      },
+      {
+        name: "Isatou Joof",
+        role: "Head of Finance",
         image: "/staff4.jpg"
+      },
+      {
+        name: "Fatou Dibba",
+        role: "Head of Domestics"
       }
     ]
   };

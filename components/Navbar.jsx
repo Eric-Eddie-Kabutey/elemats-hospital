@@ -108,7 +108,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Nav - Glass Pill */}
-          <div className={`hidden lg:flex items-center backdrop-blur-xl px-2 rounded-full shadow-2xl border transition-all duration-500 overflow-visible bg-white/10 border-white/20`}>
+          <div className={`hidden lg:flex items-center gap-2 backdrop-blur-xl px-2 rounded-full shadow-2xl border transition-all duration-500 overflow-visible bg-white/10 border-white/20`}>
             {NAV_LINKS.map((link) => {
               const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               const hasDropdown = link.links && link.links.length > 0;

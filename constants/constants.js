@@ -36,8 +36,6 @@ export const LOCATIONS = [
   }
 ];
 
-
-
 export const HERO_CONTENT = {
   title: "Seamless Dental Care",
   description: "Whether it's a routine checkup or a major procedure, our experienced professionals are just a call away. Experience healthcare that's tailored to your needs.",
@@ -267,25 +265,16 @@ export const ABOUT_US = {
 
 export const TESTIMONIALS = [
   {
-    name: "Kevin Martin",
-    role: "Health screenings for seniors",
-    feedback: "Our visual designer lets you quickly and easily drag and drop your own way to custom-apps for both desktop, mobile & also tab for report.",
-    image: "/images/hero.jpg",
+    feedback: "In December 2022, we successfully delivered our first set of IVF twins for a 54-year-old patient. Despite being a high-risk pregnancy, diligent specialized care ensured healthy babies with no complications.",
     rating: 5,
   },
   {
-    name: "Sarah Jenkins",
-    role: "Dental Transformation",
-    feedback: "I've never felt more comfortable at a dentist's office. The team is professional, kind, and the results are absolutely stunning.",
-    image: "/images/hero.jpg",
+    feedback: "In April 2024, we achieved an exceptional 71.4% IVF success rate, far exceeding the typical 14.3% clinical average. Since then, our clinical pregnancy success rate has consistently remained above 51%.",
     rating: 5,
   },
   {
-    name: "Michael Chen",
-    role: "Orthodontic Patient",
-    feedback: "The Invisalign process was seamless. I highly recommend Elemats for anyone looking for modern dental solutions.",
-    image: "/images/hero.jpg",
-    rating: 5,
+    feedback: "The second batch of twins delivered was on the 18th of August 2025 in a couple that has struggled with infertility for many years, about 9 years to be precise.",
+    rating: 4,
   },
 ];
 
@@ -340,23 +329,23 @@ export const FOOTER_CONTENT = {
     // },
   ],
   socials: [
-    { platform: "Facebook", href: "#" },
-    { platform: "Instagram", href: "#" },
-    { platform: "LinkedIn", href: "#" },
-    { platform: "X", href: "#" },
+    { platform: "WhatsApp", href: "https://wa.me/2202978350" },
+    { platform: "Instagram", href: "https://www.instagram.com/esh_hospital" },
+    { platform: "Facebook", href: "https://www.facebook.com/profile.php?id=100083853860695" },
+    { platform: "TikTok", href: "https://www.tiktok.com/@elemats1?_r=1&_t=ZS-96QBpdzKWWt" },
   ],
   contact: {
-    phone: "012 345 6789",
-    email: "care@elemats.com",
+    phone: "+220 297 8350",
+    email: "elematsspecialisthospital19@gmail.com , anyanwum@yahoo.com ",
     address: "123 Health Ave, Wellness City",
   },
 };
 
 export const FLOATING_SOCIALS = [
-  { platform: "WhatsApp", icon: "💬", href: "https://wa.me/..." },
-  { platform: "Instagram", icon: "📸", href: "#" },
-  { platform: "Facebook", icon: "👤", href: "#" },
-  { platform: "X", icon: "𝕏", href: "#" },
+  { platform: "WhatsApp", icon: "💬", href: "https://wa.me/2202978350" },
+  { platform: "Instagram", icon: "📸", href: "https://www.instagram.com/esh_hospital?igsh=bzhxbGt4ZmswZDlv" },
+  { platform: "Facebook", icon: "👤", href: "https://web.facebook.com/profile.php?id=61591618477827&_rdc=1&_rdr " },
+  { platform: "TikTok", icon: "𝕏", href: "https://www.tiktok.com/@elemats1?_r=1&_t=ZS-96QBpdzKWWt" },
 ];
 
 export const PARTNERS = [
@@ -366,7 +355,6 @@ export const PARTNERS = [
   { name: "NEA", logo: "/partners/NEA.png" },
   { name: "Red Cross", logo: "/partners/Red_Cross.jpg" },
 ];
-
 
 export const WORK_CULTURE = [
   {
@@ -492,6 +480,19 @@ export const OPEN_ROLES = [
 
 export const BLOG_POSTS = [
   {
+    id: "understanding-infertility",
+    title: "Understanding Infertility: Causes, Support, and Treatment Options",
+    excerpt: "Infertility is a common concern for many couples and individuals worldwide. It is defined as the inability to achieve pregnancy after one year of regular, unprotected intercourse. While the emotional impact can be profound, it is important to remember that infertility is a medical condition with treatable causes.",
+    date: "May 17, 2026",
+    category: "Fertility",
+    image: "/stock/Infertility.jpg",
+    content: [
+      "Infertility is a common medical condition that affects millions of individuals and couples worldwide. It is generally defined as the inability to achieve pregnancy after 12 months of regular unprotected intercourse. While infertility can be emotionally challenging, advances in modern medicine have made diagnosis and treatment more effective than ever. Infertility may affect both men and women. In women, common causes include ovulation disorders, blocked fallopian tubes, hormonal imbalances, endometriosis, or age-related decline in fertility. In men, infertility may result from low sperm count, poor sperm movement, hormonal issues, or lifestyle factors such as smoking and excessive alcohol consumption. ",
+      "Early evaluation is important. A fertility assessment may include medical history, laboratory tests, imaging studies, and semen analysis to identify possible underlying causes. In many cases, infertility is treatable through lifestyle changes, medications, minimally invasive procedures, or assisted reproductive technologies such as IVF. Emotional support is also an essential part of infertility care. Patients are encouraged to seek counseling, support groups, and open communication with healthcare providers throughout the treatment process.",
+      "At Elemats Specialist Hospital, the goal is to provide compassionate, evidence-based fertility care tailored to each patient’s needs. If you are experiencing difficulty conceiving, consulting a qualified healthcare professional can be the first step toward understanding your options and building hope for the future.",
+    ]
+  },
+  {
     id: "fertility-ivf-innovations",
     title: "Innovations in Fertility & IVF Treatment",
     excerpt: "Discover how advanced embryology and genetic screening are increasing success rates and fulfilling dreams of parenthood.",
@@ -566,4 +567,3 @@ export const LANGUAGES = [
   { id: "5", name: "Japan", flag: "/images/countries/japan-flag.png", label: "JA", code: "ja" },
   { id: "6", name: "Nederland", flag: "/images/countries/nederlands-flag.png", label: "NE", code: "nl" },
 ];
-

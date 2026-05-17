@@ -16,7 +16,7 @@ import { fadeInUp, staggerContainer } from "@/lib/motion_variants";
 const TestimonialCard = ({ testimonial }) => (
   <motion.div 
     variants={fadeInUp}
-    className="premium-card p-6 md:p-10 flex flex-col justify-between h-full bg-white rounded-3xl border border-slate-100 shadow-sm"
+    className="premium-card p-6 md:p-10 flex flex-col bg-white rounded-3xl border border-slate-100 shadow-sm"
   >
     <div>
       {/* Stars */}
@@ -25,26 +25,9 @@ const TestimonialCard = ({ testimonial }) => (
           <span key={i} className="text-xl">★</span>
         ))}
       </div>
-      <p className="text-lg text-slate-700 italic leading-relaxed mb-8">
+      <p className="text-lg text-slate-700 italic leading-relaxed">
         &quot;{testimonial.feedback}&quot;
       </p>
-    </div>
-    
-    <div className="flex items-center gap-4">
-      <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-gray-100 shadow-sm">
-        <Image
-          src={testimonial.image}
-          alt={testimonial.name}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div>
-        <h4 className="font-normal text-slate-900">{testimonial.name}</h4>
-        <p className="text-xs text-slate-500 font-normal capitalize tracking-wider">
-          {testimonial.role}
-        </p>
-      </div>
     </div>
   </motion.div>
 );

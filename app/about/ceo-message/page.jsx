@@ -33,7 +33,7 @@ export default function CEOMessagePage() {
                   />
                 </div>
                 <div className="mt-0 md:mt-8 mb-10 md:mb-0 space-y-2">
-                  <h3 className="text-xl sm:text-3xl md:text-4xl font-normal text-slate-900">Dr. Lamin Drammeh</h3>
+                  <h3 className="text-xl sm:text-3xl md:text-4xl font-normal text-slate-900">Prof Matthew Anyanwu</h3>
                   <p className="text-primary font-normal tracking-widest uppercase md:text-sm text-xs">Founder & CEO, Elemats Hospital</p>
                 </div>
               </div>

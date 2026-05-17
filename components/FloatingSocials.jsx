@@ -50,7 +50,7 @@ const FloatingSocials = () => {
           </div>
 
           <Link
-            href="tel:+2201234567"
+            href="tel:+2202978350"
             className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform group border border-white/5"
           >
             <Phone size={24} className="group-hover:rotate-12 transition-transform" />
@@ -72,7 +72,7 @@ const FloatingSocials = () => {
           </div>
 
           <Link
-            href="https://wa.me/2201234567"
+            href="https://wa.me/2202978350"
             className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform group"
           >
             <SOCIAL_ICONS.WhatsApp className="w-7 h-7" />

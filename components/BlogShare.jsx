@@ -60,7 +60,7 @@ const BlogShare = ({ title }) => {
   ];
 
   return (
-    <div className="space-y-4 pt-6">
+    <div className="space-y-4">
       <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">Share Article</span>
       <div className="flex flex-wrap gap-3">
         {socialLinks.map((social) => (
@@ -69,7 +69,7 @@ const BlogShare = ({ title }) => {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`w-11 h-11 rounded-full flex items-center justify-center border border-slate-100 text-slate-400 transition-all duration-300 ${social.color} bg-white shadow-sm`}
+            className={`w-11 h-11 rounded-full flex items-center justify-center border border-slate-100 text-primary/80 transition-all duration-300 ${social.color} bg-white shadow-sm`}
             aria-label={`Share on ${social.name}`}
           >
             {social.icon}
@@ -78,7 +78,7 @@ const BlogShare = ({ title }) => {
         <button
           onClick={handleCopy}
           className={`w-11 h-11 rounded-full flex items-center justify-center border border-slate-100 transition-all duration-300 bg-white shadow-sm ${
-            copied ? "bg-primary border-primary text-white" : "text-slate-400 hover:border-primary hover:text-primary"
+            copied ? "bg-primary border-primary text-white" : "text-primary/80 hover:border-primary hover:text-primary"
           }`}
           aria-label="Copy link"
         >

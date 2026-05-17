@@ -27,8 +27,8 @@ export default function Home() {
       <CareFor />
       <Services />
       <AboutVideo />
-      <Testimonials />
       <OurPartners />
+      <Testimonials />
       <Faq />
 
       <Footer />
